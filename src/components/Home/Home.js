@@ -9,45 +9,29 @@ import carouselImage3 from '../../assets/leatherba.jpg';
 import { Carousel } from 'react-bootstrap';
 import { Input } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
-import { Card } from 'semantic-ui-react';
+import axios from 'axios';
+import { getListings, getListingImages } from '../../ducks/users';
+import { connect } from 'react-redux';
 
 class Home extends Component {
     constructor(props) {
         super(props);
 
-        this.state = {
-
-        }
     }
 
 
+    componentDidMount() {
+        this.props.getListings();
+        this.props.getListingImages();
+        console.log("Listings From Home",this.props.listings);
+        console.log("ListingImages From Home", this.props.listingImages)
+    }
+
+    
+
+
     render() {
-
-        const listing1 = <SmallListing 
-                            image={smallImage2}
-                            header="Sweet"
-                            meta="Shoe"
-                            description="LOREM IPSUM DESCIRPTIONA"
-                            />
-        const listing2 = <SmallListing 
-                            image={smallImage2}
-                            header="Sweet"
-                            meta="Shoe"
-                            description="LOREM IPSUM DESCIRPTIONA"
-                            />
-        const listing3 = <SmallListing 
-                            image={smallImage2}
-                            header="Sweet"
-                            meta="Shoe"
-                            description="LOREM IPSUM DESCIRPTIONA"
-                            />
-        const listing4 = <SmallListing 
-                            image={smallImage2}
-                            header="Sweet"
-                            meta="Shoe"
-                            description="LOREM IPSUM DESCIRPTIONA"
-                            />
-
+        
         return (
             <div>
             <div className='home-container-1'>
@@ -90,9 +74,7 @@ class Home extends Component {
                         </Carousel.Item>
                     </Carousel>
                 </div>
-
-                
-                
+  
             </div>
                 <div className='flex-container'>
                     <div className='input-container'>
@@ -103,17 +85,25 @@ class Home extends Component {
                         />
                     </div>
                 </div>
-                <div className='listing-container'>
-                    <span className='messer'>{listing1}</span>
-                    {listing2}
-                    {listing3}
-                    {listing4}
+                <div className='listing-container'> 
+                   {
+                       this.props.listings.length ? <SmallListing listings={this.props.listings}/> : <div>Loading...</div>
+                   }
                 </div>
-                
+                <div>
+                    {this.props.listingImages}
+                </div>
             </div>
         )
     }
 
 }
 
-export default Home;
+function mapStateToProps(state) {
+    return {
+        listings: state.listings,
+        listingImages: state.listingImages
+    }
+}
+
+export default connect(mapStateToProps, {getListings, getListingImages})(Home);

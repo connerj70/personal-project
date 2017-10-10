@@ -4,10 +4,13 @@ const express       = require('express'),
       session       = require('express-session'),
       massive       = require('massive'),
       passport      = require('passport'),
-      Auth0Strategy = require('passport-auth0');
+      Auth0Strategy = require('passport-auth0'),
+      cors          = require('cors'),
+      lC            = require('./controllers/listings_controller');
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
     secret: process.env.SECRET,
@@ -55,6 +58,11 @@ app.get('/auth/me', (req, res) => {
         return res.status(200).send(req.user);
     }
 });
+
+//LISTING ENDPOINTS
+app.get('/api/listings', lC.getListings);
+app.get('/api/listings/images', lC.getListingImages)
+// -------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {
     req._read.logOut();
