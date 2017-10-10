@@ -4,6 +4,7 @@ import { Navbar, NavItem, NavDropdown, MenuItem, Nav } from 'react-bootstrap'
 import { Search } from 'semantic-ui-react';
 import {getUserInfo} from '../../ducks/users';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 class Header extends Component {
@@ -32,7 +33,7 @@ class Header extends Component {
                                 <MenuItem eventKey={3.2}>FOOTWEAR</MenuItem>
                                 <MenuItem eventKey={3.2}>ACCESSORIES</MenuItem>
                             </NavDropdown>                       
-                            <NavItem eventKey={1} href="#">SELL</NavItem>
+                            <NavItem eventKey={1} href="#"><Link to='/sell'>SELL</Link></NavItem>
                             <NavItem eventKey={2} href="#">MY GRAILS</NavItem>
                             
                             {this.props.user.user_id ? <NavDropdown eventKey={3} title="ACCOUNT" id="basic-nav-dropdown">

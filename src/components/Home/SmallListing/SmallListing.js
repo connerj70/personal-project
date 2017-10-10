@@ -5,19 +5,20 @@ const SmallListing = (props) => {
  
         const toDisplay = props.listings[0].map( (listing, i) => {
             return (
-                <div key={i}>
+                <a href="#">
                 <Card
-                image={props.listingImages[i]}
+                className='small-listing'
+                image={listing.image_url}
                 header={listing.listing_brand}
                 meta={listing.listing_name}
                 description={listing.listing_description}
                 />
-                </div>
+                </a>
             )
         });
     
     return (
-       <div>
+       <div className='small-listing-container1'>
            {toDisplay}
        </div>
     )

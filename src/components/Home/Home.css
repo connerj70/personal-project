@@ -27,8 +27,19 @@
   display: flex;
   justify-content: center; }
 
+.small-listing {
+  float: left;
+  margin-left: 40px; }
+
+.small-listing:hover {
+  cursor: pointer; }
+
+.small-listing-container1 {
+  width: 100%;
+  margin-left: 110px;
+  height: 100vh; }
+
 .listing-container {
-  display: flex;
   justify-content: space-between;
   margin-left: 20px;
   margin-right: 20px; }

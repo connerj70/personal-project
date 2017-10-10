@@ -31,7 +31,7 @@ class Home extends Component {
 
 
     render() {
-        
+        console.log(this.props.listingImages[0])
         return (
             <div>
             <div className='home-container-1'>
@@ -87,12 +87,10 @@ class Home extends Component {
                 </div>
                 <div className='listing-container'> 
                    {
-                       this.props.listings.length ? <SmallListing listings={this.props.listings}/> : <div>Loading...</div>
+                       this.props.listings.length ? <SmallListing className='small-listing' listingImages={this.props.listingImages[0]} listings={this.props.listings}/> : <div>Loading...</div>
                    }
                 </div>
-                <div>
-                    {this.props.listingImages}
-                </div>
+                
             </div>
         )
     }

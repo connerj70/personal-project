@@ -36,6 +36,7 @@ export function getListings() {
 export function getListingImages() {
     const listingImages = axios.get('http://localhost:3005/api/listings/images')
     .then( images => {
+        console.log("From users:",images.data);
         return images.data
     })
 
