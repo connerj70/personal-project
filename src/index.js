@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import { unregister }from './registerServiceWorker';
+import {HashRouter as Router} from 'react-router-dom';
+import { Provider } from 'react-redux';
+import store from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Router><Provider store={store}><App /></Provider></Router>, document.getElementById('root'));
 unregister();

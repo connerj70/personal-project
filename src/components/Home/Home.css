@@ -1,45 +1,88 @@
-.home-container-1 {
-  display: relative; }
-
 .large-image img {
-  width: 100vw;
-  height: 40vw; }
+  width: 100.1vw;
+  height: 40vw;
+  margin-bottom: 1px; }
 
 .large-image {
   margin-top: 30px; }
 
-.typewriter {
-  display: absolute;
-  width: 420px;
-  overflow: hidden;
-  border-right: .15em solid orange;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .15em;
-  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite; }
-
-@keyframes typing {
-  from {
-    width: 0; }
-  to {
-    width: 100%; } }
-
-/* The typewriter cursor effect */
-@keyframes blink-caret {
-  from, to {
-    border-color: transparent; }
-  50% {
-    border-color: orange; } }
-
 .small-image img {
-  width: 50vw;
+  width: 49.8vw;
   height: 35vw;
-  float: left; }
+  float: left;
+  margin-left: 1px; }
 
-@media (max-width: 1600px) {
+.input-container {
+  margin-top: 170px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #9b9b9b;
+  box-shadow: 0 3px 3px 1 rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 600px;
+  text-align: center; }
+
+.flex-container {
+  display: flex;
+  justify-content: center; }
+
+.listing-container {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px; }
+
+.messer {
+  margin-top: 15px; }
+
+@media (min-width: 1400px) {
+  .home-container-1 {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    grid-template-rows: 50% 50%; }
+  .large-image {
+    grid-area: 1 / 1 / 1 / 2;
+    width: 60vw;
+    margin-top: 20px; }
+  .small-image {
+    grid-area: 1 / 2 / 2 / 2;
+    width: 40vw;
+    margin-top: 1px; }
   .small-image img {
-    width: 49vw;
-    height: 35vw;
-    float: left; }
+    height: 20vw;
+    width: 40vw;
+    float: none; }
   .small-holder {
-    margin-left: 6px; } }
+    margin-top: 19px; }
+  .large-image img {
+    width: 60vw; } }
+
+.carousel-container {
+  width: 100%;
+  height: 300px; }
+
+.carousel {
+  width: 100vw;
+  height: 300px;
+  margin-top: 8vw; }
+
+.carousel img {
+  height: 300px !important;
+  width: 33.3%;
+  float: left;
+  border-left: 1px solid #d3d3d3; }
+
+@media (max-width: 1400px) {
+  .carousel {
+    margin-top: 47vw; }
+  .carousel img {
+    float: left; } }
+
+@media (max-width: 750px) {
+  .carousel {
+    display: none; } }
+
+@media (max-width: 491px) {
+  .small-image img {
+    width: 49.7vw; } }
