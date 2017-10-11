@@ -1,5 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Lora');
+
 .jumbotron {
     text-align: center;
+    background-image: url('../../assets/sell-header.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+
+    h1 {
+        font-size: 45px;
+        font-family: 'Lora', serif;
+    }
 }
 
 input {
@@ -38,5 +50,6 @@ textarea {
 }
 
 .publish-btn:hover {
-   background-color: #e3e3e3;
+    color: #fff;
+   background-color: #1a1a1a;
 }
