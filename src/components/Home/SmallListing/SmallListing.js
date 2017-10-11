@@ -1,5 +1,6 @@
 import React from 'react';
 import { Card } from 'semantic-ui-react';
+import './SmallListing.css';
 
 const SmallListing = (props) => {
  
