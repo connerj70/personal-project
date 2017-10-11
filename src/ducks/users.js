@@ -3,12 +3,14 @@ import axios from 'axios';
 const initialState = {
     user: {},
     listings: [],
-    listingImages: []
+    listingImages: [],
+    messages: []
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
 const GET_LISTINGS = 'GET_LISTINGS';
 const GET_LISTING_IMAGES = "GET_LISTING_IMAGES";
+const GET_MESSAGES = "GET_MESSAGES";
 
 export function getUserInfo() {
     const userData = axios.get('/auth/me')
@@ -45,6 +47,18 @@ export function getListingImages() {
     }
 }
 
+export function getMessages(userId) {
+    const displayMessages = axios.get('http://localhost:3005/api/messages/' + userId)
+    .then( messages => {
+        return messages.data
+    })
+
+    return {
+        type: GET_MESSAGES,
+        payload: displayMessages
+    }
+}
+
 export default function reducer(state=initialState, action) {
     switch(action.type) {
 
@@ -56,6 +70,9 @@ export default function reducer(state=initialState, action) {
 
         case GET_LISTING_IMAGES + '_FULFILLED':
             return Object.assign({}, state, {listingImages: [...state.listingImages, action.payload]})
+
+        case GET_MESSAGES + '_FULFILLED':
+            return Object.assign({}, state, {messages: [...state.messages, action.payload]})
 
         default:
             return state;

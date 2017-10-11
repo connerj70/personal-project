@@ -6,7 +6,8 @@ const express       = require('express'),
       passport      = require('passport'),
       Auth0Strategy = require('passport-auth0'),
       cors          = require('cors'),
-      lC            = require('./controllers/listings_controller');
+      lC            = require('./controllers/listings_controller'),
+      mC            = require('./controllers/messages_controller');
 
 const app = express();
 
@@ -66,6 +67,10 @@ app.get('/api/listings/images', lC.getListingImages)
 app.post('/api/listings', lC.addListing)
 // -------------------------------------------------
 
+//MESSAGES ENDPOINTS
+app.get('/api/messages/:userid', mC.getMessages)
+//--------------------------------------------------
+
 app.get('/auth/logout', function(req, res) {
     req._read.logOut();
     res.redirect(302, 'http://localhost:3000/#/')
@@ -78,6 +83,7 @@ passport.serializeUser(function(id, done) {
 passport.deserializeUser(function(id, done) {
     app.get('db').find_current_user([id])
     .then( user => {
+        console.log(user)
         done(null, user[0]);
     });
 });

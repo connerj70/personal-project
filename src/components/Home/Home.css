@@ -27,6 +27,10 @@
   margin-top: 30px;
   margin-bottom: 30px; }
 
+.search-input {
+  margin-top: 10px;
+  width: 39vw; }
+
 .ui.card:last-child {
   margin-bottom: 20px;
   margin-left: 20px;

@@ -94,7 +94,8 @@ class Home extends Component {
                         <Row align='center' className='show-grid search'>
                                 <Col  className='search' xs={12}>
                                     <p>BROWSE THE FEED</p>
-                                    <Input 
+                                    <Input
+                                    className='search-input' 
                                     icon='search'
                                     placeholder='Search...'
                                     />

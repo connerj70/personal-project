@@ -37,7 +37,7 @@ class Header extends Component {
                             <NavItem eventKey={2} href="#">MY GRAILS</NavItem>
                             
                             {this.props.user.user_id ? <NavDropdown eventKey={3} title="ACCOUNT" id="basic-nav-dropdown">
-                                                            <MenuItem eventKey={3.1}>MESSAGES</MenuItem>
+                                                            <MenuItem eventKey={3.1}><Link to='/messages'>MESSAGES</Link></MenuItem>
                                                             <MenuItem eventKey={3.2}>MY ITEMS</MenuItem>
                                                         </NavDropdown> 
                                                 : 
