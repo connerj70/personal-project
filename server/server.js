@@ -55,6 +55,7 @@ app.get('/auth/me', (req, res) => {
     if(!req.user) {
         return res.status(404).send("User not found");
     } else {
+        console.log(req.user);
         return res.status(200).send(req.user);
     }
 });
@@ -62,6 +63,7 @@ app.get('/auth/me', (req, res) => {
 //LISTING ENDPOINTS
 app.get('/api/listings', lC.getListings);
 app.get('/api/listings/images', lC.getListingImages)
+app.post('/api/listings', lC.addListing)
 // -------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {

@@ -13,6 +13,12 @@ module.exports = {
         .then( listingImages => {
             res.status(200).send(listingImages)
         })
-    }
+    },
 
+    addListing: function(req, res, next) {
+        console.log(req.body);
+        const db = req.app.get('db');
+        const {category, brand, price, description, size, name, condition, user_id, imageURL} = req.body;
+        db.add_listing([category, brand, price, description, size, name, condition, user_id, imageURL])
+    }
 }

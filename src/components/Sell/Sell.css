@@ -1,0 +1,19 @@
+.jumbotron {
+  text-align: center; }
+
+.left-column {
+  float: left; }
+
+.right-column {
+  float: right; }
+
+.form-group {
+  margin-bottom: 15px;
+  margin-right: 50px;
+  width: 400px; }
+
+button, input, select, textarea {
+  width: 400px; }
+
+.size {
+  margin-top: 21px; }
