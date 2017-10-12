@@ -1,0 +1,12 @@
+.message-div {
+  height: 65px;
+  width: 100%;
+  border: 1px solid black;
+  margin-top: 30px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between; }
+
+.message-content {
+  width: 33.3%;
+  text-overflow: ellipsis; }

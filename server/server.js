@@ -7,7 +7,8 @@ const express       = require('express'),
       Auth0Strategy = require('passport-auth0'),
       cors          = require('cors'),
       lC            = require('./controllers/listings_controller'),
-      mC            = require('./controllers/messages_controller');
+      mC            = require('./controllers/messages_controller'),
+      uC            = require('./controllers/users_controller');
 
 const app = express();
 
@@ -65,11 +66,16 @@ app.get('/auth/me', (req, res) => {
 app.get('/api/listings', lC.getListings);
 app.get('/api/listings/images', lC.getListingImages)
 app.post('/api/listings', lC.addListing)
-// -------------------------------------------------
+// -------------------------------------------------------------
 
 //MESSAGES ENDPOINTS
-app.get('/api/messages/:userid', mC.getMessages)
-//--------------------------------------------------
+app.get('/api/messages/:userid', mC.getSentMessages)
+app.get('/api/recievedmessages/:userid', mC.getRecievedMessages)
+//--------------------------------------------------------------
+
+//USERS ENDPOINTS
+app.get('/api/users', uC.getUsers)
+//--------------------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {
     req._read.logOut();

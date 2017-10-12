@@ -2,15 +2,19 @@ import axios from 'axios';
 
 const initialState = {
     user: {},
+    users: [],
     listings: [],
     listingImages: [],
-    messages: []
+    sentMessages: [],
+    recievedMessages: []
 }
 
 const GET_USER_INFO = 'GET_USER_INFO';
+const GET_USERS = "GET_USERS";
 const GET_LISTINGS = 'GET_LISTINGS';
 const GET_LISTING_IMAGES = "GET_LISTING_IMAGES";
-const GET_MESSAGES = "GET_MESSAGES";
+const GET_SENT_MESSAGES = "GET_SENT_MESSAGES";
+const GET_RECIEVED_MESSAGES = "GET_RECIEVED_MESSAGES";
 
 export function getUserInfo() {
     const userData = axios.get('/auth/me')
@@ -20,6 +24,18 @@ export function getUserInfo() {
     return {
         type: GET_USER_INFO,
         payload: userData
+    }
+}
+
+export function getUsers() {
+    const usersData = axios.get('http://localhost:3005/api/users')
+    .then( res => {
+        return res.data
+    });
+
+    return {
+        type: GET_USERS,
+        payload: usersData
     }
 }
 
@@ -47,14 +63,26 @@ export function getListingImages() {
     }
 }
 
-export function getMessages(userId) {
+export function getSentMessages(userId) {
     const displayMessages = axios.get('http://localhost:3005/api/messages/' + userId)
     .then( messages => {
         return messages.data
     })
 
     return {
-        type: GET_MESSAGES,
+        type: GET_SENT_MESSAGES,
+        payload: displayMessages
+    }
+}
+
+export function getRecievedMessages(userId) {
+    const displayMessages = axios.get('http://localhost:3005/api/recievedmessages/' + userId)
+    .then( messages => {
+        return messages.data
+    })
+
+    return {
+        type: GET_RECIEVED_MESSAGES,
         payload: displayMessages
     }
 }
@@ -65,14 +93,20 @@ export default function reducer(state=initialState, action) {
         case GET_USER_INFO + '_FULFILLED':
             return Object.assign({}, state, {user: action.payload})
 
+        case GET_USERS + '_FULFILLED':
+            return Object.assign({}, state, {users: [...state.users, action.payload]})
+
         case GET_LISTINGS + '_FULFILLED':
             return Object.assign({}, state, {listings: [...state.listings, action.payload]})
 
         case GET_LISTING_IMAGES + '_FULFILLED':
             return Object.assign({}, state, {listingImages: [...state.listingImages, action.payload]})
 
-        case GET_MESSAGES + '_FULFILLED':
-            return Object.assign({}, state, {messages: [...state.messages, action.payload]})
+        case GET_SENT_MESSAGES + '_FULFILLED':
+            return Object.assign({}, state, {sentMessages: [...state.sentMessages, action.payload]})
+
+        case GET_RECIEVED_MESSAGES + '_FULFILLED':
+            return Object.assign({}, state, {recievedMessages: [...state.recievedMessages, action.payload]})
 
         default:
             return state;
