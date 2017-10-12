@@ -10,3 +10,26 @@
 .message-content {
   width: 33.3%;
   text-overflow: ellipsis; }
+
+.xer {
+  float: right; }
+
+.test-class {
+  background-color: #d3d3d3;
+  position: fixed;
+  width: 65vw;
+  height: 47vh;
+  border: 1px solid #d3d3d3;
+  margin-top: 10px;
+  padding: 15px;
+  border-radius: 2px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  z-index: 1000; }
+
+.message-input {
+  width: 60vw;
+  height: 30vh; }
+
+.ui.segment {
+  position: absolute;
+  width: 100%; }

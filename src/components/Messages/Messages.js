@@ -1,17 +1,20 @@
 import React, {Component} from 'react';
-import { Container, Grid, Tab, Modal } from 'semantic-ui-react';
+import { Container, Grid, Tab, Header, Button } from 'semantic-ui-react';
+import Modal, {closeStyle} from 'simple-react-modal';
 import { getSentMessages, getRecievedMessages, getUsers } from '../../ducks/users.js';
 import { connect } from 'react-redux';
 import './Messages.css';
+import ModalPop from '../ModalPop/ModalPop';
 
 class Messages extends Component {
     constructor(props) {
         super(props)
 
-        this.state ={
-            showModal: false
+        this.state = {
+            show: false,
+            messageText: '',
+            senderId: null
         }
-
     }
 
 componentDidMount() {
@@ -21,12 +24,19 @@ componentDidMount() {
    
 }
 
-close() {
-    this.setState({showModal: false});
+show(senderId) {
+    this.setState({show: true, senderId: senderId});
 }
 
-open() {
-    this.setState({showModal: true});
+close() {
+    this.setState({show: false});
+}
+
+handleMessageChange(message) {
+    this.setState({
+        messageText: message
+    })
+    console.log(this.state.messageText)
 }
 
     render() {
@@ -51,7 +61,9 @@ open() {
                 <div className='message-content'>{message.message_content}</div>
                 <div>Username: <a>{sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</a></div>
                 <div>email: <a>{sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</a></div>
-                
+                <div>
+                    <button onClick={this.show.bind(this)}>Reply</button>
+                </div>
             </div>
            )
         }) : null;
@@ -73,6 +85,21 @@ open() {
                             </Grid.Column>
                         </Grid.Row>
                     </Grid>
+                    <Modal
+                    className="test-class" //this will completely overwrite the default css completely 
+                    containerClassName="test"
+                    closeOnOuterClick={true}
+                    show={this.state.show}
+                    onClose={this.close.bind(this)}>
+                
+                    <a className='xer' onClick={this.close.bind(this)}>X</a>
+                    <div>
+                        <h3>New Message</h3>
+                        <textarea onChange={(e) => this.handleMessageChange(e.target.value)} placeholder='message text...' className='message-input' />
+                        <Button color='black' size='big' onClick={() => this.newMessage()}className='submit-button'>Send</Button>
+                    </div>
+
+                    </Modal>
                 </Container>
             </div>
         )
