@@ -33,3 +33,7 @@
 .ui.segment {
   position: absolute;
   width: 100%; }
+
+textarea {
+  outline: none;
+  resize: none; }
