@@ -43,7 +43,6 @@ export function getListings() {
     const listings = axios.get('http://localhost:3005/api/listings')
     .then(listing => {
         return listing.data
-        
     });
     return {
         type: GET_LISTINGS,

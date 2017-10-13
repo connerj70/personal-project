@@ -10,7 +10,7 @@ import { Carousel, Grid, Row, Col } from 'react-bootstrap';
 import { Input } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
 import axios from 'axios';
-import { getListings, getListingImages } from '../../ducks/users';
+import { getListings, getListingImages, getUsers } from '../../ducks/users';
 import { connect } from 'react-redux';
 
 class Home extends Component {
@@ -23,6 +23,7 @@ class Home extends Component {
     componentDidMount() {
         this.props.getListings();
         this.props.getListingImages();
+        this.props.getUsers();
         console.log("Listings From Home",this.props.listings);
         console.log("ListingImages From Home", this.props.listingImages)
     }
@@ -125,4 +126,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {getListings, getListingImages})(Home);
+export default connect(mapStateToProps, {getListings, getListingImages, getUsers})(Home);
