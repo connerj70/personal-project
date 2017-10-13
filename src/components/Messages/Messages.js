@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import { Container, Grid, Tab, Header, Button } from 'semantic-ui-react';
 import Modal, {closeStyle} from 'simple-react-modal';
 import { getSentMessages, getRecievedMessages, getUsers } from '../../ducks/users.js';
@@ -24,20 +25,37 @@ componentDidMount() {
    
 }
 
-show(senderId) {
-    this.setState({show: true, senderId: senderId});
+show() {
+    this.setState({show: true});
 }
 
 close() {
     this.setState({show: false});
 }
 
+handleReplyClick(senderId) {
+    this.show();
+    this.setState({senderId: senderId})
+    console.log(senderId);
+    console.log(this.state)
+}
+
 handleMessageChange(message) {
     this.setState({
         messageText: message
     })
-    console.log(this.state.messageText)
 }
+
+newMessage() {
+    console.log('newMessage');
+    const userId = this.props.user.user_id;
+    const { senderId, messageText } = this.state;
+    axios.post('http://localhost:3005/api/messages', {senderId: senderId, messageText: messageText, userId: userId})
+    this.props.getSentMessages(userId);
+    this.close();
+    this.setState({messageText: '', senderId: null})
+}
+
 
     render() {
        
@@ -62,7 +80,7 @@ handleMessageChange(message) {
                 <div>Username: <a>{sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</a></div>
                 <div>email: <a>{sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</a></div>
                 <div>
-                    <button onClick={this.show.bind(this)}>Reply</button>
+                    <button onClick={() => this.handleReplyClick(message.sender_id)}>Reply</button>
                 </div>
             </div>
            )
@@ -95,7 +113,7 @@ handleMessageChange(message) {
                     <a className='xer' onClick={this.close.bind(this)}>X</a>
                     <div>
                         <h3>New Message</h3>
-                        <textarea onChange={(e) => this.handleMessageChange(e.target.value)} placeholder='message text...' className='message-input' />
+                        <textarea value={this.state.messageText} onChange={(e) => this.handleMessageChange(e.target.value)} placeholder='message text...' className='message-input' />
                         <Button color='black' size='big' onClick={() => this.newMessage()}className='submit-button'>Send</Button>
                     </div>
 

@@ -15,5 +15,15 @@ module.exports = {
         .then( messages => {
             res.status(200).send(messages)
         })
+    },
+
+    postMessage: function(req, res, next) {
+        const db = req.app.get('db');
+        const {userId, senderId, messageText} = req.body;
+        console.log(senderId, userId, messageText)
+        db.add_message([userId, senderId, messageText])
+        .then( messages => {
+            res.status(200).send(messages)
+        })
     }
 }

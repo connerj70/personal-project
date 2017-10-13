@@ -64,17 +64,18 @@ app.get('/auth/me', (req, res) => {
 
 //LISTING ENDPOINTS
 app.get('/api/listings', lC.getListings);
-app.get('/api/listings/images', lC.getListingImages)
-app.post('/api/listings', lC.addListing)
+app.get('/api/listings/images', lC.getListingImages);
+app.post('/api/listings', lC.addListing);
 // -------------------------------------------------------------
 
 //MESSAGES ENDPOINTS
-app.get('/api/messages/:userid', mC.getSentMessages)
-app.get('/api/recievedmessages/:userid', mC.getRecievedMessages)
+app.get('/api/messages/:userid', mC.getSentMessages);
+app.get('/api/recievedmessages/:userid', mC.getRecievedMessages);
+app.post('/api/messages', mC.postMessage)
 //--------------------------------------------------------------
 
 //USERS ENDPOINTS
-app.get('/api/users', uC.getUsers)
+app.get('/api/users', uC.getUsers);
 //--------------------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {
