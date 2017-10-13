@@ -17,6 +17,9 @@ class Home extends Component {
     constructor(props) {
         super(props);
 
+        this.state = {
+            searchTerm: ''
+        }
     }
 
 
@@ -28,7 +31,9 @@ class Home extends Component {
         console.log("ListingImages From Home", this.props.listingImages)
     }
 
-    
+    handleSearchChange(searchTerm) {
+        this.setState({searchTerm: searchTerm})
+    }
 
 
     render() {
@@ -96,6 +101,7 @@ class Home extends Component {
                                 <Col  className='search' xs={12}>
                                     <p>BROWSE THE FEED</p>
                                     <Input
+                                    onChange={(e) => this.handleSearchChange(e.target.value)}
                                     className='search-input' 
                                     icon='search'
                                     placeholder='Search...'

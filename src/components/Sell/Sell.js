@@ -113,15 +113,15 @@ class Sell extends Component {
                                         </select>
                                     </div>
                                     <div className="sell-input">
-                                        <input onChange={(e) => this.handleBrandChange(e.target.value)} value={this.state.brand} placeholder="brand"/>
+                                        <input onChange={(e) => this.handleBrandChange(e.target.value)} value={this.state.brand} placeholder="Brand"/>
                                     </div>
                             </Col>
                             <Col xs={12} md={6}>
                                 <div className='sell-input'>
-                                    <input onChange={(e) => this.handleSizeChange(e.target.value)} value={this.state.size} placeholder="size"/>
+                                    <input onChange={(e) => this.handleSizeChange(e.target.value)} value={this.state.size} placeholder="Size"/>
                                 </div>
                                 <div className='sell-input'>
-                                    <input onChange={(e) => this.handleNameChange(e.target.value)} value={this.state.name} placeholder="name"/>
+                                    <input onChange={(e) => this.handleNameChange(e.target.value)} value={this.state.name} placeholder="Name"/>
                                 </div>
                             </Col>
                            
@@ -131,15 +131,15 @@ class Sell extends Component {
                     <Row className='show-grid'>
                         <Col xs={12} md={6}>
                             <div className="sell-input">
-                                <input onChange={(e) => this.handlePriceChange(e.target.value)} value={this.state.price} placeholder="price"/>
+                                <input onChange={(e) => this.handlePriceChange(e.target.value)} value={this.state.price} placeholder="Price"/>
                             </div>
                             <div className='sell-input'>
-                                <input onChange={(e) => this.handleImageURLChange(e.target.value)} value={this.state.imageURL} placeholder="image URL" />
+                                <input onChange={(e) => this.handleImageURLChange(e.target.value)} value={this.state.imageURL} placeholder="Image URL" />
                             </div>
                         </Col>
                         <Col xs={12} md={6}>
                             <div className='sell-input'>
-                            <textarea onChange={(e) => this.handleDescriptionChange(e.target.value)} value={this.state.description} rows="4" cols="50"placeholder="description"/>
+                            <textarea onChange={(e) => this.handleDescriptionChange(e.target.value)} value={this.state.description} rows="4" cols="50"placeholder="Description"/>
                             </div>
                             <select className='select2'onChange={(e) => this.handleConditionChange(e.target.value)} value={this.state.condition} name='condition'>
                                 <option value="" disabled selected>Condition</option>

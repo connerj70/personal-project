@@ -6,6 +6,10 @@
     flex-wrap: wrap;
 }
 
+.ui.card>.image, .ui.cards>.card>.image {
+    height: 250px;
+}
+
 @media(min-width: 1210px) {
     .small-listing-container1 {
         justify-content: none;

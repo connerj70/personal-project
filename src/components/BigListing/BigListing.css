@@ -97,6 +97,20 @@
       width: 50vw;
       padding: 10px;
       background-color: #fff; }
+  .test-class {
+    background-color: #d3d3d3;
+    position: fixed;
+    width: 90vw;
+    height: 46vh;
+    border: 1px solid #d3d3d3;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 2px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+    z-index: 1000; }
+  .message-input {
+    width: 80vw;
+    height: 30vh; }
   .button-div {
     margin: 10px; }
     .button-div .ui.button, .button-div .ui.buttons .button, .button-div .ui.buttons .or {
@@ -124,3 +138,7 @@
     margin-top: 2px; }
   .col-xs-12 {
     margin-top: -40px; } }
+
+@media (max-width: 445px) {
+  .test-class {
+    height: 53vh; } }

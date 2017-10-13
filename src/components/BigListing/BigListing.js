@@ -13,7 +13,8 @@ class BigListing extends Component {
         this.state = {
             show: false,
             messageText: '',
-            senderId: null
+            senderId: null,
+            isOpen: false
         }
     }
 
@@ -37,14 +38,18 @@ class BigListing extends Component {
             messageText: message
         })
     }
+
     
     newMessage() {
-        console.log('newMessage');
+        if(!this.state.messageText) {
+           alert('Message Body Cannot Be Empty');
+        } else {
         const userId = this.props.user.user_id;
         const { senderId, messageText } = this.state;
         axios.post('http://localhost:3005/api/messages', {senderId: senderId, messageText: messageText, userId: userId})
         this.close();
         this.setState({messageText: '', senderId: null})
+        }
     }
 
     render() {
