@@ -65,20 +65,6 @@ class BigListing extends Component {
         const specificListingUser = this.props.users[0] ? this.props.users[0].filter(user => user.user_id == specificListing[0].user_id): null;
         console.log(specificListingUser)
 
-        // const extra = this.props.listings[0] ? (
-        //     <div>
-        //         <div>
-        //            Size: {specificListing[0].size}
-        //         </div>
-        //         <div>
-        //             Category: {specificListing[0].category}
-        //         </div>
-        //         <div>
-        //             Condition: {specificListing[0].condition}
-        //         </div>
-        //     </div>
-        // ) : null;
-
         return (
             <div>
                 <Grid>
@@ -115,7 +101,7 @@ class BigListing extends Component {
                                 <div className='button-div'>
                                     <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} inverted color='green' >ASK A QUESTION</Button>
                                 </div>
-                                <div className='button-div'>
+                                <div className='icon-div'>
                                     <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)}className='icon-button'><Icon name='remove bookmark' /></button>
                                 </div>
                                 <div className='description'>

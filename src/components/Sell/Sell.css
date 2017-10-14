@@ -10,29 +10,52 @@
     font-size: 45px;
     font-family: 'Lora', serif; }
 
+.header-div {
+  margin-top: 25px; }
+
 input {
   width: 95%;
   margin-top: 15px;
   margin-bottom: 15px;
-  height: 50px; }
+  height: 40px;
+  font-size: 17px;
+  padding: 10px;
+  border-color: #ccc;
+  border-width: 1px; }
 
 textarea {
   margin-top: 15px;
   margin-bottom: 15px;
   width: 95%;
-  height: 50px; }
+  height: 40px; }
 
 .select1 {
-  height: 50px;
+  height: 40px;
   width: 95%;
   margin-top: 14px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  padding: 10px;
+  background-image: url("../../assets/dropdown-arrow.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 97%;
+  background-color: #fff; }
 
 .select2 {
-  height: 50px;
+  height: 40px;
   width: 95%;
   margin-top: 10px;
-  margin-bottom: 15px; }
+  margin-bottom: 15px;
+  border-radius: 0;
+  -webkit-appearance: none;
+  padding: 10px;
+  background-image: url("../../assets/dropdown-arrow.png");
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: 97%;
+  background-color: #fff; }
 
 .publish-btn {
   margin-top: 50px;

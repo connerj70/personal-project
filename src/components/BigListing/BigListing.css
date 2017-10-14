@@ -27,6 +27,9 @@
   border: none;
   background-color: #fff; }
 
+.icon-div {
+  margin-left: 4px; }
+
 .description {
   height: 100px;
   margin-left: 10px;
@@ -62,11 +65,13 @@
       width: 45vw;
       padding: 10px;
       background-color: #fff; }
+  .icon-div {
+    margin-left: 5.5vw; }
   .button-div {
     margin: 10px; }
     .button-div .ui.button, .button-div .ui.buttons .button, .button-div .ui.buttons .or {
       font-size: 1rem;
-      width: 25vw;
+      width: 31vw;
       height: 50px;
       margin-left: 5.2vw; }
   .heading {
@@ -101,6 +106,8 @@
       width: 50vw;
       padding: 10px;
       background-color: #fff; }
+  .icon-div {
+    margin-left: 13.3vw; }
   .test-class {
     background-color: #d3d3d3;
     position: fixed;

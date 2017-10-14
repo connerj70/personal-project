@@ -103,8 +103,9 @@ class Sell extends Component {
                             <Col xs={12} md={6}>
                                     
                                     <div className="sell-input">
-                                        <select className='select1' onChange={(e) => this.handleCategoryChange(e.target.value)} value={this.state.category}>
-                                            <option value="" disabled selected>Category</option>
+                                        <div className='header-div'>Category</div>
+                                        <select tabindex='1' className='select1' onChange={(e) => this.handleCategoryChange(e.target.value)} value={this.state.category}>
+                                            <option value="" disabled selected></option>
                                             <option value="Top">TOP</option>
                                             <option value="Bottom">BOTTOM</option>
                                             <option value="Footwear">FOOTWEAR</option>
@@ -113,15 +114,18 @@ class Sell extends Component {
                                         </select>
                                     </div>
                                     <div className="sell-input">
-                                        <input onChange={(e) => this.handleBrandChange(e.target.value)} value={this.state.brand} placeholder="Brand"/>
+                                        <div  className='header-div'>Brand</div>
+                                        <input tabindex='3' onChange={(e) => this.handleBrandChange(e.target.value)} value={this.state.brand} />
                                     </div>
                             </Col>
                             <Col xs={12} md={6}>
                                 <div className='sell-input'>
-                                    <input onChange={(e) => this.handleSizeChange(e.target.value)} value={this.state.size} placeholder="Size"/>
+                                    <div className='header-div'>Size</div>
+                                    <input tabindex='2' onChange={(e) => this.handleSizeChange(e.target.value)} value={this.state.size} />
                                 </div>
                                 <div className='sell-input'>
-                                    <input onChange={(e) => this.handleNameChange(e.target.value)} value={this.state.name} placeholder="Name"/>
+                                    <div className='header-div'>Name</div>
+                                    <input  tabindex='4'onChange={(e) => this.handleNameChange(e.target.value)} value={this.state.name} />
                                 </div>
                             </Col>
                            
@@ -131,18 +135,22 @@ class Sell extends Component {
                     <Row className='show-grid'>
                         <Col xs={12} md={6}>
                             <div className="sell-input">
-                                <input onChange={(e) => this.handlePriceChange(e.target.value)} value={this.state.price} placeholder="Price"/>
+                                <div className='header-div'>Price</div>
+                                <input tabindex='5' onChange={(e) => this.handlePriceChange(e.target.value)} value={this.state.price} />
                             </div>
                             <div className='sell-input'>
-                                <input onChange={(e) => this.handleImageURLChange(e.target.value)} value={this.state.imageURL} placeholder="Image URL" />
+                                <div className='header-div'>Image Url</div>
+                                <input tabindex='7' onChange={(e) => this.handleImageURLChange(e.target.value)} value={this.state.imageURL} />
                             </div>
                         </Col>
                         <Col xs={12} md={6}>
                             <div className='sell-input'>
-                            <textarea onChange={(e) => this.handleDescriptionChange(e.target.value)} value={this.state.description} rows="4" cols="50"placeholder="Description"/>
+                            <div className='header-div'>Description</div>
+                            <textarea tabindex='6' onChange={(e) => this.handleDescriptionChange(e.target.value)} value={this.state.description} rows="4" cols="50" />
                             </div>
-                            <select className='select2'onChange={(e) => this.handleConditionChange(e.target.value)} value={this.state.condition} name='condition'>
-                                <option value="" disabled selected>Condition</option>
+                            <div className='header-div'>Condition</div>
+                            <select tabindex='8' className='select2'onChange={(e) => this.handleConditionChange(e.target.value)} value={this.state.condition} name='condition'>
+                                <option value="" disabled selected></option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
