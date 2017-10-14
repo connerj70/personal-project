@@ -1,16 +1,22 @@
 .message-div {
     height: 65px;
     width: 100%;
-    border: 1px solid black;
+    border-top: 1px solid #d3d3d3;
+    border-bottom: 1px solid #d3d3d3;
     margin-top: 30px;
     padding: 15px;
     display: flex;
     justify-content: space-between;
+    font-weight: 500;
+    font-size: 12px;
 }
 
 .message-content{
     width: 33.3%;
     text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 300px;
 }
 
 .xer {

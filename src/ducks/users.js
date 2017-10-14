@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const initialState = {
-    user: {user_id: 3, username: 'Testuser1'},
+    user: {user_id: 1, username: 'Conner Jensen'},
     userGrails: [],
     users: [],
     listings: [],

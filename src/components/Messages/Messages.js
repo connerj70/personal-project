@@ -65,7 +65,7 @@ newMessage() {
             
            return ( 
             <div className='message-div' recieverId={message.reciever_id}>
-                {message.message_content}
+                <div className='message-content'>{message.message_content}</div>
                 <div>Username: <a>{recievingUser ? recievingUser[0].username : <div>Loading sent user...</div>}</a></div>
                 <div>email: <a>{recievingUser ? recievingUser[0].email : <div>Loading sent user email...</div>}</a></div>
             </div>
