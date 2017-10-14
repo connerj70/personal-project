@@ -5,6 +5,7 @@ import Sell from './components/Sell/Sell';
 import Messages from './components/Messages/Messages';
 import BigListing from './components/BigListing/BigListing';
 import About from './components/About/About';
+import MyGrails from './components/MyGrails/MyGrails';
 
 export default (
     <Switch>
@@ -13,5 +14,6 @@ export default (
         <Route path='/messages' component={Messages}></Route>
         <Route path='/biglisting/:id' component={BigListing}></Route>
         <Route path='/about' component={About}></Route>
+        <Route path='/mygrails' component={MyGrails}></Route>
     </Switch>
 )

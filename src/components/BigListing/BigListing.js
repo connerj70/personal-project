@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
-import { Card, Button } from 'semantic-ui-react';
+import { Card, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { newGrail } from '../../ducks/users';
 import './BigListing.css';
 import Modal, {closeStyle} from 'simple-react-modal';
 import axios from 'axios';
@@ -50,6 +51,10 @@ class BigListing extends Component {
         this.close();
         this.setState({messageText: '', senderId: null})
         }
+    }
+
+    addGrail(newGrail, newGrailId, userId) {
+        this.props.newGrail(newGrail, newGrailId, userId)
     }
 
     render() {
@@ -110,6 +115,9 @@ class BigListing extends Component {
                                 <div className='button-div'>
                                     <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} inverted color='green' >ASK A QUESTION</Button>
                                 </div>
+                                <div className='button-div'>
+                                    <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)}className='icon-button'><Icon name='remove bookmark' /></button>
+                                </div>
                                 <div className='description'>
                                     <div>DESCRIPTION</div>
                                     <br />
@@ -138,4 +146,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps)(BigListing);
+export default connect(mapStateToProps, {newGrail})(BigListing);

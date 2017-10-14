@@ -8,7 +8,8 @@ const express       = require('express'),
       cors          = require('cors'),
       lC            = require('./controllers/listings_controller'),
       mC            = require('./controllers/messages_controller'),
-      uC            = require('./controllers/users_controller');
+      uC            = require('./controllers/users_controller'),
+      gC            = require('./controllers/grails_controller');
 
 const app = express();
 
@@ -76,6 +77,11 @@ app.post('/api/messages', mC.postMessage)
 
 //USERS ENDPOINTS
 app.get('/api/users', uC.getUsers);
+//--------------------------------------------------------------
+
+//GRAIL ENDPOINTS
+app.post('/api/grails', gC.addGrail)
+app.get('/api/grails/:userid', gC.getGrails)
 //--------------------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {

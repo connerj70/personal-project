@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const initialState = {
-    user: {user_id: 1, username: 'Conner Jensen'},
+    user: {user_id: 3, username: 'Testuser1'},
+    userGrails: [],
     users: [],
     listings: [],
     listingImages: [],
@@ -9,12 +10,14 @@ const initialState = {
     recievedMessages: []
 }
 
-const GET_USER_INFO = 'GET_USER_INFO';
+const GET_USER_INFO = "GET_USER_INFO";
 const GET_USERS = "GET_USERS";
-const GET_LISTINGS = 'GET_LISTINGS';
+const GET_LISTINGS = "GET_LISTINGS";
 const GET_LISTING_IMAGES = "GET_LISTING_IMAGES";
 const GET_SENT_MESSAGES = "GET_SENT_MESSAGES";
 const GET_RECIEVED_MESSAGES = "GET_RECIEVED_MESSAGES";
+const NEW_GRAIL = "NEW_GRAIL";
+const GET_GRAILS = "GET_GRAILS";
 
 export function getUserInfo() {
     const userData = axios.get('/auth/me')
@@ -86,6 +89,25 @@ export function getRecievedMessages(userId) {
     }
 }
 
+export function newGrail(newGrail, listingId, userId) {
+    axios.post('http://localhost:3005/api/grails', {listingId, userId})
+    return {
+        type: NEW_GRAIL,
+        payload: newGrail
+    }
+}
+
+export function getGrails(userId) {
+    const grails = axios.get('http://localhost:3005/api/grails/' + userId)
+    .then( grails => {
+        return grails.data;
+    })
+    return {
+        type: GET_GRAILS,
+        payload: grails
+    }
+}
+
 export default function reducer(state=initialState, action) {
     switch(action.type) {
 
@@ -106,6 +128,12 @@ export default function reducer(state=initialState, action) {
 
         case GET_RECIEVED_MESSAGES + '_FULFILLED':
             return Object.assign({}, state, {recievedMessages: [...state.recievedMessages, action.payload]})
+
+        case NEW_GRAIL:
+            return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
+
+        case GET_GRAILS + '_FULFILLED':
+            return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
 
         default:
             return state;

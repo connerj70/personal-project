@@ -4,11 +4,14 @@ import { Link } from 'react-router-dom';
 import './SmallListing.css';
 
 const SmallListing = (props) => {
-
-    
  
         const toDisplay = props.listings[0].map( (listing, i) => {
             const linkURL = `/biglisting/${listing.listing_id}`
+            const price = (
+                <div>
+                    {"$" + listing.price}
+                </div>
+            )
             return (
                 <Link to={linkURL}>
                 <Card
@@ -17,6 +20,7 @@ const SmallListing = (props) => {
                 header={listing.listing_brand}
                 meta={listing.listing_name}
                 description={listing.listing_description}
+                extra={price}
                 />
                 </Link>
             )

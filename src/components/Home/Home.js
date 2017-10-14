@@ -7,7 +7,7 @@ import carouselImage1 from '../../assets/kanye-west-bapesta.jpg';
 import carouselImage2 from '../../assets/redwings.jpg';
 import carouselImage3 from '../../assets/leatherba.jpg';
 import { Carousel, Grid, Row, Col } from 'react-bootstrap';
-import { Input } from 'semantic-ui-react';
+import { Input, Icon } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
 import axios from 'axios';
 import { getListings, getListingImages, getUsers } from '../../ducks/users';
