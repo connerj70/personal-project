@@ -83,7 +83,7 @@ newMessage() {
            return ( 
             <div className='message-div' senderId={message.sender_id}>
                 <div className='message-content'>{message.message_content}</div>
-                <div>Username: {sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</div>
+                <div><b>Username:</b> {sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</div>
                 <div className='email'>email: {sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</div>
                 <div>
                     <Button className='reply-button' onClick={() => this.handleReplyClick(message.sender_id)}>REPLY</Button>
