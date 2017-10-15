@@ -56,6 +56,7 @@ class BigListing extends Component {
     }
 
     addGrail(newGrail, newGrailId, userId) {
+        console.log(this.props.userGrails)
         this.props.newGrail(newGrail, newGrailId, userId)
     }
 

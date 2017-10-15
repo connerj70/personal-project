@@ -17,6 +17,31 @@ class MyGrails extends Component {
     render() {
         
         const listingsIds = _.map(this.props.userGrails[0], 'listing_id');
+        console.log(listingsIds);
+        console.log(this.props.listings[0]);
+
+        var listingsToRender = listingsIds.map( id => {
+           return this.props.listings[0].map( listing => {
+                if(listing.listing_id == id) {
+                    return listing
+                }
+                
+            })
+        });
+
+
+        listingsToRender = listingsToRender.map( listing => {
+            return (
+                _.remove(listing, function(value) {
+                    return value != undefined;
+                })
+            )
+        })
+
+        listingsToRender = _.flattenDeep(listingsToRender);
+        
+
+        console.log(listingsToRender);
 
         return (
             <div>

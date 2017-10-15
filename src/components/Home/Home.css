@@ -39,6 +39,8 @@
 @media (max-width: 615px) {
   .large-image img {
     margin-top: 35px; }
+  .small-image img {
+    display: none; }
   .carousel-container {
     margin-top: 50px; }
   p:first-child {
