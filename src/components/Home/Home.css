@@ -35,3 +35,14 @@
   margin-bottom: 20px;
   margin-left: 20px;
   width: 300px; }
+
+@media (max-width: 615px) {
+  .large-image img {
+    margin-top: 35px; }
+  .carousel-container {
+    margin-top: 50px; }
+  p:first-child {
+    margin-top: 40px; }
+  .search-input {
+    margin-top: 10px;
+    width: 80%; } }

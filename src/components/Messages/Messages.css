@@ -63,4 +63,16 @@ textarea {
   color: #fff; }
 
 .message-container-blur {
-  filter: blur(4px); }
+  filter: blur(2px); }
+
+@media (max-width: 550px) {
+  .message-content {
+    width: 66%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 500px;
+    font-size: 15px;
+    font-weight: 700; }
+  .email {
+    display: none; } }

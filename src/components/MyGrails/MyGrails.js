@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getGrails } from '../../ducks/users';
 import { Grid, Row, Col } from 'react-bootstrap';
+import _ from 'lodash';
 
 class MyGrails extends Component {
     constructor(props) {
@@ -15,18 +16,15 @@ class MyGrails extends Component {
 
     render() {
         
-        // const listingsToRender = this.props.userGrails[0].map( grail => {
-        //     return <div>{grail.}</div>
-        // })
+        const listingsIds = _.map(this.props.userGrails[0], 'listing_id');
 
         return (
             <div>
                  MyGrails page
-                {JSON.stringify(this.props.userGrails[0])}
                 <Grid>
                     <Row className='show-grid'>
                         <Col xs={12}>
-                            
+                        {listingsIds}
                         </Col>
                     </Row>
                 </Grid>
@@ -38,7 +36,8 @@ class MyGrails extends Component {
 function mapStateToProps(state) {
    return {
     user: state.user,
-    userGrails: state.userGrails
+    userGrails: state.userGrails,
+    listings: state.listings
    } 
 }
 

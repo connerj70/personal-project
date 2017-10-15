@@ -97,3 +97,29 @@ textarea {
    background-color: #1a1a1a;
    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
+
+@media(max-width: 376px) {
+    .jumbotron {
+        h1 {
+            margin-top: 2px;
+            font-size: 45px;
+            font-family: 'Lora', serif;
+        }
+    }
+
+    .details-container {
+        padding-top: 30px;
+    }
+
+    .header-div {
+        margin-top: 35px;
+    }
+
+    .select2 {
+        margin-bottom: 47px;
+    }
+
+    .publish-btn {
+        margin-bottom: 20px;
+    }
+}

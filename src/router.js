@@ -14,6 +14,6 @@ export default (
         <Route path='/messages' component={Messages}></Route>
         <Route path='/biglisting/:id' component={BigListing}></Route>
         <Route path='/about' component={About}></Route>
-        <Route path='/mygrails' component={MyGrails}></Route>
+        <Route path='/mygrails/:id' component={MyGrails}></Route>
     </Switch>
 )

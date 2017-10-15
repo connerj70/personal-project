@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { newGrail } from '../../ducks/users';
+import { newGrail, getGrails } from '../../ducks/users';
 import './BigListing.css';
 import Modal, {closeStyle} from 'simple-react-modal';
 import axios from 'axios';
@@ -19,6 +19,10 @@ class BigListing extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.getGrails(this.props.user.user_id)
+    }
+
     show() {
         this.setState({show: true});
     }
@@ -30,8 +34,6 @@ class BigListing extends Component {
     handleReplyClick(senderId) {
         this.show();
         this.setState({senderId: senderId})
-        console.log(senderId);
-        console.log(this.state)
     }
     
     handleMessageChange(message) {
@@ -58,13 +60,10 @@ class BigListing extends Component {
     }
 
     render() {
-        //console.log(this.props.match.params.id);
         const specificListing = this.props.listings[0] ? this.props.listings[0].filter( listing => listing.listing_id == this.props.match.params.id) : null;
-        console.log(specificListing);
-        
         const specificListingUser = this.props.users[0] ? this.props.users[0].filter(user => user.user_id == specificListing[0].user_id): null;
-        console.log(specificListingUser)
-
+        const isGrail = this.props.userGrails.length ? this.props.userGrails[0].filter(grail => grail.listing_id == this.props.match.params.id) : null;       
+         console.log(isGrail)
         return (
             <div>
                 <Grid>
@@ -82,42 +81,44 @@ class BigListing extends Component {
                             <Button color='black' size='big' onClick={() => this.newMessage()}className='submit-button'>Send</Button>
                         </div>
                     </Modal>
-                    <Row className='show-grid'>
-                        <Col xs={12} md={9}>
-                            <Card
-                            className='large-card' 
-                            image= {this.props.listings[0] ? specificListing[0].image_url : null}
-                            />
-                        </Col>
-                        <Col xs={12} md={3}>
-                            <div className='side-bar'>
-                                <h2 className='heading'>{this.props.listings[0] ? specificListing[0].listing_name : null}</h2>
-                                <div className='price'>
-                                    <b>${this.props.listings[0] ? specificListing[0].price : null}</b>
+                    <div className={this.state.show ? 'message-container-blur' : 'message-container'}>
+                        <Row className='show-grid'>
+                            <Col xs={12} md={9}>
+                                <Card
+                                className='large-card' 
+                                image= {this.props.listings[0] ? specificListing[0].image_url : null}
+                                />
+                            </Col>
+                            <Col xs={12} md={3}>
+                                <div className='side-bar'>
+                                    <h2 className='heading'>{this.props.listings[0] ? specificListing[0].listing_name : null}</h2>
+                                    <div className='price'>
+                                        <b>${this.props.listings[0] ? specificListing[0].price : null}</b>
+                                    </div>
+                                    <div className='button-div'>
+                                        <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} color='black'>PURCHASE</Button>
+                                    </div>
+                                    <div className='button-div'>
+                                        <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} inverted color='green' >ASK A QUESTION</Button>
+                                    </div>
+                                    <div className='icon-div'>
+                                        <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)}className='icon-button'><Icon name={isGrail ? isGrail.length ? 'bookmark' : 'remove bookmark' : null} /></button>
+                                    </div>
+                                    <div className='description'>
+                                        <div>DESCRIPTION</div>
+                                        <br />
+                                        {this.props.listings[0] ? specificListing[0].description : null}
+                                    </div>
+                                
+                                    <div className='seller'>
+                                        <div>SELLER</div>
+                                        <br />
+                                        {this.props.listings[0] ? specificListingUser[0].username : null}
+                                    </div>
                                 </div>
-                                <div className='button-div'>
-                                    <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} color='black'>PURCHASE</Button>
-                                </div>
-                                <div className='button-div'>
-                                    <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} inverted color='green' >ASK A QUESTION</Button>
-                                </div>
-                                <div className='icon-div'>
-                                    <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)}className='icon-button'><Icon name='remove bookmark' /></button>
-                                </div>
-                                <div className='description'>
-                                    <div>DESCRIPTION</div>
-                                    <br />
-                                    {this.props.listings[0] ? specificListing[0].description : null}
-                                </div>
-                               
-                                <div className='seller'>
-                                    <div>SELLER</div>
-                                    <br />
-                                    {this.props.listings[0] ? specificListingUser[0].username : null}
-                                </div>
-                            </div>
-                        </Col>
-                    </Row>
+                            </Col>
+                        </Row>
+                    </div>
                 </Grid>
             </div>
         )
@@ -128,8 +129,9 @@ function mapStateToProps(state) {
     return {
         listings: state.listings,
         users: state.users,
-        user: state.user
+        user: state.user,
+        userGrails: state.userGrails
     }
 }
 
-export default connect(mapStateToProps, {newGrail})(BigListing);
+export default connect(mapStateToProps, {newGrail, getGrails})(BigListing);
