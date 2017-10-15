@@ -14,7 +14,8 @@ class Messages extends Component {
         this.state = {
             show: false,
             messageText: '',
-            senderId: null
+            senderId: null,
+            userToSend: []
         }
     }
 
@@ -26,7 +27,11 @@ componentDidMount() {
 }
 
 show() {
-    this.setState({show: true});
+    
+    const userToSet = this.props.users[0].filter( user => user.user_id == this.state.senderId)
+    this.setState({userToSend: userToSet})
+    this.setState({show: true}); 
+    console.log(this.state.userToSend)
 }
 
 close() {
@@ -58,7 +63,6 @@ newMessage() {
 
 
     render() {
-       
 
         const sentMessagesToRender = this.props.sentMessages.length ? this.props.sentMessages[0].map( message => {
             const recievingUser = this.props.users.length ? this.props.users[0].filter( user => user.user_id === message.reciever_id) : null
@@ -66,8 +70,8 @@ newMessage() {
            return ( 
             <div className='message-div' recieverId={message.reciever_id}>
                 <div className='message-content'>{message.message_content}</div>
-                <div>Username: <a>{recievingUser ? recievingUser[0].username : <div>Loading sent user...</div>}</a></div>
-                <div>email: <a>{recievingUser ? recievingUser[0].email : <div>Loading sent user email...</div>}</a></div>
+                <div><b>Username:</b> <a>{recievingUser ? recievingUser[0].username : <div>Loading sent user...</div>}</a></div>
+                <div><b>Email: </b><a>{recievingUser ? recievingUser[0].email : <div>Loading sent user email...</div>}</a></div>
             </div>
            )
         }) : null;
@@ -77,10 +81,10 @@ newMessage() {
            return ( 
             <div className='message-div' senderId={message.sender_id}>
                 <div className='message-content'>{message.message_content}</div>
-                <div>Username: <a>{sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</a></div>
-                <div>email: <a>{sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</a></div>
+                <div>Username: {sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</div>
+                <div>email: {sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</div>
                 <div>
-                    <button onClick={() => this.handleReplyClick(message.sender_id)}>Reply</button>
+                    <Button className='reply-button' onClick={() => this.handleReplyClick(message.sender_id)}>REPLY</Button>
                 </div>
             </div>
            )
@@ -94,15 +98,18 @@ newMessage() {
         console.log(this.props.sentMessages);
         console.log(sentMessagesToRender);
         return (
-            <div className='message-container'>
+            <div>
+            
                 <Container>
-                    <Grid>
-                        <Grid.Row columns={1}>
-                            <Grid.Column>
-                                <Tab panes={panes} menu={{secondary: true, pointing: true}} />
-                            </Grid.Column>
-                        </Grid.Row>
-                    </Grid>
+                    <div className={this.state.show ? 'message-container-blur' : 'message-container'}>
+                        <Grid>
+                            <Grid.Row columns={1}>
+                                <Grid.Column>
+                                    <Tab panes={panes} menu={{secondary: true, pointing: true}} />
+                                </Grid.Column>
+                            </Grid.Row>
+                        </Grid>
+                     </div>
                     <Modal
                     className="test-class" //this will completely overwrite the default css completely 
                     containerClassName="test"
@@ -112,8 +119,9 @@ newMessage() {
                 
                     <a className='xer' onClick={this.close.bind(this)}>X</a>
                     <div>
-                        <h3>New Message</h3>
-                        <textarea value={this.state.messageText} onChange={(e) => this.handleMessageChange(e.target.value)} placeholder='message text...' className='message-input' />
+                        {<h3>New Message to { this.state.userToSend.length ? this.state.userToSend[0].username : null} </h3>}
+                        {/* <h3>New Message</h3> */}
+                        <textarea value={this.state.messageText} onChange={(e) => this.handleMessageChange(e.target.value)} className='message-input' />
                         <Button color='black' size='big' onClick={() => this.newMessage()}className='submit-button'>Send</Button>
                     </div>
 

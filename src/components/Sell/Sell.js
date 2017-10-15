@@ -146,7 +146,7 @@ class Sell extends Component {
                         <Col xs={12} md={6}>
                             <div className='sell-input'>
                             <div className='header-div'>Description</div>
-                            <textarea tabindex='6' onChange={(e) => this.handleDescriptionChange(e.target.value)} value={this.state.description} rows="4" cols="50" />
+                            <textarea placeholder='Retail Price, Measurements, Link to Retail Page etc.' tabindex='6' onChange={(e) => this.handleDescriptionChange(e.target.value)} value={this.state.description} rows="4" cols="50" />
                             </div>
                             <div className='header-div'>Condition</div>
                             <select tabindex='8' className='select2'onChange={(e) => this.handleConditionChange(e.target.value)} value={this.state.condition} name='condition'>

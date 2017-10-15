@@ -1,10 +1,10 @@
 .message-div {
-  height: 65px;
+  height: 80px;
   width: 100%;
   border-top: 1px solid #d3d3d3;
-  border-bottom: 1px solid #d3d3d3;
   margin-top: 30px;
   padding: 15px;
+  padding-top: 43px;
   display: flex;
   justify-content: space-between;
   font-weight: 500;
@@ -15,7 +15,9 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 300px; }
+  max-width: 300px;
+  font-size: 15px;
+  font-weight: 700; }
 
 .xer {
   float: right; }
@@ -43,3 +45,22 @@
 textarea {
   outline: none;
   resize: none; }
+
+.ui.button, .ui.buttons .button, .ui.buttons .or {
+  background-image: url("../../assets/message-button-background.jpeg");
+  background-position: 270px 200px;
+  background-size: 270px;
+  color: #fff;
+  width: 65px;
+  height: 30px;
+  font-size: 11px;
+  padding-right: 18px;
+  text-align: center;
+  transition: .4s ease-out; }
+
+.ui.button:hover {
+  background-color: #ff9595;
+  color: #fff; }
+
+.message-container-blur {
+  filter: blur(4px); }
