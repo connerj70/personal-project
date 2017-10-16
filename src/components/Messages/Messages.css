@@ -10,6 +10,9 @@
   font-weight: 500;
   font-size: 12px; }
 
+.ui.segment:last-child {
+  margin-bottom: 30px; }
+
 .message-content {
   width: 33.3%;
   text-overflow: ellipsis;

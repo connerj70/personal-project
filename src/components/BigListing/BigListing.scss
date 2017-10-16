@@ -19,6 +19,7 @@
 
 .side-bar {
     margin-top: 85px;
+    margin-left: -57px;
 }
 
 .button-div {
@@ -130,7 +131,7 @@
 @media(max-width:610px) {
     .large-card {
         margin: 0 auto !important;
-        width: 60vw !important;
+        width: 90vw !important;
         max-width: 600px !important;
         margin-top: 85px !important;
     
@@ -146,7 +147,12 @@
     }
 
     .icon-div {
-        margin-left: 13.3vw;
+        margin-left: 15.3vw;
+    }
+
+    .ui.card {
+        margin: 1em 0;
+        margin-left: 20px;
     }
 
     .test-class {
@@ -172,7 +178,7 @@
     
         .ui.button, .ui.buttons .button, .ui.buttons .or {
             font-size: 1rem;
-            width: 60vw;
+            width: 90vw;
             height: 50px;
             margin-left: 14%;
         }
@@ -187,20 +193,20 @@
 
     .description {
         height: 100px;
-        margin-left: 17%;
+        margin-left: 16%;
         margin-top: 50px;
     }
     
     .price {
         height: 50px;
-        margin-left: 17%;
+        margin-left: 16%;
         margin-bottom: 20px;
         font-size: 25px;
     }
     
     .seller {
         height: 100px;
-        margin-left: 17%;
+        margin-left: 16%;
         margin-top: 2px;
     }
 

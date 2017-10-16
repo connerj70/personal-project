@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getGrails } from '../../ducks/users';
+import { getGrails, getListings } from '../../ducks/users';
 import { Grid, Row, Col } from 'react-bootstrap';
+import { Card } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import _ from 'lodash';
+import './MyGrails.css';
 
 class MyGrails extends Component {
     constructor(props) {
@@ -12,6 +15,7 @@ class MyGrails extends Component {
 
     componentDidMount() {
         this.props.getGrails(this.props.user.user_id)
+        this.props.getListings()
     }
 
     render() {
@@ -38,18 +42,43 @@ class MyGrails extends Component {
             )
         })
 
-        listingsToRender = _.flattenDeep(listingsToRender);
         
+
+        listingsToRender = _.flattenDeep(listingsToRender);
+
+        listingsToRender = listingsToRender.map( listing => {
+
+            const URL = `/biglisting/${listing.listing_id}`;
+
+            const price = (
+                <div>
+                    {"$" + listing.price}
+                </div>
+            )
+
+            return (
+                <Link to={URL}>
+                <Card
+                className='small-listing'
+                image={listing.image_url}
+                header={listing.listing_brand}
+                meta={listing.listing_name}
+                description={listing.listing_description}
+                extra={price}
+                />
+                </Link>
+            )
+        })
 
         console.log(listingsToRender);
 
         return (
             <div>
-                 MyGrails page
+                 <h1 className='my-grails-heading'>MY GRAILS</h1>
                 <Grid>
                     <Row className='show-grid'>
                         <Col xs={12}>
-                        {listingsIds}
+                            {listingsToRender}
                         </Col>
                     </Row>
                 </Grid>
@@ -66,4 +95,4 @@ function mapStateToProps(state) {
    } 
 }
 
-export default connect(mapStateToProps, {getGrails})(MyGrails);
+export default connect(mapStateToProps, {getGrails, getListings})(MyGrails);

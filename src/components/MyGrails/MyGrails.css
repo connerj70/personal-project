@@ -1,0 +1,22 @@
+.small-listing-container1 {
+  margin: 0 auto;
+  max-width: 100%;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap; }
+
+.my-grails-heading {
+  margin-bottom: 50px;
+  text-align: center; }
+
+.ui.card {
+  margin: 1em 0;
+  float: left;
+  margin-left: 20px; }
+
+.ui.card:first-child {
+  margin-top: 30px; }
+
+@media (min-width: 1210px) {
+  .small-listing-container1 {
+    justify-content: none; } }

@@ -13,7 +13,8 @@
     background-color: #fff; }
 
 .side-bar {
-  margin-top: 85px; }
+  margin-top: 85px;
+  margin-left: -57px; }
 
 .button-div {
   margin: 10px; }
@@ -96,7 +97,7 @@
 @media (max-width: 610px) {
   .large-card {
     margin: 0 auto !important;
-    width: 60vw !important;
+    width: 90vw !important;
     max-width: 600px !important;
     margin-top: 85px !important; }
     .large-card .ui.image {
@@ -107,7 +108,10 @@
       padding: 10px;
       background-color: #fff; }
   .icon-div {
-    margin-left: 13.3vw; }
+    margin-left: 15.3vw; }
+  .ui.card {
+    margin: 1em 0;
+    margin-left: 20px; }
   .test-class {
     background-color: #d3d3d3;
     position: fixed;
@@ -126,7 +130,7 @@
     margin: 10px; }
     .button-div .ui.button, .button-div .ui.buttons .button, .button-div .ui.buttons .or {
       font-size: 1rem;
-      width: 60vw;
+      width: 90vw;
       height: 50px;
       margin-left: 14%; }
   .heading {
@@ -136,16 +140,16 @@
     font-size: 30px; }
   .description {
     height: 100px;
-    margin-left: 17%;
+    margin-left: 16%;
     margin-top: 50px; }
   .price {
     height: 50px;
-    margin-left: 17%;
+    margin-left: 16%;
     margin-bottom: 20px;
     font-size: 25px; }
   .seller {
     height: 100px;
-    margin-left: 17%;
+    margin-left: 16%;
     margin-top: 2px; }
   .col-xs-12 {
     margin-top: -40px; } }
