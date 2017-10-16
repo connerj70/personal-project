@@ -18,6 +18,7 @@
 
 h3 {
   margin-top: 30px !important;
+  margin-bottom: 25px;
   text-align: center; }
 
 h2 {
@@ -32,5 +33,5 @@ h2 {
   margin-top: 20px;
   width: 100%; }
 
-input {
+.settings-input {
   width: 100%; }

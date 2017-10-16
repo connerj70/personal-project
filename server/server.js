@@ -76,6 +76,7 @@ app.post('/api/messages', mC.postMessage)
 
 //USERS ENDPOINTS
 app.get('/api/users', uC.getUsers);
+app.put('/api/users', uC.updateUser)
 //--------------------------------------------------------------
 
 //GRAIL ENDPOINTS
@@ -84,7 +85,7 @@ app.get('/api/grails/:userid', gC.getGrails)
 //--------------------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {
-    req._read.logOut();
+    req.logOut();
     res.redirect(302, 'http://localhost:3000/#/')
 });
 
