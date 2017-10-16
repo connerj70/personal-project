@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getGrails, getListings } from '../../ducks/users';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 import { Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import _ from 'lodash';
@@ -20,9 +20,12 @@ class MyGrails extends Component {
 
     render() {
         
-        const listingsIds = _.map(this.props.userGrails[0], 'listing_id');
-        console.log(listingsIds);
+        var listingsIds = _.map(this.props.userGrails[0], 'listing_id');
+        
         console.log(this.props.listings[0]);
+
+        listingsIds = _.uniq(listingsIds)
+        console.log(listingsIds);
 
         var listingsToRender = listingsIds.map( id => {
            return this.props.listings[0].map( listing => {
@@ -52,7 +55,12 @@ class MyGrails extends Component {
 
             const price = (
                 <div>
-                    {"$" + listing.price}
+                    <div>
+                        {"$" + listing.price}
+                    </div>
+                    <div className='remove-button'>
+                        <Button onClick={() => this.removeGrail(listing.listing_id) } bsStyle='danger'>REMOVE</Button>
+                    </div>
                 </div>
             )
 
@@ -70,15 +78,15 @@ class MyGrails extends Component {
             )
         })
 
-        console.log(listingsToRender);
-
         return (
             <div>
                  <h1 className='my-grails-heading'>MY GRAILS</h1>
                 <Grid>
-                    <Row className='show-grid'>
+                    <Row className='show-grid'> 
                         <Col xs={12}>
+                        <div className='listings'>
                             {listingsToRender}
+                        </div>
                         </Col>
                     </Row>
                 </Grid>

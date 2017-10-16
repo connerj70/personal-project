@@ -6,6 +6,10 @@
     flex-wrap: wrap;
 }
 
+.remove-button {
+    margin-top: 10px;
+}
+
 .my-grails-heading {
     margin-bottom: 50px;
     text-align: center;
@@ -17,8 +21,13 @@
 
 .ui.card {
     margin: 1em 0;
-    float: left;
+    // float: left;
     margin-left: 20px;
+}
+
+.listings {
+    display: flex;
+    justify-content: space-between;
 }
 
 .ui.card:first-child {
@@ -28,5 +37,27 @@
 @media(min-width: 1210px) {
     .small-listing-container1 {
         justify-content: none;
+    }
+}
+
+@media(max-width: 990px) {
+    .listings {
+        display: block;
+    }
+
+    .ui.card {
+        float: left;
+    }
+}
+
+@media(max-width: 680px) {
+    .listings {
+        display: flex;
+    }
+}
+
+@media(max-width: 600px) {
+    .listings {
+        display: block;
     }
 }
