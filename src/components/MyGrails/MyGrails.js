@@ -18,6 +18,10 @@ class MyGrails extends Component {
         this.props.getListings()
     }
 
+    removeGrail(listingId) {
+        
+    }
+
     render() {
         
         var listingsIds = _.map(this.props.userGrails[0], 'listing_id');

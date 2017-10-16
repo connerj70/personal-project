@@ -111,7 +111,7 @@ class Home extends Component {
                         <Col xs={12}>
                     <div className='listing-container'> 
                     {
-                        this.props.listings.length ? <SmallListing className='small-listing' listingImages={this.props.listingImages[0]} listings={this.props.listings}/> : <div>Loading...</div>
+                        this.props.listings.length ? <SmallListing searchTerm={this.state.searchTerm} className='small-listing' listingImages={this.props.listingImages[0]} listings={this.props.listings}/> : <div>Loading...</div>
                     }
                     </div>
                         </Col>

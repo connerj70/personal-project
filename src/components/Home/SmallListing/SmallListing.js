@@ -25,10 +25,17 @@ const SmallListing = (props) => {
                 </Link>
             )
         });
-    
+
+        let filteredToDisplay = toDisplay.filter( obj => {
+            if(obj.props.children.props.header.toLowerCase().indexOf(props.searchTerm.toLowerCase()) !== -1) {
+                return obj;
+            }
+        })
+
+    console.log(toDisplay);
     return (
        <div className='small-listing-container1'>
-           {toDisplay}
+           {filteredToDisplay}
        </div>
     )
 }
