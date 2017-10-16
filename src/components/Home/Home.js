@@ -27,15 +27,13 @@ class Home extends Component {
         this.props.getListings();
         this.props.getListingImages();
         this.props.getUsers();
-        console.log("Listings From Home",this.props.listings);
-        console.log("ListingImages From Home", this.props.listingImages)
     }
 
     handleSearchChange(searchTerm) {
         this.setState({searchTerm: searchTerm})
     }
 
-
+    
     render() {
         return (
             <div>
@@ -127,6 +125,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
+        user: state.user,
         listings: state.listings,
         listingImages: state.listingImages
     }
