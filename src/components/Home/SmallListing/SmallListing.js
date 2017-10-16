@@ -27,7 +27,7 @@ const SmallListing = (props) => {
         });
 
         let filteredToDisplay = toDisplay.filter( obj => {
-            if(obj.props.children.props.header.toLowerCase().indexOf(props.searchTerm.toLowerCase()) !== -1) {
+            if(obj.props.children.props.header.toLowerCase().indexOf(props.searchTerm.toLowerCase()) !== -1 || obj.props.children.props.meta.toLowerCase().indexOf(props.searchTerm.toLowerCase()) !== -1) {
                 return obj;
             }
         })
