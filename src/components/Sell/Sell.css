@@ -12,6 +12,9 @@
     font-size: 45px;
     font-family: 'Lora', serif; }
 
+.sell-details {
+  text-align: left; }
+
 .container .jumbotron, .container-fluid .jumbotron {
   border-radius: 1px; }
 

@@ -13,6 +13,9 @@
 .ui.segment:last-child {
   margin-bottom: 30px; }
 
+.messages-modal-header {
+  margin-top: -5px !important; }
+
 .message-content {
   width: 33.3%;
   text-overflow: ellipsis;

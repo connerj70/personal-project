@@ -90,9 +90,8 @@ class MyGrails extends Component {
         })
 
         return (
-            <div>
-                 <h1 className='my-grails-heading'>MY GRAILS</h1>
                 <Grid>
+                    <h1 className='my-grails-heading'>MY GRAILS</h1>
                     <Row className='show-grid'> 
                         <Col xs={12}>
                         <div className='listings'>
@@ -101,7 +100,6 @@ class MyGrails extends Component {
                         </Col>
                     </Row>
                 </Grid>
-            </div>
         )
     }
 }

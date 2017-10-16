@@ -12,6 +12,9 @@
     padding: 10px;
     background-color: #fff; }
 
+.message-modal-header {
+  margin-top: -5px !important; }
+
 .side-bar {
   margin-top: 85px;
   margin-left: -53px; }

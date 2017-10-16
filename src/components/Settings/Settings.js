@@ -44,7 +44,7 @@ class Settings extends Component {
                                 <input value={this.state.venmoName} className='settings-input' onChange={(e) => this.handleVenmoChange(e.target.value)} className='settings-input'/>
                                 <h2>COUNTRY</h2>
                                 <input value={this.state.country} className='settings-input' onChange={(e) => this.handleCountryChange(e.target.value)} className='settings-input'/>
-                                <div><Button onClick={() => this.handleFormSubmit()}className='save-button'>SAVE</Button></div>
+                                <div className='save-button-holder'><Button onClick={() => this.handleFormSubmit()}className='save-button'>SAVE</Button></div>
                             </form>
                             <a href='http://localhost:3005/auth/logout'><Button bsStyle='danger' className='logout-button'>LOGOUT</Button></a>
                         </Col>

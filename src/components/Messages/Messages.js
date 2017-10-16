@@ -121,7 +121,7 @@ newMessage() {
                 
                         <a className='xer' onClick={this.close.bind(this)}>X</a>
                         <div>
-                            {<h3>New Message to { this.state.userToSend.length ? this.state.userToSend[0].username : null} </h3>}
+                            {<h3 className='messages-modal-header'>New Message to { this.state.userToSend.length ? this.state.userToSend[0].username : null} </h3>}
                             <textarea value={this.state.messageText} onChange={(e) => this.handleMessageChange(e.target.value)} className='message-input' />
                             <Button color='black' size='big' onClick={() => this.newMessage()}className='submit-button'>Send</Button>
                         </div>

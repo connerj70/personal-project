@@ -48,7 +48,15 @@
 
 @media (max-width: 680px) {
   .listings {
-    display: flex; } }
+    display: flex; }
+  .button-holder {
+    margin-top: -26px !important;
+    margin-left: 19px; }
+    .button-holder .btn-danger {
+      margin-top: -26px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      width: 302px; } }
 
 @media (max-width: 600px) {
   .listings {

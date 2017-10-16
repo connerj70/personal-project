@@ -77,7 +77,7 @@ class BigListing extends Component {
                     
                         <a className='xer' onClick={this.close.bind(this)}>X</a>
                         <div>
-                            <h3>Send {this.props.listings[0] ? specificListingUser[0].username : null} a message</h3>
+                            <h3 className='message-modal-header'>Send {this.props.listings[0] ? specificListingUser[0].username : null} a message</h3>
                             <textarea value={this.state.messageText} onChange={(e) => this.handleMessageChange(e.target.value)} placeholder='message text...' className='message-input' />
                             <Button color='black' size='big' onClick={() => this.newMessage()}className='submit-button'>Send</Button>
                         </div>

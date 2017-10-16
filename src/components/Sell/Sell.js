@@ -98,7 +98,7 @@ class Sell extends Component {
                     <Row className='show-grid'>
                     <div className="details-container">
                             <Col xs={12}>
-                                <h3>DETAILS</h3>
+                                <h3 className='sell-details'>DETAILS</h3>
                             </Col>
                             <Col xs={12} md={6}>
                                     
