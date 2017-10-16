@@ -15,5 +15,14 @@ module.exports = {
         .then( grails => {
             res.status(200).send(grails)
         })
+    },
+
+    removeGrail: function(req, res, next) {
+        const db = req.app.get('db');
+        const {listingId, userId} = req.body;
+        db.remove_grail([listingId, userId])
+        .then( grails => {
+            res.status(200).send(grails)
+        })
     }
 }

@@ -19,6 +19,7 @@ const GET_SENT_MESSAGES = "GET_SENT_MESSAGES";
 const GET_RECIEVED_MESSAGES = "GET_RECIEVED_MESSAGES";
 const NEW_GRAIL = "NEW_GRAIL";
 const GET_GRAILS = "GET_GRAILS";
+const REMOVE_GRAIL = "REMOVE_GRAIL";
 
 export function getUserInfo() {
     const userData = axios.get('/auth/me')
@@ -109,6 +110,17 @@ export function getGrails(userId) {
     }
 }
 
+export function removeGrail(userId, listingId) {
+    const grails  = axios.post('http://localhost:3005/api/grails/delete', {userId, listingId})
+    .then( grails => {
+        return grails.data
+    })
+    return {
+        type: REMOVE_GRAIL,
+        payload: grails
+    }
+}
+
 export default function reducer(state=initialState, action) {
     switch(action.type) {
 
@@ -134,6 +146,9 @@ export default function reducer(state=initialState, action) {
             return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
 
         case GET_GRAILS + '_FULFILLED':
+            return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
+
+        case REMOVE_GRAIL + '_FULFILLED':
             return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
 
         default:

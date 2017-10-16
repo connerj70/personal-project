@@ -6,8 +6,27 @@
     flex-wrap: wrap;
 }
 
+.button-holder {
+    margin-top: -19px;
+    margin-left: 19px;
+
+    .btn-danger {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        width: 302px;
+    }
+}
+
+.mygrails-holder {
+    .ui.card {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
 .remove-button {
     margin-top: 10px;
+    z-index: 1000;
 }
 
 .my-grails-heading {

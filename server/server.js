@@ -76,12 +76,13 @@ app.post('/api/messages', mC.postMessage)
 
 //USERS ENDPOINTS
 app.get('/api/users', uC.getUsers);
-app.put('/api/users', uC.updateUser)
+app.put('/api/users', uC.updateUser);
 //--------------------------------------------------------------
 
 //GRAIL ENDPOINTS
-app.post('/api/grails', gC.addGrail)
-app.get('/api/grails/:userid', gC.getGrails)
+app.post('/api/grails', gC.addGrail);
+app.post('/api/grails/delete', gC.removeGrail);
+app.get('/api/grails/:userid', gC.getGrails);
 //--------------------------------------------------------------
 
 app.get('/auth/logout', function(req, res) {

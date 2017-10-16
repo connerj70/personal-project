@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { getGrails, getListings } from '../../ducks/users';
+import { getGrails, getListings, removeGrail } from '../../ducks/users';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
 import { Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
@@ -16,10 +16,6 @@ class MyGrails extends Component {
     componentDidMount() {
         this.props.getGrails(this.props.user.user_id)
         this.props.getListings()
-    }
-
-    removeGrail(listingId) {
-        
     }
 
     render() {
@@ -62,23 +58,34 @@ class MyGrails extends Component {
                     <div>
                         {"$" + listing.price}
                     </div>
-                    <div className='remove-button'>
-                        <Button onClick={() => this.removeGrail(listing.listing_id) } bsStyle='danger'>REMOVE</Button>
-                    </div>
+                  
                 </div>
             )
 
+            const button1 = (  
+            <div className='remove-button'>
+                <Button onClick={() => this.props.removeGrail(this.props.user.user_id, listing.listing_id) } bsStyle='danger'>REMOVE</Button>
+            </div>
+            )
+
             return (
-                <Link to={URL}>
-                <Card
-                className='small-listing'
-                image={listing.image_url}
-                header={listing.listing_brand}
-                meta={listing.listing_name}
-                description={listing.listing_description}
-                extra={price}
-                />
-                </Link>
+                
+                <div className='mygrails-holder'>
+                    <Link to={URL}>
+                    <Card
+                    className='small-listing'
+                    image={listing.image_url}
+                    header={listing.listing_brand}
+                    meta={listing.listing_name}
+                    description={listing.listing_description}
+                    extra={price}
+                    />
+                    </Link>
+                    <div className='button-holder'>
+                        {button1}
+                    </div>
+                </div>
+                
             )
         })
 
@@ -107,4 +114,4 @@ function mapStateToProps(state) {
    } 
 }
 
-export default connect(mapStateToProps, {getGrails, getListings})(MyGrails);
+export default connect(mapStateToProps, {getGrails, getListings, removeGrail})(MyGrails);
