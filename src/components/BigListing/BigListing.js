@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { newGrail, getGrails } from '../../ducks/users';
+import { newGrail, getGrails, getListings } from '../../ducks/users';
 import './BigListing.css';
 import Modal, {closeStyle} from 'simple-react-modal';
 import axios from 'axios';
@@ -56,14 +56,14 @@ class BigListing extends Component {
     }
 
     addGrail(newGrail, newGrailId, userId) {
-        console.log(this.props.userGrails)
         this.props.newGrail(newGrail, newGrailId, userId)
+        this.props.history.push('/')
     }
 
     render() {
         const specificListing = this.props.listings[0] ? this.props.listings[0].filter( listing => listing.listing_id == this.props.match.params.id) : null;
         const specificListingUser = this.props.users[0] ? this.props.users[0].filter(user => user.user_id == specificListing[0].user_id): null;
-        const isGrail = this.props.userGrails.length ? this.props.userGrails[0].filter(grail => grail.listing_id == this.props.match.params.id) : null;       
+        const isGrail = this.props.userGrails.length ? this.props.userGrails[this.props.userGrails.length - 1].filter(grail => grail.listing_id == this.props.match.params.id) : null;       
          console.log(isGrail)
         return (
             <div>
@@ -103,7 +103,7 @@ class BigListing extends Component {
                                         <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} inverted color='green' >ASK A QUESTION</Button>
                                     </div>
                                     <div className='icon-div'>
-                                        <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)}className='icon-button'><Icon name={isGrail ? isGrail.length ? 'bookmark' : 'remove bookmark' : null} /></button>
+                                        <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)} className='icon-button'><Icon name={isGrail ? isGrail.length ? 'bookmark' : 'remove bookmark' : null} /></button>
                                     </div>
                                     <div className='description'>
                                         <div>DESCRIPTION</div>

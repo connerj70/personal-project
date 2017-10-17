@@ -20,7 +20,7 @@ class MyGrails extends Component {
 
     render() {
         
-        var listingsIds = _.map(this.props.userGrails[0], 'listing_id');
+        var listingsIds = _.map(this.props.userGrails[this.props.userGrails.length - 1], 'listing_id');
         
         console.log(this.props.listings[0]);
 
@@ -28,12 +28,12 @@ class MyGrails extends Component {
         console.log(listingsIds);
 
         var listingsToRender = listingsIds.map( id => {
-           return this.props.listings[0].map( listing => {
+           return this.props.listings[0] ? this.props.listings[0].map( listing => {
                 if(listing.listing_id == id) {
                     return listing
                 }
                 
-            })
+            }) : null
         });
 
 

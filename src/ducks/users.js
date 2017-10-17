@@ -91,11 +91,16 @@ export function getRecievedMessages(userId) {
     }
 }
 
-export function newGrail(newGrail, listingId, userId) {
-    axios.post('http://localhost:3005/api/grails', {listingId, userId})
+export function newGrail(newGrail, listingId, userId, callback) {
+    const grails = axios.post('http://localhost:3005/api/grails', {listingId, userId})
+    .then( response => {
+        return (
+            response.data
+        )
+    })
     return {
         type: NEW_GRAIL,
-        payload: newGrail
+        payload: grails
     }
 }
 
