@@ -66,7 +66,7 @@ newMessage() {
 
     render() {
 
-        const sentMessagesToRender = this.props.sentMessages.length ? this.props.sentMessages[0].map( message => {
+        const sentMessagesToRender = this.props.sentMessages.length ? this.props.sentMessages[this.props.sentMessages.length - 1].map( message => {
             const recievingUser = this.props.users.length ? this.props.users[0].filter( user => user.user_id === message.reciever_id) : null
             
            return ( 
@@ -78,7 +78,7 @@ newMessage() {
            )
         }) : null;
 
-        const recievedMessagesToRender = this.props.recievedMessages.length ? this.props.recievedMessages[0].map( message => {
+        const recievedMessagesToRender = this.props.recievedMessages.length ? this.props.recievedMessages[this.props.recievedMessages.length - 1].map( message => {
             const sendingUser = this.props.users.length ? this.props.users[0].filter( user => user.user_id === message.sender_id) : null
            return ( 
             <div className='message-div' senderId={message.sender_id}>
