@@ -9,9 +9,14 @@ const express       = require('express'),
       lC            = require('./controllers/listings_controller'),
       mC            = require('./controllers/messages_controller'),
       uC            = require('./controllers/users_controller'),
-      gC            = require('./controllers/grails_controller');
+      gC            = require('./controllers/grails_controller'),
+      keyPublish    = process.env.PUBLISHABLE_KEY,
+      keySecret     = process.env.SECRET_KEY
 
 const app = express();
+const stripe = require("stripe")(keySecret)
+
+app.set("view engine", "pug");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -61,6 +66,28 @@ app.get('/auth/me', (req, res) => {
         return res.status(200).send(req.user);
     }
 });
+
+//STRIPE ENDPOINTS
+app.get("/", (req, res) =>
+res.render("index.pug", {keyPublish}));
+
+app.post("/charge", (req, res) => {
+    let amount = 500;
+  
+    stripe.customers.create({
+       email: req.body.stripeEmail,
+      source: req.body.stripeToken
+    })
+    .then(customer =>
+      stripe.charges.create({
+        amount,
+        description: "Sample Charge",
+           currency: "usd",
+           customer: customer.id
+      }))
+    .then(charge => res.render("charge.pug"));
+  });
+//--------------------------------------------------------------
 
 //LISTING ENDPOINTS
 app.get('/api/listings', lC.getListings);

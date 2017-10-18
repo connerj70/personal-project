@@ -5,7 +5,7 @@ import './SmallListing.css';
 
 const SmallListing = (props) => {
  
-        const toDisplay = props.listings[0].map( (listing, i) => {
+        const toDisplay = props.listings[props.listings.length - 1].map( (listing, i) => {
             const linkURL = `/biglisting/${listing.listing_id}`
             const price = (
                 <div>
