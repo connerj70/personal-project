@@ -1,5 +1,63 @@
 .main-container {
   position: absolute;
   width: 100vw;
-  height: 100vh;
-  background-color: #d1d1d1; }
+  height: 100vh; }
+
+.main-col {
+  text-align: center;
+  margin-top: 30px; }
+
+.about-wrapper {
+  background-image: url(https://ds6dnbdlsnuyn.cloudfront.net/assets/about-page-hero.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: -250px;
+  padding: 60px 0;
+  background-color: #d3d9d8;
+  width: 100%;
+  height: 530px; }
+
+.donation-div {
+  margin-top: 50px; }
+
+.donate-button {
+  border-radius: 2px;
+  border: 1px solid black;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  color: #fff;
+  box-shadow: 0px 17px 10px -10px rgba(0, 0, 0, 0.4);
+  transition: all ease-in-out 300ms;
+  margin-top: 20px;
+  margin-bottom: 30px; }
+
+.donate-button:hover {
+  box-shadow: 0px 27px 20px -20px rgba(0, 0, 0, 0.4); }
+
+.about-section1 {
+  width: 380px;
+  flex: initial;
+  line-height: 1.6;
+  text-align: left;
+  padding: 30px; }
+  .about-section1 h1 {
+    margin-top: -50px; }
+
+.donate-amount-button {
+  border: 1px solid black;
+  margin-right: 10px;
+  color: black;
+  border-radius: 2px;
+  width: 60px;
+  height: 30px;
+  background-color: #fff; }
+
+.donate-amount-button-active {
+  border: 1px solid #2ecc40;
+  margin-right: 10px;
+  color: #23972f;
+  border-radius: 2px;
+  width: 60px;
+  height: 30px;
+  background-color: #fff; }

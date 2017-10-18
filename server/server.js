@@ -16,8 +16,6 @@ const express       = require('express'),
 const app = express();
 const stripe = require("stripe")(keySecret)
 
-app.set("view engine", "pug");
-
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
@@ -71,21 +69,20 @@ app.get('/auth/me', (req, res) => {
 app.get("/", (req, res) =>
 res.render("index.pug", {keyPublish}));
 
-app.post("/charge", (req, res) => {
-    let amount = 500;
-  
-    stripe.customers.create({
-       email: req.body.stripeEmail,
-      source: req.body.stripeToken
-    })
-    .then(customer =>
-      stripe.charges.create({
-        amount,
-        description: "Sample Charge",
-           currency: "usd",
-           customer: customer.id
-      }))
-    .then(charge => res.render("charge.pug"));
+app.post("/api/payment", (req, res) => {
+    let amount = req.body.amount;
+    amount = amount * 100;
+    console.log(amount);
+    
+    const charge = stripe.charges.create({
+        amount: amount,
+        currency: 'usd',
+        source: req.body.token.id,
+        description: "Test charge from react app"
+    }, function(err, charge) {
+        if(err) return res.sendStatus(500)
+        return res.sendStatus(200);
+    });
   });
 //--------------------------------------------------------------
 
