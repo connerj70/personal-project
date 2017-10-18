@@ -47,12 +47,16 @@ class About extends Component {
                                     Saving up for your Grail? Have great clothes you rarely wear? Turn your closet into cash by posting your clothing for sale right now.
                                 </p>
                             </div>
-                            <div className='donation-div'>
-                                <button onClick={() => this.handleAmountClick('1', 1)} className={ this.state.active == 1 ? 'donate-amount-button-active' : 'donate-amount-button'}>$1</button>
-                                <button onClick={() => this.handleAmountClick('5', 2)} className={ this.state.active == 2 ? 'donate-amount-button-active' : 'donate-amount-button'}>$5</button>
-                                <button onClick={() => this.handleAmountClick('10', 3)} className={ this.state.active == 3 ? 'donate-amount-button-active' : 'donate-amount-button'}>$10</button>
-                                <button onClick={() => this.handleAmountClick('20', 4)} className={ this.state.active == 4 ? 'donate-amount-button-active' : 'donate-amount-button'}>$20</button>
-                                <button onClick={() => this.handleAmountClick('100', 5)} className={ this.state.active == 5 ? 'donate-amount-button-active' : 'donate-amount-button'}>$100</button>
+                            
+                            <div className='donation-container'>
+                            <div className='donation-div1'>
+                                <div className='donation-div'>
+                                    <button onClick={() => this.handleAmountClick('1', 1)} className={ this.state.active == 1 ? 'donate-amount-button-active' : 'donate-amount-button'}>$1</button>
+                                    <button onClick={() => this.handleAmountClick('5', 2)} className={ this.state.active == 2 ? 'donate-amount-button-active' : 'donate-amount-button'}>$5</button>
+                                    <button onClick={() => this.handleAmountClick('10', 3)} className={ this.state.active == 3 ? 'donate-amount-button-active' : 'donate-amount-button'}>$10</button>
+                                    <button onClick={() => this.handleAmountClick('20', 4)} className={ this.state.active == 4 ? 'donate-amount-button-active' : 'donate-amount-button'}>$20</button>
+                                    <button onClick={() => this.handleAmountClick('100', 5)} className={ this.state.active == 5 ? 'donate-amount-button-active' : 'donate-amount-button'}>$100</button>
+                                </div>
                             </div>
                             <StripeCheckout
                             name="Sangraal"
@@ -65,6 +69,7 @@ class About extends Component {
                             ><button className="donate-button">
                             DONATE
                             </button></StripeCheckout>
+                            </div>
                         </div>
                     </Col>
                 </Row>
