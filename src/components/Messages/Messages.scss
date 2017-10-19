@@ -11,6 +11,10 @@
     font-size: 12px;
 }
 
+.message-div:hover {
+    cursor: pointer;
+}
+
 .ui.segment:last-child {
     margin-bottom: 30px;
 }
@@ -27,6 +31,14 @@
     max-width: 300px;
     font-size: 15px;
     font-weight: 700;
+}
+
+.hidden-message-view {
+    margin-left: 15px;
+}
+
+.hidden-message-hide {
+    display: none;
 }
 
 .xer {

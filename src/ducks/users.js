@@ -17,6 +17,7 @@ const GET_LISTINGS = "GET_LISTINGS";
 const GET_LISTING_IMAGES = "GET_LISTING_IMAGES";
 const GET_SENT_MESSAGES = "GET_SENT_MESSAGES";
 const GET_RECIEVED_MESSAGES = "GET_RECIEVED_MESSAGES";
+const ADD_MESSAGE = "ADD_MESSAGE";
 const NEW_GRAIL = "NEW_GRAIL";
 const GET_GRAILS = "GET_GRAILS";
 const REMOVE_GRAIL = "REMOVE_GRAIL";
@@ -91,6 +92,17 @@ export function getRecievedMessages(userId) {
     }
 }
 
+export function addMessage(senderId, messageText, userId) {
+    const messages = axios.post('http://localhost:3005/api/messages', {senderId: senderId, messageText: messageText, userId: userId})
+    .then(messages => {
+        return messages.data
+    })
+    return {
+        type: ADD_MESSAGE,
+        payload: messages
+    }
+}
+
 export function newGrail(newGrail, listingId, userId, callback) {
     const grails = axios.post('http://localhost:3005/api/grails', {listingId, userId})
     .then( response => {
@@ -146,6 +158,9 @@ export default function reducer(state=initialState, action) {
 
         case GET_RECIEVED_MESSAGES + '_FULFILLED':
             return Object.assign({}, state, {recievedMessages: [...state.recievedMessages, action.payload]})
+
+        case ADD_MESSAGE + '_FULFILLED':
+            return Object.assign({}, state, {sentMessages: [...state.sentMessages, action.payload]})    
 
         case NEW_GRAIL:
             return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
