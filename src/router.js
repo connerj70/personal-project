@@ -7,6 +7,7 @@ import BigListing from './components/BigListing/BigListing';
 import About from './components/About/About';
 import MyGrails from './components/MyGrails/MyGrails';
 import Settings from './components/Settings/Settings';
+import MyItems from './components/MyItems/MyItems';
 
 export default (
     <Switch>
@@ -17,5 +18,6 @@ export default (
         <Route path='/about' component={About}></Route>
         <Route path='/mygrails/:id' component={MyGrails}></Route>
         <Route path='/settings' component={Settings}></Route>
+        <Route path='/myitems' component={MyItems}></Route>
     </Switch>
 )

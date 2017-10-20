@@ -5,6 +5,7 @@ const initialState = {
     // user: {},
     userGrails: [],
     users: [],
+    userListings: [],
     listings: [],
     listingImages: [],
     sentMessages: [],
@@ -13,6 +14,8 @@ const initialState = {
 
 const GET_USER_INFO = "GET_USER_INFO";
 const GET_USERS = "GET_USERS";
+const GET_USER_LISTINGS = "GET_USER_LISTINGS";
+const DELETE_USER_LISTING = "DELETE_USER_LISTING";
 const GET_LISTINGS = "GET_LISTINGS";
 const GET_LISTING_IMAGES = "GET_LISTING_IMAGES";
 const GET_SENT_MESSAGES = "GET_SENT_MESSAGES";
@@ -42,6 +45,28 @@ export function getUsers() {
     return {
         type: GET_USERS,
         payload: usersData
+    }
+}
+
+export function getUserListings(userId) {
+    const userListings = axios.get('http://localhost:3005/api/userlistings/' + userId)
+    .then( res => {
+        return res.data
+    })
+    return {
+        type: GET_USER_LISTINGS,
+        payload: userListings
+    }
+}
+
+export function deleteUserListing(userId, listingId) {
+    const deleteListing = axios.post('http://localhost:3005/api/userlistings/delete', {userId, listingId})
+    .then( res => {
+        return res.data
+    })
+    return {
+        type : DELETE_USER_LISTING,
+        payload: deleteListing
     }
 }
 
@@ -146,6 +171,12 @@ export default function reducer(state=initialState, action) {
 
         case GET_USERS + '_FULFILLED':
             return Object.assign({}, state, {users: [...state.users, action.payload]})
+
+        case GET_USER_LISTINGS + '_FULFILLED':
+            return Object.assign({}, state, {userListings: [...state.userListings, action.payload]})
+
+        case DELETE_USER_LISTING + '_FULFILLED':
+            return Object.assign({}, state, {userListings: [...state.userListings, action.payload]})    
 
         case GET_LISTINGS + '_FULFILLED':
             return Object.assign({}, state, {listings: [...state.listings, action.payload]})

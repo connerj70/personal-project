@@ -38,7 +38,7 @@ class Header extends Component {
                             
                             {this.props.user.user_id ? <NavDropdown eventKey={3} title="ACCOUNT" id="basic-nav-dropdown">
                                                             <MenuItem eventKey={3.1}><Link to='/messages'>MESSAGES</Link></MenuItem>
-                                                            <MenuItem eventKey={3.2}>MY ITEMS</MenuItem>
+                                                            <MenuItem eventKey={3.2}><Link to='/myitems'>MY ITEMS</Link></MenuItem>
                                                             <MenuItem eventKey={3.3}><Link to='/settings'>SETTINGS</Link></MenuItem>
                                                         </NavDropdown> 
                                                 : 
