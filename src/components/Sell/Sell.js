@@ -90,11 +90,6 @@ class Sell extends Component {
             imageURL: value
         })
     }
-
-    handleFiles(files) {
-        console.log(files);
-    }
-
   
     render() {
         return (
@@ -173,7 +168,13 @@ class Sell extends Component {
                                 <option value="10">10</option>
                             </select>
 
-                            <input type='file' multiple onChange={(e) => this.handleFiles(e.target.value)} />
+                            <ReactS3Uploader 
+                            signingUrl='/s3/sign'
+                            server='http://localhost:3005'
+                            
+                            
+                            
+                            />
 
                         </Col>
                         </Row>
