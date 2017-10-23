@@ -64,7 +64,7 @@ class BigListing extends Component {
         const specificListing = this.props.listings[0] ? this.props.listings[0].filter( listing => listing.listing_id == this.props.match.params.id) : null;
         const specificListingUser = this.props.users[0] ? this.props.users[0].filter(user => user.user_id == specificListing[0].user_id): null;
         const isGrail = this.props.userGrails.length ? this.props.userGrails[this.props.userGrails.length - 1].filter(grail => grail.listing_id == this.props.match.params.id) : null;       
-         console.log(isGrail)
+        
         return (
             <div>
                 <Grid>
