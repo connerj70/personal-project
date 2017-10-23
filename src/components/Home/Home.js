@@ -27,7 +27,6 @@ class Home extends Component {
 
     componentDidMount() {
         this.props.getListings(this.state.activePage, this.state.searchTerm1);
-        this.props.getListingImages();
         this.props.getUsers();
     }
 
