@@ -12,6 +12,9 @@
     font-size: 45px;
     font-family: 'Lora', serif; }
 
+.dropzone {
+  width: 100%; }
+
 .sell-details {
   text-align: left; }
 

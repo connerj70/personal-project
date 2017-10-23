@@ -4,6 +4,7 @@ import './Sell.css';
 import { Jumbotron, Grid, Col, Row, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import Dropzone from 'react-dropzone';
 
 class Sell extends Component {
     constructor(props) {
@@ -17,7 +18,8 @@ class Sell extends Component {
             size: '',
             name: '',
             condition: null,
-            imageURL: ''
+            imageURL: '',
+            files: []
         }
     }
 
@@ -84,6 +86,12 @@ class Sell extends Component {
         this.setState({
             imageURL: value
         })
+    }
+
+    onDrop(files) {
+        this.setState({
+            files
+        });
     }
 
     render() {
@@ -162,6 +170,22 @@ class Sell extends Component {
                                 <option value="9">9</option>
                                 <option value="10">10</option>
                             </select>
+
+                            <section>
+                                <div className="dropzone">
+                                    <Dropzone onDrop={this.onDrop.bind(this)}>
+                                        <p>Try dropping some files here, or click to select files to upload.</p>
+                                    </Dropzone>
+                                </div>
+                                <aside>
+                                    <h2>Dropped files</h2>
+                                    <ul>
+                                        {
+                                        this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
+                                        }
+                                    </ul>
+                                </aside>
+                            </section>
 
                         </Col>
                         </Row>
