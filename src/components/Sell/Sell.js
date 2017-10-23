@@ -7,6 +7,9 @@ import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
 import _ from 'lodash';
 import ReactS3Uploader from 'react-s3-uploader';
+import { cloudinarySecret, apiKey, uploadPreset } from './sellSecret';
+import sha1 from 'sha1';
+import superagent from 'superagent';
 
 class Sell extends Component {
     constructor(props) {
@@ -90,6 +93,39 @@ class Sell extends Component {
             imageURL: value
         })
     }
+
+    uploadFile(files) {
+        console.log('uploadFile: ')
+        const image = files[0];
+
+        const cloudName = 'daqydernc';
+        const url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
+        const timestamp = Date.now()/1000;
+        const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + cloudinarySecret;
+        const signature = sha1(paramsStr);
+
+        const params = {
+            'api_key': apiKey,
+            'timestamp': timestamp,
+            'upload_preset': uploadPreset,
+            'signature': signature
+        }
+
+        let uploadRequest = superagent.post(url)
+        uploadRequest.attach('file', image);
+
+        Object.keys(params).forEach((key) => {
+            uploadRequest.field(key, params[key])
+        })
+
+        uploadRequest.end((err, resp) => {
+            if (err) {
+                alert(err)
+                return
+            }
+            console.log('UPLOAD COMPLETE: ' + JSON.stringify(resp.body))
+        })
+    }
   
     render() {
         return (
@@ -168,13 +204,9 @@ class Sell extends Component {
                                 <option value="10">10</option>
                             </select>
 
-                            <ReactS3Uploader 
-                            signingUrl='/s3/sign'
-                            server='http://localhost:3005'
-                            
-                            
-                            
-                            />
+                          <Dropzone 
+                          onDrop={this.uploadFile.bind(this)}
+                          />
 
                         </Col>
                         </Row>
