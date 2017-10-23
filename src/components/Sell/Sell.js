@@ -24,7 +24,7 @@ class Sell extends Component {
             name: '',
             condition: null,
             imageURL: '',
-            files: []
+            images: []
         }
     }
 
@@ -124,6 +124,12 @@ class Sell extends Component {
                 return
             }
             console.log('UPLOAD COMPLETE: ' + JSON.stringify(resp.body))
+            const uploaded = resp.body;
+            let updatedImages = Object.assign([], this.state.images)
+            updatedImages.push(uploaded);
+            this.setState({
+                images: updatedImages
+            })
         })
     }
   
