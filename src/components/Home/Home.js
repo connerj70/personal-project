@@ -6,7 +6,7 @@ import smallImage2 from '../../assets/palace.jpg';
 import carouselImage1 from '../../assets/kanye-west-bapesta.jpg';
 import carouselImage2 from '../../assets/redwings.jpg';
 import carouselImage3 from '../../assets/leatherba.jpg';
-import { Carousel, Grid, Row, Col } from 'react-bootstrap';
+import { Carousel, Grid, Row, Col, Pagination } from 'react-bootstrap';
 import { Input, Icon } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
 import axios from 'axios';
@@ -18,19 +18,38 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            searchTerm: ''
+            // searchTerm: '',
+            searchTerm1: '',
+            activePage: 0
         }
     }
 
 
     componentDidMount() {
-        this.props.getListings();
+        this.props.getListings(this.state.activePage, this.state.searchTerm1);
         this.props.getListingImages();
         this.props.getUsers();
     }
 
-    handleSearchChange(searchTerm) {
-        this.setState({searchTerm: searchTerm})
+    handleSearchChange(searchTerm1) {
+        this.setState({searchTerm1: searchTerm1})
+        getListings(this.state.activePage, this.state.searchTerm1)
+    }
+
+    handleNext() {
+        this.setState({
+            activePage: this.state.activePage + 40
+        })
+        this.props.getListings(this.state.activePage, this.state.searchTerm1);
+    }
+
+    handlePrev() {
+        this.setState({
+            activePage: this.state.activePage - 40
+        }, function() {
+            this.props.getListings(this.state.activePage, this.state.searchTerm1);
+        })
+       
     }
 
     
@@ -113,6 +132,10 @@ class Home extends Component {
                     {
                         this.props.listings.length ? <SmallListing searchTerm={this.state.searchTerm} className='small-listing' listingImages={this.props.listingImages[0]} listings={this.props.listings}/> : <div>Loading...</div>
                     }
+                    </div>
+                    <div>
+                        <button onClick={() => this.handlePrev()}>prev</button>
+                        <button onClick={() => this.handleNext()}>next</button>
                     </div>
                         </Col>
                     </Row>

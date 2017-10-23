@@ -1,7 +1,9 @@
 module.exports = {
     getListings: function(req, res, next) {
         const db = req.app.get('db')
-        db.getListings()
+        const pageNumber = req.params.pageNumber;
+        const searchTerm = req.params.searchTerm;
+        db.getListings([searchTerm, pageNumber])
         .then( listings => {
             res.status(200).send(listings);
         })

@@ -70,8 +70,8 @@ export function deleteUserListing(userId, listingId) {
     }
 }
 
-export function getListings() {
-    const listings = axios.get('http://localhost:3005/api/listings')
+export function getListings(pageNumber, searchTerm) {
+    const listings = axios.get('http://localhost:3005/api/listings/' + pageNumber + "/" + searchTerm)
     .then(listing => {
         return listing.data
     });
