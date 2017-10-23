@@ -5,6 +5,8 @@ import { Jumbotron, Grid, Col, Row, Button } from 'react-bootstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
+import _ from 'lodash';
+import ReactS3Uploader from 'react-s3-uploader';
 
 class Sell extends Component {
     constructor(props) {
@@ -38,6 +40,7 @@ class Sell extends Component {
             condition: null,
             imageURL: ''
         })
+        axios.post('http://localhost:3005/api/listings/images', {})
     }
 
     handleCategoryChange(value) {
@@ -88,12 +91,11 @@ class Sell extends Component {
         })
     }
 
-    onDrop(files) {
-        this.setState({
-            files
-        });
+    handleFiles(files) {
+        console.log(files);
     }
 
+  
     render() {
         return (
             <div className='sellform-wrapper'>
@@ -171,21 +173,7 @@ class Sell extends Component {
                                 <option value="10">10</option>
                             </select>
 
-                            <section>
-                                <div className="dropzone">
-                                    <Dropzone onDrop={this.onDrop.bind(this)}>
-                                        <p>Try dropping some files here, or click to select files to upload.</p>
-                                    </Dropzone>
-                                </div>
-                                <aside>
-                                    <h2>Dropped files</h2>
-                                    <ul>
-                                        {
-                                        this.state.files.map(f => <li key={f.name}>{f.name} - {f.size} bytes</li>)
-                                        }
-                                    </ul>
-                                </aside>
-                            </section>
+                            <input type='file' multiple onChange={(e) => this.handleFiles(e.target.value)} />
 
                         </Col>
                         </Row>
