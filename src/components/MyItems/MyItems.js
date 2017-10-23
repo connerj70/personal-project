@@ -4,6 +4,7 @@ import { getUserListings, deleteUserListing } from '../../ducks/users';
 import { connect } from 'react-redux';
 import { Card } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
+import './MyItems.css';
 
 class MyItems extends Component {
 
@@ -63,7 +64,7 @@ class MyItems extends Component {
             <Grid>
                 <Row className='show-grid'>
                     <Col>
-                        MyItems Page
+                        <h1 className='my-items'>MY ITEMS</h1>
                         {toDisplay ? toDisplay : <div>Loading...</div>}
                     </Col>
                 </Row>

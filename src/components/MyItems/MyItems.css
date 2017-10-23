@@ -1,0 +1,15 @@
+.mygrails-holder {
+  float: left;
+  position: relative;
+  left: 10%; }
+
+.button-holder .btn-danger {
+  margin-bottom: 20px; }
+
+.my-items {
+  text-align: center;
+  font-size: 35px; }
+
+@media (max-width: 400px) {
+  .mygrails-holder {
+    left: 0%; } }

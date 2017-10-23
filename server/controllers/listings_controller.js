@@ -7,13 +7,13 @@ module.exports = {
         })
     },
 
-    getListingImages: function(req, res, next) {
-        const db = req.app.get('db')
-        db.get_listing_images()
-        .then( listingImages => {
-            res.status(200).send(listingImages)
-        })
-    },
+    // getListingImages: function(req, res, next) {
+    //     const db = req.app.get('db')
+    //     db.get_listing_images()
+    //     .then( listingImages => {
+    //         res.status(200).send(listingImages)
+    //     })
+    // },
 
     addListing: function(req, res, next) {
         console.log(req.body);
