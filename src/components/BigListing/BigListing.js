@@ -66,15 +66,14 @@ class BigListing extends Component {
     handleImageChange(imageURL) {
         this.setState({
             imageToShow: imageURL
-        }, () => console.log(this.state.imageToShow))
-
+        })
     }
 
     render() {
         console.log(this.props.listingImages)
         const thumbnailsToRender = this.props.listingImages.length ? this.props.listingImages.map( image => {
             var imageURL = image.image_url
-            return <Thumbnail onClick={() => this.handleImageChange(imageURL)}src={`${image.image_url}`} className='thumbnails'/>
+            return imageURL === null ? null : <Thumbnail onClick={() => this.handleImageChange(imageURL)}src={`${image.image_url}`} className='thumbnails'/>
         }) : null
 
         const specificListing = this.props.listings[0] ? this.props.listings[0].filter( listing => listing.listing_id == this.props.match.params.id) : null;
