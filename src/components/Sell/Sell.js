@@ -221,21 +221,25 @@ class Sell extends Component {
                                 <Dropzone
                                 className='drop-pictures' 
                                 onDrop={this.uploadFile.bind(this)}
-                                ><Glyphicon className={this.state.images.length === 1 ? 'camera-hidden' : 'camera'} glyph='camera'/>
-                                <img className={this.state.images.length === 1 ? 'first-image' : 'camera-hidden'} src={this.state.images.length ? this.state.images[0].url : "#"}/>
+                                ><Glyphicon className={this.state.images.length >= 1 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length >= 1 ? 'first-image' : 'camera-hidden'} src={this.state.images.length ? this.state.images[0].url : "#"}/>
                                 </Dropzone>
                             </Col>
                             <Col xs={12} md={3}>
                                 <Dropzone
                                 className='drop-pictures2' 
                                 onDrop={this.uploadFile.bind(this)}
-                                ><Glyphicon className='camera' glyph='camera'/></Dropzone>
+                                ><Glyphicon className={this.state.images.length >= 2 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length >= 2 ? 'first-image' : 'camera-hidden'} src={this.state.images.length >= 2 ? this.state.images[1].url : "#"}/>
+                                </Dropzone>
                             </Col>
                             <Col xs={12 }md={3}>
                                 <Dropzone
                                 className='drop-pictures2' 
                                 onDrop={this.uploadFile.bind(this)}
-                                ><Glyphicon className='camera' glyph='camera'/></Dropzone>
+                                ><Glyphicon className={this.state.images.length >= 3 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length >= 3 ? 'first-image' : 'camera-hidden'} src={this.state.images.length >= 3 ? this.state.images[2].url : "#"}/>
+                                </Dropzone>
                             </Col>
                         </Row>
                         <Row className='show-grid'>
