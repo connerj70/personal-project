@@ -45,6 +45,19 @@ i.icon:hover {
   margin-left: 10px;
   margin-top: 50px; }
 
+.thumbs-column {
+  margin: -60px auto;
+  margin-left: 15vw; }
+
+.thumbs-row {
+  margin: 0 auto; }
+
+.thumbnails {
+  width: 20%;
+  margin-left: 10px;
+  float: left;
+  height: 100px; }
+
 .price {
   height: 50px;
   margin-left: 10px;
@@ -102,7 +115,17 @@ i.icon:hover {
   .seller {
     height: 100px;
     margin-left: 6.2vw;
-    margin-top: 2px; } }
+    margin-top: 2px; }
+  .thumbnails {
+    width: 20%;
+    margin-left: 10px;
+    float: left;
+    height: 100px; }
+  .thumbs-column {
+    margin: 20px auto;
+    margin-left: 8vw; }
+  .side-bar {
+    margin-top: 25px; } }
 
 @media (max-width: 610px) {
   .large-card {
@@ -166,4 +189,14 @@ i.icon:hover {
 
 @media (max-width: 445px) {
   .test-class {
-    height: 53vh; } }
+    height: 53vh; }
+  .thumbnails {
+    width: 20%;
+    margin-left: 10px;
+    float: left;
+    height: 50px; }
+  .thumbs-column {
+    margin: 20px auto;
+    margin-left: 15vw; }
+  .side-bar {
+    margin-top: 25px; } }

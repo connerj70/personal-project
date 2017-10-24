@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Thumbnail } from 'react-bootstrap';
 import { Card, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { newGrail, getGrails, getListings, getListingImages } from '../../ducks/users';
@@ -21,7 +21,7 @@ class BigListing extends Component {
 
     componentDidMount() {
         this.props.getGrails(this.props.user.user_id);
-        this.props.getListings();
+        // this.props.getListings();
         this.props.getListingImages(this.props.match.params.id);
     }
 
@@ -63,10 +63,16 @@ class BigListing extends Component {
     }
 
     render() {
+        console.log(this.props.listingImages)
+        const thumbnailsToRender = this.props.listingImages.length ? this.props.listingImages.map( image => {
+            return <Thumbnail src={`${image.image_url}`} className='thumbnails'/>
+        }) : null
+
         const specificListing = this.props.listings[0] ? this.props.listings[0].filter( listing => listing.listing_id == this.props.match.params.id) : null;
         const specificListingUser = this.props.users[0] ? this.props.users[0].filter(user => user.user_id == specificListing[0].user_id): null;
         const isGrail = this.props.userGrails.length ? this.props.userGrails[this.props.userGrails.length - 1].filter(grail => grail.listing_id == this.props.match.params.id) : null;       
-        
+        console.log(this.props.listingImages)
+        console.log(thumbnailsToRender)
         return (
             <div>
                 <Grid>
@@ -91,6 +97,14 @@ class BigListing extends Component {
                                 className='large-card' 
                                 image= {this.props.listings[0] ? specificListing[0].image_url : null}
                                 />
+                                <Row className='show-grid thumbs-row'>
+                                    <Col className='thumbs-column' md={9} xs={12}>
+                                    {thumbnailsToRender}
+                                        {/* <Thumbnail src={this.props.listingImages.length ? `${this.props.listingImages[this.props.listingImages.length - 1][0].image_url}` : '#'} className='thumbnails' />
+                                        <Thumbnail src={this.props.listingImages.length ? `${this.props.listingImages[this.props.listingImages.length - 1][1].image_url}` : '#'} className='thumbnails' />
+                                        <Thumbnail src={this.props.listingImages.length ? `${this.props.listingImages[this.props.listingImages.length - 1][2].image_url}` : '#'} className='thumbnails' /> */}
+                                    </Col>
+                                </Row>
                             </Col>
                             <Col xs={12} md={3}>
                                 <div className='side-bar'>
@@ -121,6 +135,7 @@ class BigListing extends Component {
                                 </div>
                             </Col>
                         </Row>
+                        
                     </div>
                 </Grid>
             </div>
@@ -133,7 +148,8 @@ function mapStateToProps(state) {
         listings: state.listings,
         users: state.users,
         user: state.user,
-        userGrails: state.userGrails
+        userGrails: state.userGrails,
+        listingImages: state.listingImages
     }
 }
 

@@ -183,7 +183,7 @@ export default function reducer(state=initialState, action) {
             return Object.assign({}, state, {listings: [...state.listings, action.payload]})
 
         case GET_LISTING_IMAGES + '_FULFILLED':
-            return Object.assign({}, state, {listingImages: [...state.listingImages, action.payload]})
+            return Object.assign({}, state, {listingImages: action.payload})
 
         case GET_SENT_MESSAGES + '_FULFILLED':
             return Object.assign({}, state, {sentMessages: [...state.sentMessages, action.payload]})
