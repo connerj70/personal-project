@@ -11,8 +11,7 @@ const express       = require('express'),
       uC            = require('./controllers/users_controller'),
       gC            = require('./controllers/grails_controller'),
       keyPublish    = process.env.PUBLISHABLE_KEY,
-      keySecret     = process.env.SECRET_KEY,
-      AWS           = require('aws-sdk');
+      keySecret     = process.env.SECRET_KEY;
 
 const app = express();
 const stripe = require("stripe")(keySecret)
@@ -26,14 +25,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-//AMAZON S3
-app.use('/s3', require('react-s3-uploader/s3router')({
-    bucket: "sangraal",
-    headers: {'Access-Control-Allow-Origin': '*'}, // optional
-    ACL: 'private', // this is default
-    uniquePrefix: true // (4.0.2 and above) default is true, setting the attribute to false preserves the original filename in S3
-}));
 
 massive(process.env.CONNECTION_STRING).then( db => {
     app.set('db', db);

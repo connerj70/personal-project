@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import backgroundPicture from '../../assets/sell-header.jpg';
 import './Sell.css';
-import { Jumbotron, Grid, Col, Row, Button } from 'react-bootstrap';
+import { Jumbotron, Grid, Col, Row, Button, Glyphicon } from 'react-bootstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import Dropzone from 'react-dropzone';
 import _ from 'lodash';
-import ReactS3Uploader from 'react-s3-uploader';
 import { cloudinarySecret, apiKey, uploadPreset } from './sellSecret';
 import sha1 from 'sha1';
 import superagent from 'superagent';
@@ -43,7 +42,7 @@ class Sell extends Component {
             condition: null,
             imageURL: ''
         })
-        axios.post('http://localhost:3005/api/listings/images', {})
+        
     }
 
     handleCategoryChange(value) {
@@ -210,11 +209,31 @@ class Sell extends Component {
                                 <option value="10">10</option>
                             </select>
 
-                          <Dropzone 
-                          onDrop={this.uploadFile.bind(this)}
-                          />
+                         
 
                         </Col>
+                        </Row>
+                        <Row className='show-grid'>
+                            <h4 className='photo-header'>PHOTOS</h4>
+                            <h4 className='dropper'>Drag Photos Here Or Click To Upload</h4>
+                            <Col xs={12} md={6}>
+                                <Dropzone
+                                className='drop-pictures' 
+                                onDrop={this.uploadFile.bind(this)}
+                                ><Glyphicon className='camera' glyph='camera'/></Dropzone>
+                            </Col>
+                            <Col xs={12} md={3}>
+                                <Dropzone
+                                className='drop-pictures2' 
+                                onDrop={this.uploadFile.bind(this)}
+                                ><Glyphicon className='camera' glyph='camera'/></Dropzone>
+                            </Col>
+                            <Col xs={12 }md={3}>
+                                <Dropzone
+                                className='drop-pictures2' 
+                                onDrop={this.uploadFile.bind(this)}
+                                ><Glyphicon className='camera' glyph='camera'/></Dropzone>
+                            </Col>
                         </Row>
                         <Row className='show-grid'>
                             <Col xs={12} md={6}>
