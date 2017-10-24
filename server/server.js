@@ -92,7 +92,7 @@ app.get('/api/listings', lC.getListings);
 app.post('/api/listings', lC.addListing);
 app.get('/api/userlistings/:userid', lC.getUserListings);
 app.post('/api/userlistings/delete', lC.deleteListing);
-app.post('/api/listings/images', lC.addImages)
+// app.post('/api/listings/images', lC.addImages)
 // -------------------------------------------------------------
 
 //MESSAGES ENDPOINTS
