@@ -11,7 +11,7 @@ const express       = require('express'),
       uC            = require('./controllers/users_controller'),
       gC            = require('./controllers/grails_controller'),
       keyPublish    = process.env.PUBLISHABLE_KEY,
-      keySecret     = process.env.SECRET_KEY
+      keySecret     = process.env.SECRET_KEY;
 
 const app = express();
 const stripe = require("stripe")(keySecret)
@@ -92,6 +92,7 @@ app.get('/api/listings', lC.getListings);
 app.post('/api/listings', lC.addListing);
 app.get('/api/userlistings/:userid', lC.getUserListings);
 app.post('/api/userlistings/delete', lC.deleteListing);
+// app.post('/api/listings/images', lC.addImages)
 // -------------------------------------------------------------
 
 //MESSAGES ENDPOINTS

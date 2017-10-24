@@ -1,9 +1,14 @@
 import React, {Component} from 'react';
 import backgroundPicture from '../../assets/sell-header.jpg';
 import './Sell.css';
-import { Jumbotron, Grid, Col, Row, Button } from 'react-bootstrap';
+import { Jumbotron, Grid, Col, Row, Button, Glyphicon } from 'react-bootstrap';
 import axios from 'axios';
 import { connect } from 'react-redux';
+import Dropzone from 'react-dropzone';
+import _ from 'lodash';
+import { cloudinarySecret, apiKey, uploadPreset } from './sellSecret';
+import sha1 from 'sha1';
+import superagent from 'superagent';
 
 class Sell extends Component {
     constructor(props) {
@@ -17,25 +22,27 @@ class Sell extends Component {
             size: '',
             name: '',
             condition: null,
-            imageURL: ''
+            imageURL: '',
+            images: [],
         }
     }
 
     addListing(e) {
         e.preventDefault();
-        let {category, brand, price, description, size, name, condition, imageURL} = this.state;
+        let {category, brand, price, description, size, name, condition, imageURL, images} = this.state;
         let user_id = this.props.user.user_id
-        axios.post('http://localhost:3005/api/listings', {category: category, brand: brand, price: price, description: description, size: size, name: name, condition: condition, user_id: user_id, imageURL: imageURL });
-        this.setState({
-            category: '',
-            brand: '',
-            price: '',
-            description:'',
-            size: '',
-            name: '',
-            condition: null,
-            imageURL: ''
-        })
+        axios.post('http://localhost:3005/api/listings', {category: category, brand: brand, price: price, description: description, size: size, name: name, condition: condition, user_id: user_id, imageURL: imageURL, images: images })
+            this.setState({
+                category: '',
+                brand: '',
+                price: '',
+                description:'',
+                size: '',
+                name: '',
+                condition: null,
+                imageURL: '',
+                images: []
+            })
     }
 
     handleCategoryChange(value) {
@@ -86,6 +93,46 @@ class Sell extends Component {
         })
     }
 
+    uploadFile(files) {
+        console.log('uploadFile: ')
+        const image = files[0];
+
+        const cloudName = 'daqydernc';
+        const url = 'https://api.cloudinary.com/v1_1/' + cloudName + '/image/upload';
+        const timestamp = Date.now()/1000;
+        const paramsStr = 'timestamp=' + timestamp + '&upload_preset=' + uploadPreset + cloudinarySecret;
+        const signature = sha1(paramsStr);
+
+        const params = {
+            'api_key': apiKey,
+            'timestamp': timestamp,
+            'upload_preset': uploadPreset,
+            'signature': signature
+        }
+        
+        let uploadRequest = superagent.post(url)
+        uploadRequest.attach('file', image);
+
+        Object.keys(params).forEach((key) => {
+            uploadRequest.field(key, params[key])
+        })
+
+        uploadRequest.end((err, resp) => {
+            if (err) {
+                alert(err)
+                return
+            }
+            console.log('UPLOAD COMPLETE: ' + JSON.stringify(resp.body))
+            const uploaded = resp.body;
+            let updatedImages = Object.assign([], this.state.images)
+            updatedImages.push(uploaded);
+            this.setState({
+                images: updatedImages
+            })
+            console.log(this.state.images)
+        })
+    }
+  
     render() {
         return (
             <div className='sellform-wrapper'>
@@ -163,10 +210,40 @@ class Sell extends Component {
                                 <option value="10">10</option>
                             </select>
 
+                         
+
                         </Col>
                         </Row>
                         <Row className='show-grid'>
+                            <h4 className='photo-header'>PHOTOS</h4>
+                            <h4 className='dropper'>Drag Photos Here Or Click To Upload</h4>
                             <Col xs={12} md={6}>
+                                <Dropzone
+                                className='drop-pictures' 
+                                onDrop={this.uploadFile.bind(this)}
+                                ><Glyphicon className={this.state.images.length >= 1 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length >= 1 ? 'first-image' : 'camera-hidden'} src={this.state.images.length ? this.state.images[0].url : "#"}/>
+                                </Dropzone>
+                            </Col>
+                            <Col xs={12} md={3}>
+                                <Dropzone
+                                className='drop-pictures2' 
+                                onDrop={this.uploadFile.bind(this)}
+                                ><Glyphicon className={this.state.images.length >= 2 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length >= 2 ? 'first-image' : 'camera-hidden'} src={this.state.images.length >= 2 ? this.state.images[1].url : "#"}/>
+                                </Dropzone>
+                            </Col>
+                            <Col xs={12 }md={3}>
+                                <Dropzone
+                                className='drop-pictures2' 
+                                onDrop={this.uploadFile.bind(this)}
+                                ><Glyphicon className={this.state.images.length >= 3 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length >= 3 ? 'first-image' : 'camera-hidden'} src={this.state.images.length >= 3 ? this.state.images[2].url : "#"}/>
+                                </Dropzone>
+                            </Col>
+                        </Row>
+                        <Row className='show-grid'>
+                            <Col xs={12} md={12}>
                                 <Button className='publish-btn' type='button' onClick={(e) => this.addListing(e)}>PUBLISH</Button>
                             </Col>
                         </Row>
