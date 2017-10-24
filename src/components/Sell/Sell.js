@@ -236,7 +236,7 @@ class Sell extends Component {
                             </Col>
                         </Row>
                         <Row className='show-grid'>
-                            <Col xs={12} md={6}>
+                            <Col xs={12} md={12}>
                                 <Button className='publish-btn' type='button' onClick={(e) => this.addListing(e)}>PUBLISH</Button>
                             </Col>
                         </Row>
