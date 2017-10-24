@@ -23,7 +23,7 @@ class Sell extends Component {
             name: '',
             condition: null,
             imageURL: '',
-            images: []
+            images: [],
         }
     }
 
@@ -129,6 +129,7 @@ class Sell extends Component {
             this.setState({
                 images: updatedImages
             })
+            console.log(this.state.images)
         })
     }
   
@@ -220,7 +221,9 @@ class Sell extends Component {
                                 <Dropzone
                                 className='drop-pictures' 
                                 onDrop={this.uploadFile.bind(this)}
-                                ><Glyphicon className='camera' glyph='camera'/></Dropzone>
+                                ><Glyphicon className={this.state.images.length === 1 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                <img className={this.state.images.length === 1 ? 'first-image' : 'camera-hidden'} src={this.state.images.length ? this.state.images[0].url : "#"}/>
+                                </Dropzone>
                             </Col>
                             <Col xs={12} md={3}>
                                 <Dropzone
