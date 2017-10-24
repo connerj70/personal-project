@@ -237,7 +237,7 @@ class Sell extends Component {
                                 <Dropzone
                                 className='drop-pictures2' 
                                 onDrop={this.uploadFile.bind(this)}
-                                ><Glyphicon className={this.state.images.length >= d3 ? 'camera-hidden' : 'camera'} glyph='camera'/>
+                                ><Glyphicon className={this.state.images.length >= 3 ? 'camera-hidden' : 'camera'} glyph='camera'/>
                                 <img className={this.state.images.length >= 3 ? 'first-image' : 'camera-hidden'} src={this.state.images.length >= 3 ? this.state.images[2].url : "#"}/>
                                 </Dropzone>
                             </Col>
