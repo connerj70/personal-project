@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Row, Col } from 'react-bootstrap';
 import { Card, Button, Icon } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { newGrail, getGrails, getListings } from '../../ducks/users';
+import { newGrail, getGrails, getListings, getListingImages } from '../../ducks/users';
 import './BigListing.css';
 import Modal, {closeStyle} from 'simple-react-modal';
 import axios from 'axios';
@@ -20,7 +20,9 @@ class BigListing extends Component {
     }
 
     componentDidMount() {
-        this.props.getGrails(this.props.user.user_id)
+        this.props.getGrails(this.props.user.user_id);
+        this.props.getListings();
+        this.props.getListingImages(this.props.match.params.id);
     }
 
     show() {
@@ -135,4 +137,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, {newGrail, getGrails})(BigListing);
+export default connect(mapStateToProps, {newGrail, getGrails, getListingImages, getListings})(BigListing);

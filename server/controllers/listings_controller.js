@@ -7,13 +7,14 @@ module.exports = {
         })
     },
 
-    // getListingImages: function(req, res, next) {
-    //     const db = req.app.get('db')
-    //     db.get_listing_images()
-    //     .then( listingImages => {
-    //         res.status(200).send(listingImages)
-    //     })
-    // },
+    getListingImages: function(req, res, next) {
+        const db = req.app.get('db')
+        const listingId = req.params.listingId
+        db.get_listing_images([listingId])
+        .then( listingImages => {
+            res.status(200).send(listingImages)
+        })
+    },
 
     addListing: function(req, res, next) {
         let image1;
@@ -44,9 +45,15 @@ module.exports = {
     deleteListing: function(req, res, next) {
         const db = req.app.get('db');
         const { userId, listingId } = req.body;
-        db.delete_listing([listingId, userId])
-        .then( listings => {
-            res.status(200).send(listings);
+        db.delete_listing_images([listingId])
+        .then( (response) => {
+            db.remove_grail([listingId, userId])
+            .then( (response) => {
+                db.delete_listing([listingId, userId])
+                .then( listings => {
+                    res.status(200).send(listings);
+                })
+            })
         })
     }
 }

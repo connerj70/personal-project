@@ -82,8 +82,8 @@ export function getListings() {
     }
 }
 
-export function getListingImages() {
-    const listingImages = axios.get('http://localhost:3005/api/listings/images')
+export function getListingImages(listingId) {
+    const listingImages = axios.get(`http://localhost:3005/api/listings/images/${listingId}`)
     .then( images => {
         return images.data
     })
