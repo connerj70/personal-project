@@ -147,4 +147,18 @@ textarea {
   .select2 {
     margin-bottom: 47px; }
   .publish-btn {
-    margin-bottom: 20px; } }
+    margin-bottom: 20px; }
+  .drop-pictures {
+    background-color: #d3d3d3;
+    height: 250px;
+    width: 97%;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px; }
+  .drop-pictures2 {
+    background-color: #d3d3d3;
+    height: 250px;
+    width: 97%;
+    text-align: center;
+    margin-top: 45px;
+    margin-bottom: 10px; } }
