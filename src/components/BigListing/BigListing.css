@@ -45,9 +45,13 @@ i.icon:hover {
   margin-left: 10px;
   margin-top: 50px; }
 
+.thumbnail > img {
+  height: 100%;
+  width: 100%; }
+
 .thumbs-column {
   margin: -60px auto;
-  margin-left: 15vw; }
+  margin-left: 16%; }
 
 .thumbs-row {
   margin: 0 auto; }
@@ -123,7 +127,7 @@ i.icon:hover {
     height: 100px; }
   .thumbs-column {
     margin: 20px auto;
-    margin-left: 8vw; }
+    margin-left: -2%; }
   .side-bar {
     margin-top: 25px; } }
 
@@ -197,6 +201,6 @@ i.icon:hover {
     height: 50px; }
   .thumbs-column {
     margin: 20px auto;
-    margin-left: 15vw; }
+    margin-left: 2%; }
   .side-bar {
     margin-top: 25px; } }

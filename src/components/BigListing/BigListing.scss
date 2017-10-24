@@ -59,9 +59,14 @@ i.icon:hover {
     margin-top: 50px;
 }
 
+.thumbnail>img {
+    height: 100%;
+    width: 100%;
+}
+
 .thumbs-column {
     margin: -60px auto;
-    margin-left: 15vw;
+    margin-left: 16%;
 }
 
 .thumbs-row {
@@ -164,7 +169,7 @@ i.icon:hover {
 
     .thumbs-column {
         margin: 20px auto;
-        margin-left: 8vw;
+        margin-left: -2%;
     }
 
     .side-bar {
@@ -274,7 +279,7 @@ i.icon:hover {
 
     .thumbs-column {
         margin: 20px auto;
-        margin-left: 15vw;
+        margin-left: 2%;
     }
 
     .side-bar {

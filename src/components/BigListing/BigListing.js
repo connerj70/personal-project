@@ -15,7 +15,8 @@ class BigListing extends Component {
             show: false,
             messageText: '',
             senderId: null,
-            isOpen: false
+            isOpen: false,
+            imageToShow: ""
         }
     }
 
@@ -62,17 +63,25 @@ class BigListing extends Component {
         this.props.history.push('/')
     }
 
+    handleImageChange(imageURL) {
+        this.setState({
+            imageToShow: imageURL
+        }, () => console.log(this.state.imageToShow))
+
+    }
+
     render() {
         console.log(this.props.listingImages)
         const thumbnailsToRender = this.props.listingImages.length ? this.props.listingImages.map( image => {
-            return <Thumbnail src={`${image.image_url}`} className='thumbnails'/>
+            var imageURL = image.image_url
+            return <Thumbnail onClick={() => this.handleImageChange(imageURL)}src={`${image.image_url}`} className='thumbnails'/>
         }) : null
 
         const specificListing = this.props.listings[0] ? this.props.listings[0].filter( listing => listing.listing_id == this.props.match.params.id) : null;
+       
         const specificListingUser = this.props.users[0] ? this.props.users[0].filter(user => user.user_id == specificListing[0].user_id): null;
         const isGrail = this.props.userGrails.length ? this.props.userGrails[this.props.userGrails.length - 1].filter(grail => grail.listing_id == this.props.match.params.id) : null;       
-        console.log(this.props.listingImages)
-        console.log(thumbnailsToRender)
+       console.log(this.state.imageToShow)
         return (
             <div>
                 <Grid>
@@ -95,14 +104,12 @@ class BigListing extends Component {
                             <Col xs={12} md={9}>
                                 <Card
                                 className='large-card' 
-                                image= {this.props.listings[0] ? specificListing[0].image_url : null}
+                                image= {this.props.listings[0] ? this.state.imageToShow ? this.state.imageToShow : specificListing[0].image_url : null}
                                 />
                                 <Row className='show-grid thumbs-row'>
                                     <Col className='thumbs-column' md={9} xs={12}>
+                                    {this.props.listings[0] ? <Thumbnail onClick={() => this.handleImageChange(specificListing[0].image_url)}src={specificListing[0].image_url} className='thumbnails'/> : null}
                                     {thumbnailsToRender}
-                                        {/* <Thumbnail src={this.props.listingImages.length ? `${this.props.listingImages[this.props.listingImages.length - 1][0].image_url}` : '#'} className='thumbnails' />
-                                        <Thumbnail src={this.props.listingImages.length ? `${this.props.listingImages[this.props.listingImages.length - 1][1].image_url}` : '#'} className='thumbnails' />
-                                        <Thumbnail src={this.props.listingImages.length ? `${this.props.listingImages[this.props.listingImages.length - 1][2].image_url}` : '#'} className='thumbnails' /> */}
                                     </Col>
                                 </Row>
                             </Col>
