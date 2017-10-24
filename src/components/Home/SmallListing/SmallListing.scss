@@ -1,13 +1,18 @@
 .small-listing-container1 {
     margin: 0 auto;
     max-width: 100%;
+    height: 300px;
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
 }
 
 .ui.card>.image, .ui.cards>.card>.image {
-    height: 250px;
+    max-width: 190px;
+    max-height: 190px;
+    min-width: 100px;
+    min-height: 100px;
+    margin: 10px auto;
 }
 
 @media(min-width: 1210px) {

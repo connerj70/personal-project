@@ -109,7 +109,7 @@ class Sell extends Component {
             'upload_preset': uploadPreset,
             'signature': signature
         }
-
+        
         let uploadRequest = superagent.post(url)
         uploadRequest.attach('file', image);
 

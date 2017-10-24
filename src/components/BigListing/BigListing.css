@@ -6,9 +6,11 @@
   margin-bottom: 85px !important; }
   .large-card .ui.image {
     max-width: 450px;
+    max-height: 450px;
+    min-width: 200px;
+    min-height: 200px;
     margin: 0 auto;
     height: 60vh;
-    width: 45vw;
     padding: 10px;
     background-color: #fff; }
 
@@ -47,7 +49,8 @@ i.icon:hover {
   height: 50px;
   margin-left: 10px;
   margin-bottom: 20px;
-  font-size: 25px; }
+  font-size: 25px;
+  margin-top: -12px; }
 
 .seller {
   height: 100px;
