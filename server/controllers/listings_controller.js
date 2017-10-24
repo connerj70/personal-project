@@ -22,6 +22,14 @@ module.exports = {
         db.add_listing([category, brand, price, description, size, name, condition, user_id, imageURL])
     },
 
+    addListingImages: function(req, res, next) {
+        const db = req.app.get('db');
+        const image1 = req.body.images[0].url;
+        const image2 = req.body.images[1].url;
+        const image3 = req.body.images[2].url;
+        db.add_listing_images([image1, image2, image3])
+    },
+
     getUserListings: function(req, res,  next) {
         const db = req.app.get('db');
        const { userid } = req.params;

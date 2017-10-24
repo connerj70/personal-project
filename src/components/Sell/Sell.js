@@ -31,7 +31,13 @@ class Sell extends Component {
         e.preventDefault();
         let {category, brand, price, description, size, name, condition, imageURL} = this.state;
         let user_id = this.props.user.user_id
-        axios.post('http://localhost:3005/api/listings', {category: category, brand: brand, price: price, description: description, size: size, name: name, condition: condition, user_id: user_id, imageURL: imageURL });
+        axios.post('http://localhost:3005/api/listings', {category: category, brand: brand, price: price, description: description, size: size, name: name, condition: condition, user_id: user_id, imageURL: imageURL })
+        .then( () => {
+            axios.post('http://localhost:3005/api/listings/images', {images: this.state.images})
+            .then( () => {
+                this.setState({images: []})
+            })
+        })
         this.setState({
             category: '',
             brand: '',
@@ -42,7 +48,6 @@ class Sell extends Component {
             condition: null,
             imageURL: ''
         })
-        
     }
 
     handleCategoryChange(value) {
