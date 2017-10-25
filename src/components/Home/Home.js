@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import './Home.css';
 import largeImage from '../../assets/home-header.jpg';
-import smallImage1 from '../../assets/header.jpg';
-import smallImage2 from '../../assets/palace.jpg';
+import ralph from '../../assets/ralphlead.jpg';
+import cone from '../../assets/cone.jpg';
+import man from '../../assets/man.jpg'
 import carouselImage1 from '../../assets/kanye-west-bapesta.jpg';
 import carouselImage2 from '../../assets/redwings.jpg';
 import carouselImage3 from '../../assets/leatherba.jpg';
 import hoodie from '../../assets/hoodie.jpg';
 import shirt from '../../assets/shirt.jpg';
-import leather from '../../assets/leather.jpg';
-import homme from '../../assets/homme.jpg';
-import cargo from '../../assets/cargo.jpg';
 import scarf from '../../assets/scarf.jpg';
 import denim from '../../assets/denim.jpg';
 import hat from '../../assets/hat.jpg';
-import nikes from '../../assets/nikes.jpg';
 import preme from '../../assets/preme.jpg';
 import boots from '../../assets/boots.jpg';
 import { Carousel, Grid, Row, Col } from 'react-bootstrap';
@@ -52,16 +49,19 @@ class Home extends Component {
                     <Row className='show-grid'>
                         <Col xs={12} lg={8}>
                             <div className='large-image'>
-                                <img src={largeImage} />
+                                <p className='large-text'>Our 10 Favorite Ralph Lauren Grails</p>
+                                <img src={ralph} />
                             </div>
                         </Col>
                         <Col xs={12} lg={4}>
                              <div className='small-image'>
-                            <img src={smallImage1} />
+                             <p className='small-text'>The Unraveling of White Oak</p>
+                            <img src={cone} />
                         </div>
                         
                         <div className='small-image'>
-                            <img src={smallImage2} />
+                            <p className='small-text'>New Sneaker Designs's</p>
+                            <img src={man} />
                         </div>
                         </Col>
                     </Row>
