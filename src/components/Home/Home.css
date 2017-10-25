@@ -3,8 +3,7 @@
   position: relative; }
 
 .small-image {
-  position: relative;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.9)) !important; }
+  position: relative; }
 
 .small-text {
   position: absolute;
@@ -78,6 +77,12 @@
   margin-bottom: 20px;
   margin-left: 20px;
   width: 300px; }
+
+@media (max-width: 1185) {
+  .small-text {
+    font-size: 100px; }
+  .small-image {
+    display: none; } }
 
 @media (max-width: 615px) {
   .large-image img {
