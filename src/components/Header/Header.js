@@ -25,14 +25,7 @@ class Header extends Component {
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav pullRight>
-                            <NavItem eventKey={1} href="#"><Link to='/about'>ABOUT</Link></NavItem>
-                            <NavDropdown eventKey={3} title="CATEGORIES" id="basic-nav-dropdown">
-                                <MenuItem eventKey={3.1}>OUTERWEAR</MenuItem>
-                                <MenuItem eventKey={3.2}>TOPS</MenuItem>
-                                <MenuItem eventKey={3.2}>BOTTOMS</MenuItem>
-                                <MenuItem eventKey={3.2}>FOOTWEAR</MenuItem>
-                                <MenuItem eventKey={3.2}>ACCESSORIES</MenuItem>
-                            </NavDropdown>                       
+                            <NavItem eventKey={1} href="#"><Link to='/about'>ABOUT</Link></NavItem>                 
                             <NavItem eventKey={1} href="#"><Link to='/sell'>SELL</Link></NavItem>
                             <NavItem eventKey={2} href="#"><Link to={`/mygrails/${this.props.user.user_id}`}>MY GRAILS</Link></NavItem>
                             
@@ -46,6 +39,36 @@ class Header extends Component {
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>
+                <div className='sub-header'>
+                    <div className='sub-header-links'>
+                        <ul className='sub-header-links'>
+                            <li className='h-out'>OUTWEAR</li>
+                            <li className='h-top'>TOPS</li>
+                            <li className='h-bot'>BOTTOMS</li>
+                            <li className='h-foot'>FOOTWEAR</li>
+                            <li className='h-snea'>SNEAKERS</li>
+                            <li className='h-acce'>ACCESSORIES</li>
+                        </ul>
+                    </div>
+                </div>
+                <div className='header-link outerwear'>
+                            
+                    </div>
+                    <div className='header-link tops'>
+
+                    </div>
+                    <div className='header-link bottoms'>
+
+                    </div>
+                    <div className='header-link footwear'>
+
+                    </div>
+                    <div className='header-link sneakers'>
+
+                    </div>
+                    <div className='header-link accessories'>
+
+                </div>
             </div>
         )
     }

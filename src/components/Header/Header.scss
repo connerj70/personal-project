@@ -22,6 +22,44 @@ $font-stack: Helvetica, sans-serif;
     color: #000000 !important;
 }
 
+.sub-header-links {
+    display: flex;
+    justify-content: center;
+
+    li {
+        list-style: none;
+        margin-left: 30px;
+        font-size: 12px;
+        color: #9b9b9b;
+        margin-bottom: 30px;
+    }
+}
+
+.h-out:hover {
+    color: #000000;
+    cursor: pointer;
+}
+.h-top:hover {
+    color: #000000;
+    cursor: pointer;
+}
+.h-bot:hover {
+    color: #000000;
+    cursor: pointer;
+}
+.h-foot:hover {
+    color: #000000;
+    cursor: pointer;
+}
+.h-snea:hover {
+    color: #000000;
+    cursor: pointer;
+}
+.h-acce:hover {
+    color: #000000;
+    cursor: pointer;
+}
+
 .second-nav {
     display: flex;
     justify-content: space-between;
