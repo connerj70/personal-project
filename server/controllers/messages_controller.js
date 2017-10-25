@@ -25,5 +25,14 @@ module.exports = {
         .then( messages => {
             res.status(200).send(messages)
         })
+    },
+
+    deleteMessage: function(req, res, next) {
+        const db = req.app.get('db');
+        const {recieverId, messageId} = req.body;
+        db.delete_message([messageId, recieverId])
+        .then( messages => {
+            res.status(200).send(messages)
+        })
     }
 }

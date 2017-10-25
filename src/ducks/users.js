@@ -21,6 +21,7 @@ const GET_LISTING = 'GET_LISTING';
 const GET_LISTING_IMAGES = "GET_LISTING_IMAGES";
 const GET_SENT_MESSAGES = "GET_SENT_MESSAGES";
 const GET_RECIEVED_MESSAGES = "GET_RECIEVED_MESSAGES";
+const DELETE_MESSAGE = "DELETE_MESSAGE";
 const ADD_MESSAGE = "ADD_MESSAGE";
 const NEW_GRAIL = "NEW_GRAIL";
 const GET_GRAILS = "GET_GRAILS";
@@ -129,6 +130,17 @@ export function addMessage(senderId, messageText, userId) {
     }
 }
 
+export function deleteMessage(messageId, recieverId) {
+    const messages = axios.delete('http://localhost:3005/api/messages', {recieverId, messageId})
+    .then(messages => {
+        return messages.data
+    })
+    return {
+        type: DELETE_MESSAGE,
+        payload: messages
+    }
+}
+
 export function newGrail(newGrail, listingId, userId, callback) {
     const grails = axios.post('http://localhost:3005/api/grails', {listingId, userId})
     .then( response => {
@@ -187,6 +199,9 @@ export default function reducer(state=initialState, action) {
 
         case GET_SENT_MESSAGES + '_FULFILLED':
             return Object.assign({}, state, {sentMessages: [...state.sentMessages, action.payload]})
+
+        case DELETE_MESSAGE + '_FULFILLED':
+            return Object.assign({}, state, [...state.recievedMessages, action.payload])
 
         case GET_RECIEVED_MESSAGES + '_FULFILLED':
             return Object.assign({}, state, {recievedMessages: [...state.recievedMessages, action.payload]})

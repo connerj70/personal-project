@@ -16,8 +16,24 @@
 .ui.segment:last-child {
   margin-bottom: 30px; }
 
+.delete-message-button {
+  background-color: #fff;
+  border: 1px solid #eb3434;
+  border-radius: none;
+  color: #333;
+  margin-top: -5px;
+  width: 65px;
+  height: 30px;
+  font-size: 11px;
+  z-index: 100; }
+
+.delete-message-button:hover {
+  background-color: #eb3434;
+  border: none;
+  color: #fff; }
+
 .messages-modal-header {
-  margin-top: -5px !important; }
+  margin-top: -3px !important; }
 
 .message-content {
   width: 33.3%;
@@ -41,7 +57,7 @@
   background-color: #d3d3d3;
   position: fixed;
   width: 65vw;
-  height: 47vh;
+  height: 50vh;
   border: 1px solid #d3d3d3;
   margin-top: 10px;
   padding: 15px;
@@ -71,7 +87,8 @@ textarea {
   font-size: 11px;
   padding-right: 18px;
   text-align: center;
-  transition: .4s ease-out; }
+  transition: .4s ease-out;
+  margin-top: 14px; }
 
 .ui.button:hover {
   background-color: #ff9595;
@@ -90,4 +107,8 @@ textarea {
     font-size: 15px;
     font-weight: 700; }
   .email {
-    display: none; } }
+    display: none; }
+  .test-class {
+    height: 54vh !important; }
+  textarea {
+    margin-top: 0px; } }

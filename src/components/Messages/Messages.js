@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Container, Grid, Tab, Header, Button } from 'semantic-ui-react';
 import Modal, {closeStyle} from 'simple-react-modal';
-import { getSentMessages, getRecievedMessages, getUsers, addMessage } from '../../ducks/users.js';
+import { getSentMessages, getRecievedMessages, getUsers, addMessage, deleteMessage } from '../../ducks/users.js';
 import { connect } from 'react-redux';
 import './Messages.css';
 import ModalPop from '../ModalPop/ModalPop';
@@ -70,6 +70,10 @@ newMessage() {
      }
 }
 
+handleDeleteMessage(messageId, recieverId) {
+    this.props.deleteMessage(messageId, recieverId)
+}
+
 
     render() {
 
@@ -93,13 +97,14 @@ newMessage() {
             const sendingUser = this.props.users.length ? this.props.users[0].filter( user => user.user_id === message.sender_id) : null
            return ( 
             <div>
-            <div onClick={() => this.handleDivClick(message.message_id)} className='message-div' senderId={message.sender_id}>
-                <div className='message-content'>{message.message_content}</div>
-                <div><b>Username:</b> {sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</div>
-                <div className='email'>email: {sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</div>
-                <div>
+                <div className='message-div' senderId={message.sender_id}>
+                    <div onClick={() => this.handleDivClick(message.message_id)} className='message-content'>{message.message_content}</div>
+                    <div><b>Username:</b> {sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</div>
+                    <div className='email'>email: {sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</div>
+                    <div className='button-holder'>
                     <Button className='reply-button' onClick={() => this.handleReplyClick(message.sender_id)}>REPLY</Button>
                 </div>
+                <button className='delete-message-button' onClick={() => this.handleDeleteMessage(message.message_id, message.sender_id)}>DELETE</button>
             </div>
             <div className={ this.state.hiddenMessage ? 'hidden-message-view' : 'hidden-message-hide'}>{message.message_content}</div>
             </div>
@@ -156,4 +161,4 @@ function mapStateToProps(state) {
    }
 }
 
-export default connect(mapStateToProps, {getSentMessages, getRecievedMessages, getUsers, addMessage})(Messages);
+export default connect(mapStateToProps, {getSentMessages, getRecievedMessages, getUsers, addMessage, deleteMessage})(Messages);

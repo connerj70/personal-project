@@ -3,6 +3,7 @@ import './Home.css';
 import largeImage from '../../assets/home-header.jpg';
 import smallImage1 from '../../assets/header.jpg';
 import smallImage2 from '../../assets/palace.jpg';
+import raft from '../../assets/raft.jpg';
 import carouselImage1 from '../../assets/kanye-west-bapesta.jpg';
 import carouselImage2 from '../../assets/redwings.jpg';
 import carouselImage3 from '../../assets/leatherba.jpg';
