@@ -6,6 +6,17 @@ import smallImage2 from '../../assets/palace.jpg';
 import carouselImage1 from '../../assets/kanye-west-bapesta.jpg';
 import carouselImage2 from '../../assets/redwings.jpg';
 import carouselImage3 from '../../assets/leatherba.jpg';
+import hoodie from '../../assets/hoodie.jpg';
+import shirt from '../../assets/shirt.jpg';
+import leather from '../../assets/leather.jpg';
+import homme from '../../assets/homme.jpg';
+import cargo from '../../assets/cargo.jpg';
+import scarf from '../../assets/scarf.jpg';
+import denim from '../../assets/denim.jpg';
+import hat from '../../assets/hat.jpg';
+import nikes from '../../assets/nikes.jpg';
+import preme from '../../assets/preme.jpg';
+import boots from '../../assets/boots.jpg';
 import { Carousel, Grid, Row, Col } from 'react-bootstrap';
 import { Input, Icon } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
@@ -56,6 +67,13 @@ class Home extends Component {
                     </Row>
                     <div className='home-container-1'>
                 
+                    <Row className='show-grid'>
+                        <Col xs={12}>
+                        <div classNam='shop-our-div'>
+                            <h5 className='shop-our-lists'>SHOP OUR CURATED LISTS</h5>
+                        </div>
+                        </Col>
+                    </Row>
 
                     <Row className='show-grid'>
                         <Col xs={12}>
@@ -71,9 +89,9 @@ class Home extends Component {
                                        
                                        
                                             <Carousel.Item>
-                                                <img  className='carousel_image' alt="900x500" src={carouselImage1}/>
-                                                <img  className='carousel_image' alt="900x500" src={carouselImage3}/>
-                                                <img  className='carousel_image' alt="900x500" src={carouselImage2}/>
+                                                <img  className='carousel_image' alt="900x500" src={boots}/>
+                                                <img  className='carousel_image' alt="900x500" src={shirt}/>
+                                                <img  className='carousel_image' alt="900x500" src={hoodie}/>
                                                
                                                 <Carousel.Caption>
                                                 </Carousel.Caption>
@@ -81,9 +99,9 @@ class Home extends Component {
                                      
                                      
                                             <Carousel.Item>
-                                                <img  className='carousel_image' alt="900x500" src={carouselImage2}/>
-                                                <img  className='carousel_image' alt="900x500" src={carouselImage1}/>
-                                                <img  className='carousel_image' alt="900x500" src={carouselImage3}/>
+                                                <img  className='carousel_image' alt="900x500" src={hat}/>
+                                                <img  className='carousel_image' alt="900x500" src={preme}/>
+                                                <img  className='carousel_image' alt="900x500" src={scarf}/>
                                                 <Carousel.Caption>
                                                 </Carousel.Caption>
                                             </Carousel.Item>
@@ -97,7 +115,7 @@ class Home extends Component {
                         <div className='flex-container'>
                         <Row align='center' className='show-grid search'>
                                 <Col  className='search' xs={12}>
-                                    <p>BROWSE THE FEED</p>
+                                    <h5 className='browse'>BROWSE THE FEED</h5>
                                     <Input
                                     onChange={(e) => this.handleSearchChange(e.target.value)}
                                     className='search-input' 

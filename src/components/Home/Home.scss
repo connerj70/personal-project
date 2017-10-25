@@ -12,10 +12,11 @@
 .carousel_image {
     width: 33.3%;
     float: left;
+    height: 80%;
 }
 
 .carousel-container {
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 .row {
@@ -28,6 +29,20 @@
     min-height: 1px;
     padding-right: 0;
     padding-left: 0;
+}
+
+.shop-our-lists {
+    text-align: center;
+    padding-top: 35px;
+    font-weight: 600;
+    font-size: 12px;
+    color: #4a4a4a
+}
+
+.browse {
+    font-weight: 600;
+    font-size: 12px;
+    color: #4a4a4a
 }
 
 .search {
@@ -43,6 +58,10 @@
 // .small-listing {
 //     float: left;
 // }
+
+.small-listing-container1 {
+    margin-top: -50px !important;
+}
 
 .ui.card:last-child {
     margin-bottom: 20px;

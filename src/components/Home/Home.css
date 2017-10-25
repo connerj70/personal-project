@@ -8,10 +8,11 @@
 
 .carousel_image {
   width: 33.3%;
-  float: left; }
+  float: left;
+  height: 80%; }
 
 .carousel-container {
-  margin-top: 30px; }
+  margin-top: 10px; }
 
 .row {
   margin-right: 0;
@@ -23,6 +24,18 @@
   padding-right: 0;
   padding-left: 0; }
 
+.shop-our-lists {
+  text-align: center;
+  padding-top: 35px;
+  font-weight: 600;
+  font-size: 12px;
+  color: #4a4a4a; }
+
+.browse {
+  font-weight: 600;
+  font-size: 12px;
+  color: #4a4a4a; }
+
 .search {
   margin-top: 30px;
   margin-bottom: 30px; }
@@ -30,6 +43,9 @@
 .search-input {
   margin-top: 10px;
   width: 39vw; }
+
+.small-listing-container1 {
+  margin-top: -50px !important; }
 
 .ui.card:last-child {
   margin-bottom: 20px;
