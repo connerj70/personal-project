@@ -61,7 +61,7 @@ class Header extends Component {
             height: '367px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '-17px 2px',
+            backgroundPosition: '-12px 2px',
             width: '80%'
         }
         var divStyleOuter2 = {
@@ -69,7 +69,7 @@ class Header extends Component {
             height: '361px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '-16px 1px',
+            backgroundPosition: '-12px 1px',
             width: '80%' 
         }
         var divStyleOuter3 = {
@@ -94,7 +94,7 @@ class Header extends Component {
             backgroundImage: 'url(' + shirt2 + ')',
             height: '351px',
             backgroundSize: 'cover',
-            backgroundPosition: '-11px 41px',
+            backgroundPosition: '-5px 41px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -120,7 +120,7 @@ class Header extends Component {
             backgroundImage: 'url(' + bottoms2 + ')',
             height: '361px',
             backgroundSize: 'cover',
-            backgroundPosition: '-17px 1px',
+            backgroundPosition: '-12px 1px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -128,7 +128,7 @@ class Header extends Component {
             backgroundImage: 'url(' + bottoms3 + ')',
             height: '361px',
             backgroundSize: 'cover',
-            backgroundPosition: '-17px 1px',
+            backgroundPosition: '-12px 1px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -164,7 +164,7 @@ class Header extends Component {
             backgroundImage: 'url(' + sneaks1 + ')',
             height: '361px',
             backgroundSize: 'cover',
-            backgroundPosition: '-31px 0px',
+            backgroundPosition: '-4px 0px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -182,7 +182,7 @@ class Header extends Component {
             backgroundImage: 'url(' + sneaks3 + ')',
             height: '361px',
             backgroundSize: 'cover',
-            backgroundPosition: '-31px 0px',
+            backgroundPosition: '-9px 0px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -200,7 +200,7 @@ class Header extends Component {
             backgroundImage: 'url(' + acc2 + ')',
             height: '361px',
             backgroundSize: 'cover',
-            backgroundPosition: '-34px -1px',
+            backgroundPosition: '-10px -1px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -433,23 +433,23 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleSneaks1} className='shirt1'>
-                                                   
-                                                    <h3 className='menu-header12'>Yeezy</h3>
-                                                    
+                                                   <div className='tinter1'>
+                                                        <h3 className='menu-header12'>Yeezy</h3>
+                                                    </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleSneaks2} className='shirt2'>
                                                     <div className='tinter1'>
-                                                    <h3 className='menu-header12'>Adidas Ultraboost</h3>
+                                                        <h3 className='menu-header12'>Adidas Ultraboost</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleSneaks3} className='shirt3'>
-                                                   
-                                                    <h3 className='menu-header12'>Air Jordan</h3>
-                                                   
+                                                   <div className='tinter1'>
+                                                     <h3 className='menu-header12'>Air Jordan</h3>
+                                                   </div>
                                                 </div>
                                             </Col>
                                         </Row>
@@ -482,9 +482,9 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleAcc2} className='shirt2'>
-                                                    
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Backpacks</h3>
-                                                    
+                                                    </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
