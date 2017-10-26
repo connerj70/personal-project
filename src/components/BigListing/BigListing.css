@@ -44,6 +44,8 @@ i.icon:hover {
   height: 100px;
   margin-left: 10px;
   margin-top: 50px; }
+  .description div {
+    font-weight: 600; }
 
 .thumbnail > img {
   height: 100%;
@@ -73,6 +75,8 @@ i.icon:hover {
   height: 100px;
   margin-left: 10px;
   margin-top: 2px; }
+  .seller div {
+    font-weight: 600; }
 
 .heading {
   margin-left: 10px;
