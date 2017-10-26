@@ -81,6 +81,18 @@ $font-stack: Helvetica, sans-serif;
     background-color: #fff;
     border: 1px solid black;
     position: absolute;
+    opacity: 1;
+    animation: fader .6s;
+}
+
+@keyframes fader{
+    from {
+        opacity: 0
+    }
+
+    to {
+        opacity: 1
+    }
 }
 
 .menu-column {
