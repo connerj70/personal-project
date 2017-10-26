@@ -255,7 +255,8 @@ class Header extends Component {
                                     </ul>
                                 </div>
                             </div>
-                                <div className={this.state.activeMenu === 1 ? 'show' : 'hidden'}>
+                            
+                                <div className={this.state.activeMenu === 1 ? 'show' : 'testclas7 show'}>
                                     <Grid>
                                         <Row className='show-grid'>
                                             <Col className='menu-column' xs={3}>
@@ -296,7 +297,8 @@ class Header extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <div  className={this.state.activeMenu === 2 ? 'show' : 'hidden'}>
+
+                                <div  className={this.state.activeMenu === 2 ? 'show' : 'testclas7 show'}>
                                     <Grid>
                                         <Row className='show-grid'>
                                             <Col className='menu-column' xs={3}>
@@ -336,7 +338,7 @@ class Header extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <div  className={this.state.activeMenu === 3 ? 'show' : 'hidden'}>
+                                <div  className={this.state.activeMenu === 3 ? 'show' : 'testclas7 show'}>
                                     <Grid>
                                         <Row className='show-grid'>
                                             <Col className='menu-column' xs={3}>
@@ -376,7 +378,7 @@ class Header extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <div  className={this.state.activeMenu === 4 ? 'show' : 'hidden'}>
+                                <div  className={this.state.activeMenu === 4 ? 'show' : 'testclas7 show'}>
                                     <Grid>
                                         <Row className='show-grid'>
                                             <Col className='menu-column' xs={3}>
@@ -415,7 +417,7 @@ class Header extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <div  className={this.state.activeMenu === 5 ? 'show' : 'hidden'}>
+                                <div  className={this.state.activeMenu === 5 ? 'show' : 'testclas7 show'}>
                                     <Grid>
                                         <Row className='show-grid'>
                                             <Col className='menu-column' xs={3}>
@@ -453,7 +455,7 @@ class Header extends Component {
                                         </Row>
                                     </Grid>
                                 </div>
-                                <div  className={this.state.activeMenu === 6 ? 'show' : 'hidden'}>
+                                <div  className={this.state.activeMenu === 6 ? 'show' : 'testclas7 show'}>
                                     <Grid>
                                         <Row className='show-grid'>
                                             <Col className='menu-column' xs={3}>
