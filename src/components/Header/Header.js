@@ -66,7 +66,7 @@ class Header extends Component {
         }
         var divStyleOuter2 = {
             backgroundImage: 'url(' + outer2 + ')',
-            height: '368px',
+            height: '361px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: '-16px 1px',
@@ -101,7 +101,7 @@ class Header extends Component {
 
         var divStyleShirt3 = {
             backgroundImage: 'url(' + shirt3 + ')',
-            height: '368px',
+            height: '361px',
             backgroundSize: 'cover',
             backgroundPosition: '0 1px',
             backgroundRepeat: 'no-repeat',
@@ -118,7 +118,7 @@ class Header extends Component {
         }
         var divStyleBottoms2 = {
             backgroundImage: 'url(' + bottoms2 + ')',
-            height: '367px',
+            height: '361px',
             backgroundSize: 'cover',
             backgroundPosition: '-17px 1px',
             backgroundRepeat: 'no-repeat',
@@ -126,7 +126,7 @@ class Header extends Component {
         }
         var divStyleBottoms3 = {
             backgroundImage: 'url(' + bottoms3 + ')',
-            height: '368px',
+            height: '361px',
             backgroundSize: 'cover',
             backgroundPosition: '-17px 1px',
             backgroundRepeat: 'no-repeat',
@@ -198,7 +198,7 @@ class Header extends Component {
 
         var divStyleAcc2 = {
             backgroundImage: 'url(' + acc2 + ')',
-            height: '369px',
+            height: '361px',
             backgroundSize: 'cover',
             backgroundPosition: '-34px -1px',
             backgroundRepeat: 'no-repeat',
@@ -275,21 +275,21 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleOuter1} className='shirt1'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                         <h3 className='menu-header12'>Denim Jackets</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleOuter3} className='shirt2'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Leather</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleOuter2} className='shirt3'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Undercover</h3>
                                                     </div>
                                                 </div>
@@ -316,21 +316,21 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleShirt1} className='shirt1'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>T-Shirts</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleShirt3} className='shirt2'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Polos</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleShirt2} className='shirt3'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Hoodies</h3>
                                                     </div>
                                                 </div>
@@ -356,21 +356,21 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleBottoms3} className='shirt1'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Shorts</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleBottoms2} className='shirt2'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Sweatpants</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleBottoms1} className='shirt3'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Designer</h3>
                                                     </div>
                                                 </div>
@@ -395,21 +395,21 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleShoes3} className='shirt1'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Rick Owens</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleShoes1} className='shirt2'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Gucci</h3>
                                                     </div>
                                                 </div>
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleShoes2} className='shirt3'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Minimal</h3>
                                                     </div>
                                                 </div>
@@ -475,7 +475,7 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleAcc1} className='shirt1'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>All Accessories</h3>
                                                     </div>
                                                 </div>
@@ -489,7 +489,7 @@ class Header extends Component {
                                             </Col>
                                             <Col xs={3}>
                                                 <div style={divStyleAcc3} className='shirt3'>
-                                                    <div className='tinter'>
+                                                    <div className='tinter1'>
                                                     <h3 className='menu-header12'>Chrome Hearts</h3>
                                                     </div>
                                                 </div>
