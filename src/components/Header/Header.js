@@ -69,14 +69,14 @@ class Header extends Component {
             height: '368px',
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
-            backgroundPosition: '-21px 1px',
+            backgroundPosition: '-16px 1px',
             width: '80%' 
         }
         var divStyleOuter3 = {
             backgroundImage: 'url(' + outer3 + ')',
             height: '310px',
             backgroundSize: 'cover',
-            backgroundPosition: '-10px 52px',
+            backgroundPosition: '-5px 52px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -85,7 +85,7 @@ class Header extends Component {
             backgroundImage: 'url(' + shirt1 + ')',
             height: '368px',
             backgroundSize: 'cover',
-            backgroundPosition: '-27px 14px',
+            backgroundPosition: '-10px 14px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -94,7 +94,7 @@ class Header extends Component {
             backgroundImage: 'url(' + shirt2 + ')',
             height: '351px',
             backgroundSize: 'cover',
-            backgroundPosition: '-23px 41px',
+            backgroundPosition: '-11px 41px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -120,7 +120,7 @@ class Header extends Component {
             backgroundImage: 'url(' + bottoms2 + ')',
             height: '367px',
             backgroundSize: 'cover',
-            backgroundPosition: '-19px 1px',
+            backgroundPosition: '-17px 1px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -128,7 +128,7 @@ class Header extends Component {
             backgroundImage: 'url(' + bottoms3 + ')',
             height: '368px',
             backgroundSize: 'cover',
-            backgroundPosition: '-20px 1px',
+            backgroundPosition: '-17px 1px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -146,7 +146,7 @@ class Header extends Component {
             backgroundImage: 'url(' + shoes2 + ')',
             height: '368px',
             backgroundSize: 'cover',
-            backgroundPosition: '-21px -2px',
+            backgroundPosition: '-10px -2px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
@@ -155,7 +155,7 @@ class Header extends Component {
             backgroundImage: 'url(' + shoes3 + ')',
             height: '368px',
             backgroundSize: 'cover',
-            backgroundPosition: '-21px -2px',
+            backgroundPosition: '-10px -2px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }
