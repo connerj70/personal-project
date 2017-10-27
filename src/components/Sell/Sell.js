@@ -9,6 +9,7 @@ import _ from 'lodash';
 import { cloudinarySecret, apiKey, uploadPreset } from './sellSecret';
 import sha1 from 'sha1';
 import superagent from 'superagent';
+import swal from 'sweetalert';
 
 class Sell extends Component {
     constructor(props) {
@@ -43,6 +44,7 @@ class Sell extends Component {
                 imageURL: '',
                 images: []
             })
+            swal('Item Submitted', "Good Job!", "success");
     }
 
     handleCategoryChange(value) {

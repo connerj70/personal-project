@@ -36,7 +36,8 @@
     "sha1": "^1.1.1",
     "simple-react-modal": "^0.5.1",
     "stripe": "^5.1.1",
-    "superagent": "^3.7.0"
+    "superagent": "^3.7.0",
+    "sweetalert": "^2.0.8"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
