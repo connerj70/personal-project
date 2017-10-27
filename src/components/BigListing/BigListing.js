@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { newGrail, getGrails, getListings, getListingImages } from '../../ducks/users';
 import './BigListing.css';
 import Modal, {closeStyle} from 'simple-react-modal';
+import ReactImageZoom from 'react-image-zoom';
 import axios from 'axios';
 
 class BigListing extends Component {

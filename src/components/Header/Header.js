@@ -25,6 +25,7 @@ import sneaks3 from '../../assets/sneaks3.jpg';
 import acc1 from '../../assets/acc1.jpg';
 import acc2 from '../../assets/acc2.jpg';
 import acc3 from '../../assets/acc3.jpg';
+import scrollToElement from 'scroll-to-element';
 
 
 

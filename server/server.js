@@ -16,6 +16,8 @@ const express       = require('express'),
 const app = express();
 const stripe = require("stripe")(keySecret)
 
+app.use( express.static( '${__dirname}/../build'));
+
 app.use(cors());
 app.use(bodyParser.json());
 app.use(session({
@@ -127,6 +129,11 @@ passport.deserializeUser(function(id, done) {
         done(null, user[0]);
     });
 });
+
+const path = require('path')
+app.get('*', (req, res)=>{
+  res.sendFile(path.join(__dirname, '../build/index.html'));
+})
 
 const PORT = 3005;
 app.listen(PORT, () => {
