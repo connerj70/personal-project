@@ -207,9 +207,9 @@ class Header extends Component {
 
         var divStyleAcc3 = {
             backgroundImage: 'url(' + acc3 + ')',
-            height: '400px',
-            backgroundSize: 'contain',
-            backgroundPosition: '0 20px',
+            height: '375px',
+            backgroundSize: 'cover',
+            backgroundPosition: '-33px 1px',
             backgroundRepeat: 'no-repeat',
             width: '80%' 
         }

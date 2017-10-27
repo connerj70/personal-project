@@ -43,6 +43,30 @@
     }
 }
 
+.about_rules-list {
+    margin-left: -22px;
+    max-width: 700px;
+}
+
+.about-one {
+    margin-bottom: 200px;
+}
+
+.code-of-conduct {
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+}
+
+.jobs-container {
+    margin-left: 32px;
+}
+
+.about_jobs-paragraph {
+    max-width: 700px;
+    letter-spacing: 1px;
+}
+
 .donate-button {
     border-radius: 2px;
     border: 1px solid black;
@@ -54,6 +78,10 @@
     transition: all ease-in-out 300ms;
     margin-top: 20px;
     margin-bottom: 30px;
+}
+
+.about_jobs-header {
+    margin-bottom: 15px;
 }
 
 .donate-button:hover {
