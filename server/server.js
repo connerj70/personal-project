@@ -87,7 +87,7 @@ app.post("/api/payment", (req, res) => {
 //--------------------------------------------------------------
 
 //LISTING ENDPOINTS
-app.get('/api/listings', lC.getListings);
+app.get('/api/listings/:offsetValue', lC.getListings);
 app.get('/api/listings/images/:listingId', lC.getListingImages);
 app.post('/api/listings', lC.addListing);
 app.get('/api/userlistings/:userid', lC.getUserListings);

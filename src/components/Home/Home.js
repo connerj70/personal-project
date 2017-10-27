@@ -18,7 +18,7 @@ import { Carousel, Grid, Row, Col } from 'react-bootstrap';
 import { Input, Icon } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
 import axios from 'axios';
-import { getListings, getListingImages, getUsers } from '../../ducks/users';
+import { getListings, getListingImages, getUsers, changeOffset } from '../../ducks/users';
 import { connect } from 'react-redux';
 
 class Home extends Component {
@@ -26,19 +26,33 @@ class Home extends Component {
         super(props);
 
         this.state = {
-            searchTerm: ''
+            searchTerm: '',
         }
     }
 
-
     componentDidMount() {
-        this.props.getListings();
+        var newoffsetvalue = Number(this.props.offsetValue);
+        this.props.getListings(newoffsetvalue);
         this.props.getListingImages();
         this.props.getUsers();
     }
 
     handleSearchChange(searchTerm) {
         this.setState({searchTerm: searchTerm})
+    }
+
+    handleNext() {
+        var toChange = this.props.offsetValue + 40
+        console.log('off set value: ', toChange)
+        this.props.changeOffset(toChange)
+        console.log(this.props.offsetValue)
+    }
+
+    handlePrev() {
+        if(this.props.offsetValue !== 0) {
+            var toChange = this.props.offsetValue - 40;
+            this.props.changeOffset(toChange)
+        }
     }
 
     
@@ -134,6 +148,14 @@ class Home extends Component {
                     </div>
                         </Col>
                     </Row>
+                    <Row className='show-grid'>
+                        <Col xs={12}>
+                            <div>
+                                <button onClick={() => this.handleNext()}>Next</button>
+                                <button onClick={() => this.handlePrev()}>Prev</button>
+                            </div>
+                        </Col>
+                    </Row>
                 </Grid>
             </div>
         )
@@ -145,8 +167,9 @@ function mapStateToProps(state) {
     return {
         user: state.user,
         listings: state.listings,
-        listingImages: state.listingImages
+        listingImages: state.listingImages,
+        offsetValue: state.offsetValue
     }
 }
 
-export default connect(mapStateToProps, {getListings, getListingImages, getUsers})(Home);
+export default connect(mapStateToProps, {getListings, getListingImages, getUsers, changeOffset})(Home);

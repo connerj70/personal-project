@@ -9,7 +9,8 @@ const initialState = {
     listings: [],
     listingImages: [],
     sentMessages: [],
-    recievedMessages: []
+    recievedMessages: [],
+    offsetValue: 0
 }
 
 const GET_USER_INFO = "GET_USER_INFO";
@@ -25,6 +26,7 @@ const ADD_MESSAGE = "ADD_MESSAGE";
 const NEW_GRAIL = "NEW_GRAIL";
 const GET_GRAILS = "GET_GRAILS";
 const REMOVE_GRAIL = "REMOVE_GRAIL";
+const CHANGE_OFFSET = "CHANGE_OFFSET";
 
 export function getUserInfo() {
     const userData = axios.get('/auth/me')
@@ -34,6 +36,13 @@ export function getUserInfo() {
     return {
         type: GET_USER_INFO,
         payload: userData
+    }
+}
+
+export function changeOffset(offsetValue) {
+    return {
+        type: CHANGE_OFFSET,
+        payload: offsetValue
     }
 }
 
@@ -71,9 +80,11 @@ export function deleteUserListing(userId, listingId) {
     }
 }
 
-export function getListings() {
-    const listings = axios.get('http://localhost:3005/api/listings')
+export function getListings(offsetValue) {
+    const offsetInt = Number(offsetValue);
+    const listings = axios.get('http://localhost:3005/api/listings/' + offsetValue)
     .then(listing => {
+        console.log(listing)
         return listing.data
     });
     return {
@@ -202,6 +213,9 @@ export default function reducer(state=initialState, action) {
 
         case REMOVE_GRAIL + '_FULFILLED':
             return Object.assign({}, state, {userGrails: [...state.userGrails, action.payload]})
+
+        case CHANGE_OFFSET:
+            return Object.assign({}, state, {offsetValue: action.payload})
 
         default:
             return state;

@@ -1,7 +1,8 @@
 module.exports = {
     getListings: function(req, res, next) {
         const db = req.app.get('db')
-        db.getListings()
+        const offsetValue = req.params.offsetValue;
+        db.getListings([offsetValue])
         .then( listings => {
             res.status(200).send(listings);
         })
