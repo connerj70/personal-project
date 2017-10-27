@@ -16,7 +16,7 @@ const express       = require('express'),
 const app = express();
 const stripe = require("stripe")(keySecret)
 
-app.use( express.static( '${__dirname}/../build'));
+app.use( express.static( `${__dirname}/../build`));
 
 app.use(cors());
 app.use(bodyParser.json());
