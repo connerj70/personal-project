@@ -14,7 +14,7 @@ import denim from '../../assets/denim.jpg';
 import hat from '../../assets/hat.jpg';
 import preme from '../../assets/preme.jpg';
 import boots from '../../assets/boots.jpg';
-import { Carousel, Grid, Row, Col } from 'react-bootstrap';
+import { Carousel, Grid, Row, Col, Glyphicon } from 'react-bootstrap';
 import { Input, Icon } from 'semantic-ui-react';
 import SmallListing from './SmallListing/SmallListing';
 import axios from 'axios';
@@ -116,12 +116,19 @@ class Home extends Component {
                         <Row align='center' className='show-grid search'>
                                 <Col  className='search' xs={12}>
                                     <h5 className='browse'>BROWSE THE FEED</h5>
+                                    <div>
                                     <Input
+                                    id='home_input'
                                     onChange={(e) => this.handleSearchChange(e.target.value)}
                                     className='search-input' 
                                     icon='search'
                                     placeholder='Search...'
                                     />
+                                    <span className='home_refresh'>
+                                        <Glyphicon className='refresh-glyph' glyph='refresh' />
+                                        REFRESH
+                                    </span>
+                                    </div>
                                 </Col>
                         </Row>
                         </div>

@@ -71,12 +71,20 @@
   width: 39vw; }
 
 .small-listing-container1 {
-  margin-top: -50px !important; }
+  margin-top: -40px !important;
+  border-top: 1px solid #e9e9e9; }
 
 .ui.card:last-child {
   margin-bottom: 20px;
   margin-left: 20px;
   width: 300px; }
+
+.home_refresh {
+  margin-left: 30px;
+  font-size: 12px; }
+  .home_refresh .refresh-glyph {
+    font-size: 12px;
+    margin-right: 5px; }
 
 @media (max-width: 1185) {
   .small-text {
@@ -85,14 +93,23 @@
     display: none; } }
 
 @media (max-width: 615px) {
+  .home_refresh {
+    display: block;
+    margin-left: 0px;
+    font-size: 10px; }
+    .home_refresh .refresh-glyph {
+      font-size: 10px;
+      margin-right: 5px; }
   .large-image img {
     margin-top: 35px; }
   .small-image img {
     display: none; }
   .carousel-container {
     margin-top: 50px; }
+  .small-listing-container1 {
+    margin-top: -10px !important; }
   p:first-child {
-    margin-top: 40px; }
+    margin-top: 50px; }
   .search-input {
     margin-top: 10px;
     width: 80%;

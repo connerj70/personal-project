@@ -70,6 +70,11 @@
   opacity: 0;
   height: 0; }
 
+.header_search {
+  margin-right: 3%;
+  color: #9b9b9b;
+  font-size: 12px; }
+
 @keyframes fader {
   from {
     opacity: 0; }
@@ -139,7 +144,7 @@ a:hover {
 
 @media (max-width: 770px) {
   .sub-header-links {
-    display: flex;
+    display: none;
     justify-content: center;
     flex-direction: column; }
     .sub-header-links li {

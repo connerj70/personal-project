@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import "./Header.css";
-import { Navbar, NavItem, NavDropdown, MenuItem, Nav, Grid, Row, Col } from 'react-bootstrap'
+import { Navbar, NavItem, NavDropdown, MenuItem, Nav, Grid, Row, Col, Glyphicon } from 'react-bootstrap'
 import { Search } from 'semantic-ui-react';
 import {getUserInfo} from '../../ducks/users';
 import {connect} from 'react-redux';
@@ -40,6 +40,7 @@ class Header extends Component {
 
     componentDidMount() {
         this.props.getUserInfo();
+        window.scrollTo(0, 0)
     }
 
     handleMouseIn(num) {
@@ -52,6 +53,10 @@ class Header extends Component {
         this.setState({
             activeMenu: null
         })
+    }
+
+    scrollWindow() {
+        window.scrollTo(0,1000);
     }
 
     render() {
@@ -245,6 +250,7 @@ class Header extends Component {
                         <Col xs={12}>
                             <div className='sub-header'>
                                 <div className='sub-header-links'>
+                                   <a onClick={() => this.scrollWindow()} className='header_search'> <Glyphicon glyph='search'/>  SEARCH</a>
                                     <ul className='sub-header-links'>
                                         <li onMouseEnter={() => this.handleMouseIn(1)} className='h-out'>OUTWEAR</li>
                                         <li onMouseEnter={() => this.handleMouseIn(2)} className='h-top'>TOPS</li>

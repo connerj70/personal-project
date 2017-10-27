@@ -64,7 +64,6 @@ $font-stack: Helvetica, sans-serif;
 
 .outerwear-list {
     list-style: none;
-
     li {
         margin-bottom: 10px;
         margin-left: 3px;
@@ -91,6 +90,11 @@ $font-stack: Helvetica, sans-serif;
     height: 0;
 }
 
+.header_search {
+    margin-right: 3%;
+    color: #9b9b9b;
+    font-size: 12px;
+}
 
 @keyframes fader{
     from {
@@ -180,7 +184,7 @@ a:hover {
 @media(max-width: 770px) {
 
     .sub-header-links {
-        display: flex;
+        display: none;
         justify-content: center;
         flex-direction: column;
     
