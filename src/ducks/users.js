@@ -82,7 +82,7 @@ export function deleteUserListing(userId, listingId) {
 
 export function getListings(offsetValue) {
     const offsetInt = Number(offsetValue);
-    const listings = axios.get('http://localhost:3005/api/listings/' + offsetValue)
+    const listings = axios.get('http://localhost:3005/api/listings/' + offsetInt)
     .then(listing => {
         console.log(listing)
         return listing.data
