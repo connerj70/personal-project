@@ -7,6 +7,7 @@ import './BigListing.css';
 import Modal, {closeStyle} from 'simple-react-modal';
 import ReactImageZoom from 'react-image-zoom';
 import axios from 'axios';
+import swal from 'sweetalert';
 
 class BigListing extends Component {
     constructor(props) {
@@ -49,13 +50,14 @@ class BigListing extends Component {
     
     newMessage() {
         if(!this.state.messageText) {
-           alert('Message Body Cannot Be Empty');
+            swal("Bad Message", "Message can't be empty", 'error');
         } else {
         const userId = this.props.user.user_id;
         const { senderId, messageText } = this.state;
         axios.post('http://localhost:3005/api/messages', {senderId: senderId, messageText: messageText, userId: userId})
         this.close();
         this.setState({messageText: '', senderId: null})
+        swal("Message Sent", "", 'success');
         }
     }
 

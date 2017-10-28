@@ -6,6 +6,7 @@ import { getSentMessages, getRecievedMessages, getUsers, addMessage } from '../.
 import { connect } from 'react-redux';
 import './Messages.css';
 import ModalPop from '../ModalPop/ModalPop';
+import swal from 'sweetalert';
 
 class Messages extends Component {
     constructor(props) {
@@ -59,7 +60,7 @@ handleDivClick() {
 
 newMessage() {
     if(!this.state.messageText) {
-        alert('Message Body Cannot Be Empty');
+        swal("Bad Message", "Message can't be empty", "error");
      } else {
     const userId = this.props.user.user_id;
     const { senderId, messageText } = this.state;
@@ -67,6 +68,7 @@ newMessage() {
     this.props.getSentMessages(userId);
     this.close();
     this.setState({messageText: '', senderId: null})
+    swal("Message Sent", "", 'success');
      }
 }
 
