@@ -81,12 +81,12 @@ newMessage() {
 
         const sentMessagesToRender = this.props.sentMessages.length ? this.props.sentMessages[this.props.sentMessages.length - 1].map( message => {
             const recievingUser = this.props.users.length ? this.props.users[0].filter( user => user.user_id === message.reciever_id) : null
-            // const messageImage = this.state.messageImages.length ? this.state.messageImages.filter(message2 => message2.message_id === message.message_id) : null
+            const messageImage = this.state.messageImages.length ? this.state.messageImages.filter(message2 => message2.message_id === message.message_id) : null
             
            return ( 
             <div>
             <div onClick={() => this.handleDivClick(message.message_id)} className='message-div' key={message.message_id} recieverId={message.reciever_id}>
-                {/* <img className='message-image' src={messageImage ? messageImage[0].image_url : null} /> */}
+                <img className='message-image' src={messageImage ? messageImage[0].image_url : null} />
                 <div className='message-content'>{message.message_content}</div>
                 <div><b>Username:</b> <a>{recievingUser ? recievingUser[0].username : <div>Loading sent user...</div>}</a></div>
                 <div className='email'><b>Email: </b><a>{recievingUser ? recievingUser[0].email : <div>Loading sent user email...</div>}</a></div>
@@ -109,7 +109,7 @@ newMessage() {
                 <div><b>Username:</b> {sendingUser ? sendingUser[0].username : <div>Loading user...</div>}</div>
                 <div className='email'>email: {sendingUser ? sendingUser[0].email : <div>Loading user email...</div>}</div>
                 <div>
-                    <Button className='reply-button' onClick={() => this.handleReplyClick(message.sender_id, messageImage.listing_id)}>REPLY</Button>
+                    <Button className='reply-button' onClick={() => this.handleReplyClick(message.sender_id)}>REPLY</Button>
                 </div>
             </div>
             <div className={ this.state.hiddenMessage ? 'hidden-message-view' : 'hidden-message-hide'}>{message.message_content}</div>
