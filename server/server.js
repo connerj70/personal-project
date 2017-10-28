@@ -100,6 +100,7 @@ app.post('/api/userlistings/delete', lC.deleteListing);
 //MESSAGES ENDPOINTS
 app.get('/api/messages/:userid', mC.getSentMessages);
 app.get('/api/recievedmessages/:userid', mC.getRecievedMessages);
+app.get('/api/mesimages', mC.getMessageListings);
 app.post('/api/messages', mC.postMessage)
 //--------------------------------------------------------------
 

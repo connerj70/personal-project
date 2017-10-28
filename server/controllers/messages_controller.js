@@ -19,11 +19,18 @@ module.exports = {
 
     postMessage: function(req, res, next) {
         const db = req.app.get('db');
-        const {userId, senderId, messageText} = req.body;
-        console.log(senderId, userId, messageText)
-        db.add_message([userId, senderId, messageText])
+        const {userId, senderId, messageText, listingId} = req.body;
+        db.add_message([userId, senderId, messageText, listingId])
         .then( messages => {
             res.status(200).send(messages)
+        })
+    },
+
+    getMessageListings: function(req, res, next) {
+        const db = req.app.get('db');
+        db.get_message_listings()
+        .then( listingImages => {
+            res.status(200).send(listingImages)
         })
     }
 }

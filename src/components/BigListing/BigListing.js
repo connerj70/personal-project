@@ -18,7 +18,8 @@ class BigListing extends Component {
             messageText: '',
             senderId: null,
             isOpen: false,
-            imageToShow: ""
+            imageToShow: "",
+            listingId: null
         }
     }
 
@@ -36,9 +37,10 @@ class BigListing extends Component {
         this.setState({show: false});
     }
     
-    handleReplyClick(senderId) {
+    handleReplyClick(senderId, listingId) {
+        console.log(listingId)
         this.show();
-        this.setState({senderId: senderId})
+        this.setState({senderId: senderId, listingId: listingId})
     }
     
     handleMessageChange(message) {
@@ -53,8 +55,8 @@ class BigListing extends Component {
             swal("Bad Message", "Message can't be empty", 'error');
         } else {
         const userId = this.props.user.user_id;
-        const { senderId, messageText } = this.state;
-        axios.post('http://localhost:3005/api/messages', {senderId: senderId, messageText: messageText, userId: userId})
+        const { senderId, messageText, listingId } = this.state;
+        axios.post('http://localhost:3005/api/messages', {senderId: senderId, messageText: messageText, userId: userId, listingId: listingId})
         this.close();
         this.setState({messageText: '', senderId: null})
         swal("Message Sent", "", 'success');
@@ -122,10 +124,10 @@ class BigListing extends Component {
                                         <b>${this.props.listings[0] ? specificListing[0].price : null}</b>
                                     </div>
                                     <div className='button-div'>
-                                        <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} color='black'>PURCHASE</Button>
+                                        <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id, specificListing[0].listing_id)} color='black'>PURCHASE</Button>
                                     </div>
                                     <div className='button-div'>
-                                        <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id)} inverted color='green' >ASK A QUESTION</Button>
+                                        <Button onClick={() => this.handleReplyClick(specificListingUser[0].user_id, specificListing[0].listing_id)} inverted color='green' >ASK A QUESTION</Button>
                                     </div>
                                     <div className='icon-div'>
                                         <button onClick={() => this.addGrail(specificListing[0], specificListing[0].listing_id, this.props.user.user_id)} className='icon-button'><Icon name={isGrail ? isGrail.length ? 'bookmark' : 'remove bookmark' : null} /></button>

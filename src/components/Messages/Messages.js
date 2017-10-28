@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import { Container, Grid, Tab, Header, Button } from 'semantic-ui-react';
 import Modal, {closeStyle} from 'simple-react-modal';
-import { getSentMessages, getRecievedMessages, getUsers, addMessage } from '../../ducks/users.js';
+import { getSentMessages, getRecievedMessages, getUsers, addMessage, getMessageListings } from '../../ducks/users.js';
 import { connect } from 'react-redux';
 import './Messages.css';
 import ModalPop from '../ModalPop/ModalPop';
@@ -25,7 +25,10 @@ componentDidMount() {
     this.props.getSentMessages(this.props.user.user_id);
     this.props.getRecievedMessages(this.props.user.user_id);
     this.props.getUsers();
-   
+    axios.get('http://localhost:3005/api/mesimages')
+    .then(res => {
+        console.log(res.data)
+    })
 }
 
 show(senderId) {
