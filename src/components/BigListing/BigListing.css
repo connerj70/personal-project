@@ -33,6 +33,9 @@ i.icon:hover {
     height: 50px;
     margin-left: 0px; }
 
+.ui.inverted.green.button, .ui.inverted.green.buttons .button {
+  margin-top: 3px; }
+
 .icon-button {
   border: none;
   background-color: #fff; }

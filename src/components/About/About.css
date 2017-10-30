@@ -97,3 +97,9 @@
   width: 60px;
   height: 30px;
   background-color: #fff; }
+
+@media (max-width: 450px) {
+  .jobs-container {
+    margin-top: 180px; }
+  .donate-amount-button {
+    width: 50%; } }
