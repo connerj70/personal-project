@@ -68,9 +68,6 @@ app.get('/auth/me', (req, res) => {
 });
 
 //STRIPE ENDPOINTS
-app.get("/", (req, res) =>
-res.render("index.pug", {keyPublish}));
-
 app.post("/api/payment", (req, res) => {
     let amount = req.body.amount;
     amount = amount * 100;
