@@ -16,14 +16,14 @@ class Sell extends Component {
         super(props)
 
         this.state = {
-            category: '',
-            brand: '',
-            price: '',
-            description:'',
-            size: '',
-            name: '',
-            condition: null,
-            imageURL: '',
+            category: 'TOP',
+            brand: 'Haori',
+            price: '100',
+            description:'amazing.',
+            size: 'L',
+            name: 'Haori Kimono',
+            condition: 9,
+            imageURL: 'https://process.fs.grailed.com/AJdAgnqCST4iPtnUxiGtTz/cache=expiry:max/rotate=deg:exif/rotate=deg:0/resize=width:550,fit:crop/output=format:jpg,quality:70/compress/XDjwgwIRiL0UmTcVg8AH',
             images: [],
         }
     }

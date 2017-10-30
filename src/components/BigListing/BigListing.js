@@ -8,6 +8,7 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import ReactImageZoom from 'react-image-zoom';
 import axios from 'axios';
 import swal from 'sweetalert';
+import ReactImageZoom from 'react-image-zoom';
 
 class BigListing extends Component {
     constructor(props) {
