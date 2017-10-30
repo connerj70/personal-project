@@ -29,6 +29,7 @@ class Sell extends Component {
     }
 
     addListing(e) {
+        if(this.props.user.user_id) {
         e.preventDefault();
         let {category, brand, price, description, size, name, condition, imageURL, images} = this.state;
         let user_id = this.props.user.user_id
@@ -45,6 +46,10 @@ class Sell extends Component {
                 images: []
             })
             swal('Item Submitted', "Good Job!", "success");
+        }
+        else {
+            swal('Log In', 'Must be logged in to sell', 'error');
+        }
     }
 
     handleCategoryChange(value) {

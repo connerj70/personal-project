@@ -8,7 +8,6 @@ import Modal, {closeStyle} from 'simple-react-modal';
 import ReactImageZoom from 'react-image-zoom';
 import axios from 'axios';
 import swal from 'sweetalert';
-import ReactImageZoom from 'react-image-zoom';
 
 class BigListing extends Component {
     constructor(props) {
@@ -109,7 +108,7 @@ class BigListing extends Component {
                             <Col xs={12} md={9}>
                                 <Card
                                 className='large-card' 
-                                image= {this.props.listings[0] ? this.state.imageToShow ? this.state.imageToShow : specificListing[0].image_url : null}
+                                image={this.props.listings[0] ? this.state.imageToShow ? this.state.imageToShow : specificListing[0].image_url : null}
                                 />
                                 <Row className='show-grid thumbs-row'>
                                     <Col className='thumbs-column' md={9} xs={12}>
