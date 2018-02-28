@@ -1,35 +1,34 @@
-import React, { Component } from 'react';
-import './Home.css';
-import largeImage from '../../assets/home-header.jpg';
-import ralph from '../../assets/ralphlead.jpg';
-import cone from '../../assets/cone.jpg';
-import man from '../../assets/man.jpg'
-import carouselImage1 from '../../assets/kanye-west-bapesta.jpg';
-import carouselImage2 from '../../assets/redwings.jpg';
-import carouselImage3 from '../../assets/leatherba.jpg';
-import hoodie from '../../assets/hoodie.jpg';
-import shirt from '../../assets/shirt.jpg';
-import scarf from '../../assets/scarf.jpg';
-import denim from '../../assets/denim.jpg';
-import hat from '../../assets/hat.jpg';
-import preme from '../../assets/preme.jpg';
-import boots from '../../assets/boots.jpg';
-import { Carousel, Grid, Row, Col, Glyphicon } from 'react-bootstrap';
-import { Input, Icon } from 'semantic-ui-react';
-import SmallListing from './SmallListing/SmallListing';
-import axios from 'axios';
-import { getListings, getListingImages, getUsers } from '../../ducks/users';
-import { connect } from 'react-redux';
+import React, { Component } from "react";
+import "./Home.css";
+import largeImage from "../../assets/home-header.jpg";
+import ralph from "../../assets/ralphlead.jpg";
+import cone from "../../assets/cone.jpg";
+import man from "../../assets/man.jpg";
+import carouselImage1 from "../../assets/kanye-west-bapesta.jpg";
+import carouselImage2 from "../../assets/redwings.jpg";
+import carouselImage3 from "../../assets/leatherba.jpg";
+import hoodie from "../../assets/hoodie.jpg";
+import shirt from "../../assets/shirt.jpg";
+import scarf from "../../assets/scarf.jpg";
+import denim from "../../assets/denim.jpg";
+import hat from "../../assets/hat.jpg";
+import preme from "../../assets/preme.jpg";
+import boots from "../../assets/boots.jpg";
+import { Carousel, Grid, Row, Col, Glyphicon } from "react-bootstrap";
+import { Input, Icon } from "semantic-ui-react";
+import SmallListing from "./SmallListing/SmallListing";
+import axios from "axios";
+import { getListings, getListingImages, getUsers } from "../../ducks/users";
+import { connect } from "react-redux";
 
 class Home extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            searchTerm: ''
-        }
+            searchTerm: ""
+        };
     }
-
 
     componentDidMount() {
         this.props.getListings();
@@ -38,44 +37,49 @@ class Home extends Component {
     }
 
     handleSearchChange(searchTerm) {
-        this.setState({searchTerm: searchTerm})
+        this.setState({ searchTerm: searchTerm });
     }
 
-    
     render() {
         return (
             <div>
                 <Grid>
-                    <Row className='show-grid'>
+                    <Row className="show-grid">
                         <Col xs={12} lg={8}>
-                            <div className='large-image'>
-                                <p className='large-text'>Our 10 Favorite Ralph Lauren Grails</p>
+                            <div className="large-image">
+                                <p className="large-text">
+                                    Our 10 Favorite Ralph Lauren Grails
+                                </p>
                                 <img src={ralph} />
                             </div>
                         </Col>
                         <Col xs={12} lg={4}>
-                             <div className='small-image'>
-                             <p className='small-text'>The Unraveling of White Oak</p>
-                            <img src={cone} />
-                        </div>
-                        
-                        <div className='small-image'>
-                            <p className='small-text'>New Sneaker Designs's</p>
-                            <img src={man} />
-                        </div>
+                            <div className="small-image">
+                                <p className="small-text">
+                                    The Unraveling of White Oak
+                                </p>
+                                <img src={cone} />
+                            </div>
+
+                            <div className="small-image">
+                                <p className="small-text">
+                                    New Sneaker Designs's
+                                </p>
+                                <img src={man} />
+                            </div>
                         </Col>
                     </Row>
-                    <div className='home-container-1'>
-                
+                    <div className="home-container-1">
+                        {/*                 
                     <Row className='show-grid'>
                         <Col xs={12}>
                         <div classNam='shop-our-div'>
                             <h5 className='shop-our-lists'>SHOP OUR CURATED LISTS</h5>
                         </div>
                         </Col>
-                    </Row>
+                    </Row> */}
 
-                    <Row className='show-grid'>
+                        {/* <Row className='show-grid'>
                         <Col xs={12}>
                             <div className='carousel-container'>
                                 <Carousel>
@@ -108,44 +112,43 @@ class Home extends Component {
                                 </Carousel>
                             </div>
                         </Col>
-                    </Row>
-    
-                   
+                    </Row> */}
                     </div>
-                        <div className='flex-container'>
-                        <Row align='center' className='show-grid search'>
-                                <Col  className='search' xs={12}>
-                                    <h5 className='browse'>BROWSE THE FEED</h5>
-                                    <div>
-                                    <Input
-                                    id='home_input'
-                                    onChange={(e) => this.handleSearchChange(e.target.value)}
-                                    className='search-input' 
-                                    icon='search'
-                                    placeholder='Search...'
-                                    />
-                                    <span className='home_refresh'>
-                                        <Glyphicon className='refresh-glyph' glyph='refresh' />
-                                        REFRESH
-                                    </span>
-                                    </div>
-                                </Col>
-                        </Row>
+                    <div className="fleximus-container">
+                        <div>
+                            <Input
+                                id="home_input"
+                                onChange={e =>
+                                    this.handleSearchChange(e.target.value)
+                                }
+                                className="search-input"
+                                icon="search"
+                                placeholder="Search..."
+                            />
                         </div>
-                    <Row className='show-grid' align="center">
-                        <Col xs={12}>
-                    <div className='listing-container'> 
-                    {
-                        this.props.listings.length ? <SmallListing searchTerm={this.state.searchTerm} className='small-listing' listingImages={this.props.listingImages[0]} listings={this.props.listings}/> : <div>Loading...</div>
-                    }
                     </div>
+                    <Row className="show-grid" align="center">
+                        <Col xs={12}>
+                            <div className="listing-container">
+                                {this.props.listings.length ? (
+                                    <SmallListing
+                                        searchTerm={this.state.searchTerm}
+                                        className="small-listing"
+                                        listingImages={
+                                            this.props.listingImages[0]
+                                        }
+                                        listings={this.props.listings}
+                                    />
+                                ) : (
+                                    <div>Loading...</div>
+                                )}
+                            </div>
                         </Col>
                     </Row>
                 </Grid>
             </div>
-        )
+        );
     }
-
 }
 
 function mapStateToProps(state) {
@@ -153,7 +156,11 @@ function mapStateToProps(state) {
         user: state.user,
         listings: state.listings,
         listingImages: state.listingImages
-    }
+    };
 }
 
-export default connect(mapStateToProps, {getListings, getListingImages, getUsers})(Home);
+export default connect(mapStateToProps, {
+    getListings,
+    getListingImages,
+    getUsers
+})(Home);
