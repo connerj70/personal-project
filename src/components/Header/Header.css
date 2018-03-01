@@ -151,7 +151,6 @@ a:hover {
 
 .login-signup {
     display: inline-block;
-    margin-top: 18px;
     color: #9b9b9b;
 }
 
@@ -228,6 +227,7 @@ a:hover {
     padding-right: 60px;
     padding-top: 10px;
     padding-left: 60px;
+    margin-top: 18px;
 }
 
 .header-container-main {
@@ -238,6 +238,12 @@ a:hover {
 
 .collapse-naver {
     display: none;
+}
+
+@media (max-width: 990px) {
+    .header-container-main {
+        width: 60%;
+    }
 }
 
 @media (max-width: 800px) {
