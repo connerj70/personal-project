@@ -19,7 +19,7 @@ class About extends Component {
         token.card = void 0;
         console.log("token", token);
         axios
-            .post("http://localhost:3535/api/payment", {
+            .post("/api/payment", {
                 token,
                 amount: this.state.donationAmount
             })

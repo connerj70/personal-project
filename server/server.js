@@ -69,7 +69,7 @@ app.get("/auth", passport.authenticate("auth0"));
 app.get(
     "/auth/callback",
     passport.authenticate("auth0", {
-        successRedirect: "http://localhost:3000/#/",
+        successRedirect: "/3000/#/",
         failureRedirect: "/auth"
     })
 );
@@ -130,7 +130,7 @@ app.get("/api/grails/:userid", gC.getGrails);
 
 app.get("/auth/logout", function(req, res) {
     req.logOut();
-    res.redirect(302, "http://localhost:3000/#/");
+    res.redirect(302, "/3000/#/");
 });
 
 passport.serializeUser(function(id, done) {

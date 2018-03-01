@@ -37,7 +37,7 @@ export function getUserInfo() {
 }
 
 export function getUsers() {
-    const usersData = axios.get("http://localhost:3005/api/users").then(res => {
+    const usersData = axios.get("/api/users").then(res => {
         return res.data;
     });
 
@@ -48,11 +48,9 @@ export function getUsers() {
 }
 
 export function getUserListings(userId) {
-    const userListings = axios
-        .get("http://localhost:3005/api/userlistings/" + userId)
-        .then(res => {
-            return res.data;
-        });
+    const userListings = axios.get("/api/userlistings/" + userId).then(res => {
+        return res.data;
+    });
     return {
         type: GET_USER_LISTINGS,
         payload: userListings
@@ -61,7 +59,7 @@ export function getUserListings(userId) {
 
 export function deleteUserListing(userId, listingId) {
     const deleteListing = axios
-        .post("http://localhost:3005/api/userlistings/delete", {
+        .post("/api/userlistings/delete", {
             userId,
             listingId
         })
@@ -75,11 +73,9 @@ export function deleteUserListing(userId, listingId) {
 }
 
 export function getListings() {
-    const listings = axios
-        .get("http://localhost:3005/api/listings")
-        .then(listing => {
-            return listing.data;
-        });
+    const listings = axios.get("/api/listings").then(listing => {
+        return listing.data;
+    });
     return {
         type: GET_LISTINGS,
         payload: listings
@@ -88,7 +84,7 @@ export function getListings() {
 
 export function getListingImages(listingId) {
     const listingImages = axios
-        .get(`http://localhost:3005/api/listings/images/${listingId}`)
+        .get(`/api/listings/images/${listingId}`)
         .then(images => {
             return images.data;
         });
@@ -101,7 +97,7 @@ export function getListingImages(listingId) {
 
 export function getSentMessages(userId) {
     const displayMessages = axios
-        .get("http://localhost:3005/api/messages/" + userId)
+        .get("/api/messages/" + userId)
         .then(messages => {
             return messages.data;
         });
@@ -114,7 +110,7 @@ export function getSentMessages(userId) {
 
 export function getRecievedMessages(userId) {
     const displayMessages = axios
-        .get("http://localhost:3005/api/recievedmessages/" + userId)
+        .get("/api/recievedmessages/" + userId)
         .then(messages => {
             return messages.data;
         });
@@ -127,7 +123,7 @@ export function getRecievedMessages(userId) {
 
 export function addMessage(senderId, messageText, userId) {
     const messages = axios
-        .post("http://localhost:3005/api/messages", {
+        .post("/api/messages", {
             senderId: senderId,
             messageText: messageText,
             userId: userId
@@ -143,7 +139,7 @@ export function addMessage(senderId, messageText, userId) {
 
 export function newGrail(newGrail, listingId, userId, callback) {
     const grails = axios
-        .post("http://localhost:3005/api/grails", { listingId, userId })
+        .post("/api/grails", { listingId, userId })
         .then(response => {
             return response.data;
         });
@@ -154,11 +150,9 @@ export function newGrail(newGrail, listingId, userId, callback) {
 }
 
 export function getGrails(userId) {
-    const grails = axios
-        .get("http://localhost:3005/api/grails/" + userId)
-        .then(grails => {
-            return grails.data;
-        });
+    const grails = axios.get("/api/grails/" + userId).then(grails => {
+        return grails.data;
+    });
     return {
         type: GET_GRAILS,
         payload: grails
@@ -167,7 +161,7 @@ export function getGrails(userId) {
 
 export function removeGrail(userId, listingId) {
     const grails = axios
-        .post("http://localhost:3005/api/grails/delete", { userId, listingId })
+        .post("/api/grails/delete", { userId, listingId })
         .then(grails => {
             return grails.data;
         });

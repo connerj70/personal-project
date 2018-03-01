@@ -43,7 +43,7 @@ class Sell extends Component {
                 images
             } = this.state;
             let user_id = this.props.user.user_id;
-            axios.post("http://localhost:3005/api/listings", {
+            axios.post("/api/listings", {
                 category: category,
                 brand: brand,
                 price: price,

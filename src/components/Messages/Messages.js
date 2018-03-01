@@ -32,7 +32,7 @@ class Messages extends Component {
         this.props.getSentMessages(this.props.user.user_id);
         this.props.getRecievedMessages(this.props.user.user_id);
         this.props.getUsers();
-        axios.get("http://localhost:3005/api/mesimages").then(res => {
+        axios.get("/api/mesimages").then(res => {
             console.log(res.data);
             this.setState({
                 messageImages: res.data
