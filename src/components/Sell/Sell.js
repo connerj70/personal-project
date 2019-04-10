@@ -43,7 +43,7 @@ class Sell extends Component {
                 images
             } = this.state;
             let user_id = this.props.user.user_id;
-            axios.post("/api/listings", {
+            axios.post("http://localhost:3005/api/listings", {
                 category: category,
                 brand: brand,
                 price: price,
@@ -338,7 +338,7 @@ class Sell extends Component {
                                     </select>
                                 </div>
                             </div>
-                            <div className="show-grid">
+                            {/* <div className="show-grid">
                                 <h4 className="photo-header">PHOTOS</h4>
                                 <h4 className="dropper">
                                     Drag Photos Here Or Click To Upload
@@ -402,8 +402,8 @@ class Sell extends Component {
                                             }
                                         />
                                     </Dropzone>
-                                </div>
-                            </div>
+                                </div> */}
+                            {/* </div> */}
                             <div className="show-grid">
                                 <div xs={12} md={12}>
                                     <Button

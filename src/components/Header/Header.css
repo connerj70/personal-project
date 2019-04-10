@@ -175,7 +175,9 @@ a:hover {
     font-weight: 900;
     font-size: 18px;
     font-family: "Montserrat", sans-serif;
-    color: #000000 !important; } }
+    color: #000000 !important; }
+  .fleximus-container div {
+    margin-top: 180px; } }
 
 .bigger-header-container {
   width: 90%;
@@ -203,8 +205,18 @@ a:hover {
     width: 60%; } }
 
 @media (max-width: 800px) {
-  .collapse-naver {
-    display: block; } }
+  .header-container-main {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; }
+  .hider-staff {
+    display: none; }
+  .header-container {
+    align-items: center;
+    font-size: 10px; }
+  .login-signup {
+    margin: 0; } }
 
 .hider-helper {
   display: none; }

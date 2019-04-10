@@ -256,13 +256,6 @@ class Header extends Component {
                             <div eventKey={1} href="#">
                                 <Link to="/sell">SELL</Link>
                             </div>
-                            <div eventKey={2} href="#">
-                                <Link
-                                    to={`/mygrails/${this.props.user.user_id}`}
-                                >
-                                    MY GRAILS
-                                </Link>
-                            </div>
 
                             <ul className="collapse-naver">
                                 <li class="nav-item">
@@ -297,7 +290,7 @@ class Header extends Component {
                                         this.handleMouseLeaver()
                                     }
                                 >
-                                    User Details
+                                    User Details &#8595;
                                     <span
                                         className={
                                             this.state.hover
@@ -323,6 +316,15 @@ class Header extends Component {
                                         >
                                             <Link to="/settings">SETTINGS</Link>
                                         </span>
+                                        <div eventKey={2} href="#">
+                                            <Link
+                                                to={`/mygrails/${
+                                                    this.props.user.user_id
+                                                }`}
+                                            >
+                                                MY GRAILS
+                                            </Link>
+                                        </div>
                                     </span>
                                 </div>
                             ) : (
@@ -774,4 +776,7 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { getUserInfo })(Header);
+export default connect(
+    mapStateToProps,
+    { getUserInfo }
+)(Header);
